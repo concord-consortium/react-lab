@@ -5,6 +5,7 @@ const DEF_UPDATE_DELAY = 75; // ms
 
 export default class Lab extends React.Component {
   componentDidMount() {
+    this._phone = new iframePhone.ParentEndpoint(this.refs.iframe);
     this._labUpdateTimeoutID = null;
     this._propsToSet = {};
     this._asyncLabPropertiesUpdate = this._asyncLabPropertiesUpdate.bind(this);
@@ -18,10 +19,6 @@ export default class Lab extends React.Component {
       });
       this._loadInteractive(this.props.interactive, this.props.model);
     };
-    // IframePhone is used only to retrieve logs. Theoretically we could
-    // use window.addEventListener, but unfortunately Lab won't send any log messages
-    // unless iframe-phone connection is established.
-    this._phone = new iframePhone.ParentEndpoint(this.refs.iframe);
     this._phone.addListener('log', (content) => {
       this.props.onLogEvent(content.action, content.data);
     });
@@ -74,7 +71,11 @@ export default class Lab extends React.Component {
     return this.refs.iframe;
   }
 
-  // Private methods. Use relevant React properties instead.
+  get phone() {
+    return this._phone;
+  }
+
+  // Private methods. Use React properties instead.
 
   _loadInteractive(interactive, model) {
     // Iframe might be still loading. The interactive will be loaded when iframe is loaded.
