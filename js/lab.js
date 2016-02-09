@@ -1,4 +1,5 @@
 import React from 'react';
+import iframePhone from 'iframe-phone';
 
 const DEF_UPDATE_DELAY = 75; // ms
 
@@ -17,6 +18,17 @@ export default class Lab extends React.Component {
       });
       this._loadInteractive(this.props.interactive, this.props.model);
     };
+    // IframePhone is used only to retrieve logs. Theoretically we could
+    // use window.addEventListener, but unfortunately Lab won't send any log messages
+    // unless iframe-phone connection is established.
+    this._phone = new iframePhone.ParentEndpoint(this.refs.iframe);
+    this._phone.addListener('log', (content) => {
+      this.props.onLogEvent(content.action, content.data);
+    });
+  }
+
+  componentWillUnmount() {
+    this._phone.disconnect();
   }
 
   componentWillReceiveProps(nextProps) {
@@ -119,15 +131,16 @@ Lab.defaultProps = {
   // Source to Lab embeddable page. Needs to be under the same domain as the application.
   // This package is providing lab distribution that can be used (/lab).
   embeddableSrc: 'lab/embeddable.html',
-  width: '610px',
-  height: '350px',
+  width: '565px',
+  height: '435px',
   props: {},
   observedProps: [],
   // Batch Lab properties updates and send them to Lab after given time period.
   // You can provide value in ms or use true (the default delay value will be used).
   propsUpdateDelay: false,
   onModelLoad: function () {},
-  onPropChange: function (name, value) {}
+  onPropChange: function (name, value) {},
+  onLogEvent: function (actionName, data) {}
 };
 
 function combineInteractiveAndModel(interactive, model) {
