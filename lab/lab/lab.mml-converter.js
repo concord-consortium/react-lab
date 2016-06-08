@@ -1,4 +1,5 @@
-(function() {/**
+(function() {
+/**
  * almond 0.2.5 Copyright (c) 2011-2012, The Dojo Foundation All Rights Reserved.
  * Available via the MIT or new BSD license.
  * see: http://github.com/jrburke/almond for details
@@ -410,18 +411,18 @@ define("../../vendor/almond/almond", function(){});
 define('lab.version',['require'],function (require) {
   return {
     "repo": {
-      "branch": "1.10.0",
+      "branch": "1.11.0",
       "commit": {
-        "sha":           "bc2ea91515830a386b21f96cee7577100d39a8a1",
-        "short_sha":     "bc2ea915",
-        "url":           "https://github.com/concord-consortium/lab/commit/bc2ea915",
+        "sha":           "5ff9aff8918804f72b570651a95496b4b8775086",
+        "short_sha":     "5ff9aff8",
+        "url":           "https://github.com/concord-consortium/lab/commit/5ff9aff8",
         "author":        "Piotr Janik",
         "email":         "janikpiotrek@gmail.com",
-        "date":          "2016-01-20 02:26:52 +0000",
-        "short_message": "Update serialization tests",
-        "message":       "Update serialization tests\n\n[#111973069]"
+        "date":          "2016-05-30 14:30:59 +0000",
+        "short_message": "Fix drag / click handler when atoms are overlapping - respect their rendering order",
+        "message":       "Fix drag / click handler when atoms are overlapping - respect their rendering order\n\n[#120181935]"
       },
-      "last_tag":        "1.10.0",
+      "last_tag":        "1.11.0",
       "dirty": false
     }
   };
@@ -15238,11 +15239,15 @@ define('models/md2d/models/metadata',[],function() {
         defaultValue: false,
         storeInTickHistory: true
       },
-      useThreeLetterCode: {
-        defaultValue: true
-      },
       aminoAcidColorScheme: {
         defaultValue: "hydrophobicity"
+      },
+      aminoAcidLabels: {
+        defaultValue: true,
+      },
+      useThreeLetterCode: {
+        // Amino acid labels type - single letter (false) or three letters (true).
+        defaultValue: true
       },
       showChargeSymbols: {
         defaultValue: true
@@ -15344,6 +15349,12 @@ define('models/md2d/models/metadata',[],function() {
       },
       forceVectorsDirectionOnly: {
         defaultValue: false
+      },
+      onAtomDrag: {
+        // Atom dragging can either start translation or rotation of the molecule.
+        // Behavior which is not default can be activated if user holds Alt / Opt key while dragging.
+        // Available options: 'translate', 'rotate'.
+        defaultValue: 'translate'
       }
     },
 
@@ -15901,6 +15912,9 @@ define('models/md2d/models/metadata',[],function() {
       rotation: {
         defaultValue: 0
       },
+      scale: {
+        defaultValue: 1,
+      },
       opacity: {
         defaultValue: 1
       }
@@ -16041,7 +16055,7 @@ define('models/md2d/models/metadata',[],function() {
       /* perform any pre-processing on the string
       */
 
-      var $fields, $image, $lightSource, $mml, $node, $pair, $prop, $reactionObj, $solvent, $textBoxNodes, $textBoxesArray, VDWLinesCutoff, VDWLinesRatio, angle, angularBondNodes, angularBondRawData, angularBondValidatedData, angularBonds, atom, atom1, atom2, atom3, atomIndex, atoms, backgroundColor, bgColors, charge, chargeShading, color, colorIndex, convertArrowHead, convertLineDashes, coulombForces, dielectricConstant, draggable, draggableWhenStopped, electricFieldDensity, electricFields, element, element1, element2, elementColorNodes, elementColors, elementEnergyLevels, elementNode, elementNodes, elementRawData, elementValidatedData, elements, epsilon, epsilonProps, excitation, excitationStates, forceColorDef, forceVectorColor, forceVectorLength, forceVectorProps, forceVectorWidth, friction, getBooleanProperty, getColorProperty, getEnergyLevels, getFillColor, getFloatProperty, getIntProperty, getLineColor, getNode, getProperty, gravitationalField, gravitationalProps, heatBath, height, id, image, imageBlock, imageHostIndex, imageHostType, imageLayer, imageLayerPosition, imageProps, imageUri, imageVisible, imageX, imageY, images, index, json, keShading, key, lbMixingProps, length, lightSource, lines, ljProps, markColor, marked, mass, n, node, obstacles, option, originalViewPortHeight, originalViewPortWidth, originalViewPortX, originalViewPortY, pairID, pairwiseLJProperties, parameters, parseAtoms, parseBoolean, parseElectricField, parseEllipses, parseLines, parseObstacles, parseRectangles, parseTextBoxNode, pinned, probabilityMap, prop, put, quantumDynamics, quantumRule, radialBondNodes, radialBondRawData, radialBondValidatedData, radialBonds, radiationlessEmissionProbability, radical, reaction, removeArrayIfDefault, removeDefaultArraysFor, removeNaNProperties, removeNullProperties, restraints, results, shapes, showChargeSymbols, showClock, showElectricField, showForceVectors, showVDWLines, showVelocityVectors, sigma, sigmaProps, solventForceType, strength, targetTemperature, textBoxes, timeStep, timeStepsPerTick, toNextgenCoordinates, toNextgenLengths, toNumber, type, universeProps, unroll, useChemicalReactions, useQuantumDynamics, val, velocityColorDef, velocityVectorColor, velocityVectorLength, velocityVectorProps, velocityVectorWidth, viewOptions, viewPort, viewPortHeight, viewPortWidth, viewPortX, viewPortY, viewProps, viscosity, visible, vx, vy, width, wrapTextBoxText, x, y, _i, _j, _k, _l, _len, _len1, _len2, _len3, _len4, _len5, _len6, _len7, _m, _n, _o, _p, _ref, _ref1, _ref2, _ref3, _ref4;
+      var $fields, $image, $lightSource, $mml, $node, $pair, $prop, $reactionObj, $solvent, $textBoxNodes, $textBoxesArray, VDWLinesCutoff, VDWLinesRatio, angle, angularBondNodes, angularBondRawData, angularBondValidatedData, angularBonds, atom, atom1, atom2, atom3, atomIndex, atoms, backgroundColor, bgColors, charge, chargeShading, color, colorIndex, convertArrowHead, convertLineDashes, coulombForces, dielectricConstant, draggable, draggableWhenStopped, electricFieldDensity, electricFields, element, element1, element2, elementColorNodes, elementColors, elementEnergyLevels, elementNode, elementNodes, elementRawData, elementValidatedData, elements, epsilon, epsilonProps, excitation, excitationStates, forceColorDef, forceVectorColor, forceVectorLength, forceVectorProps, forceVectorWidth, friction, getBooleanProperty, getColorProperty, getEnergyLevels, getFillColor, getFloatProperty, getIntProperty, getLineColor, getNode, getProperty, gravitationalField, gravitationalProps, heatBath, height, id, image, imageBlock, imageHostIndex, imageHostType, imageLayer, imageLayerPosition, imageProps, imageUri, imageX, imageY, images, index, json, keShading, key, lbMixingProps, length, lightSource, lines, ljProps, markColor, marked, mass, n, node, obstacles, option, originalViewPortHeight, originalViewPortWidth, originalViewPortX, originalViewPortY, pairID, pairwiseLJProperties, parameters, parseAtoms, parseBoolean, parseElectricField, parseEllipses, parseLines, parseObstacles, parseRectangles, parseTextBoxNode, pinned, probabilityMap, prop, put, quantumDynamics, quantumRule, radialBondNodes, radialBondRawData, radialBondValidatedData, radialBonds, radiationlessEmissionProbability, radical, reaction, removeArrayIfDefault, removeDefaultArraysFor, removeNaNProperties, removeNullProperties, restraints, results, rotation, scale, shapes, showChargeSymbols, showClock, showElectricField, showForceVectors, showVDWLines, showVelocityVectors, sigma, sigmaProps, solventForceType, strength, targetTemperature, textBoxes, timeStep, timeStepsPerTick, toNextgenCoordinates, toNextgenLengths, toNumber, type, universeProps, unroll, useChemicalReactions, useQuantumDynamics, val, velocityColorDef, velocityVectorColor, velocityVectorLength, velocityVectorProps, velocityVectorWidth, viewOptions, viewPort, viewPortHeight, viewPortWidth, viewPortX, viewPortY, viewProps, viscosity, visible, vx, vy, width, wrapTextBoxText, x, y, _i, _j, _k, _l, _len, _len1, _len2, _len3, _len4, _len5, _len6, _len7, _m, _n, _o, _p, _ref, _ref1, _ref2, _ref3, _ref4;
       mmlString = mmlString.replace(/class=".*"|id=".*"|idref=".*"/g, function(match) {
         return match.replace(/[\.$]/g, "-");
       });
@@ -16808,10 +16822,13 @@ define('models/md2d/models/metadata',[],function() {
           imageHostType = imageHostType.slice(imageHostType.lastIndexOf(".") + 1);
           imageLayer = parseInt($image.find("[property=layer]>int").text());
           imageLayerPosition = parseInt($image.find("[property=layerPosition]>byte").text());
+          visible = parseBoolean($image.find("[property=visible]>boolean").text(), true);
           imageX = parseFloat($image.find("[property=x]>double").text());
           imageY = parseFloat($image.find("[property=y]>double").text());
+          rotation = parseFloat($image.find("[property=offsetAngle]>float").text());
           _ref3 = toNextgenCoordinates(imageX, imageY), imageX = _ref3[0], imageY = _ref3[1];
-          imageVisible = parseBoolean($image.find("[property=visible]>boolean").text(), true);
+          rotation = -1 * rotation * 180 / Math.PI;
+          scale = 1;
           images.push({
             imageUri: imageUri,
             imageHostIndex: imageHostIndex,
@@ -16820,7 +16837,9 @@ define('models/md2d/models/metadata',[],function() {
             imageLayerPosition: imageLayerPosition,
             imageX: imageX,
             imageY: imageY,
-            visible: imageVisible
+            rotation: rotation,
+            scale: scale,
+            visible: visible
           });
         }
       }
@@ -17116,7 +17135,7 @@ define('models/md2d/models/metadata',[],function() {
       */
 
       parseAtoms = function() {
-        var $restraint, atomIndex, atomNodes, atomRawData, atomValidatedData, atoms, charge, draggable, draggableWhenStopped, element, friction, k, marked, movable, pinned, radical, restraint, restraintRawData, restraintValidatedData, restraints, visible, vx, vy, x, x0, y, y0, _len4, _m, _ref4, _ref5;
+        var $restraint, atomIndex, atomNodes, atomRawData, atomValidatedData, atoms, charge, draggable, draggableWhenStopped, element, friction, k, marked, movable, pinned, radical, restraint, restraintRawData, restraintValidatedData, restraints, vx, vy, x, x0, y, y0, _len4, _m, _ref4, _ref5;
         atoms = [];
         restraints = [];
         atomNodes = $mml(".org-concord-mw2d-models-Atom");

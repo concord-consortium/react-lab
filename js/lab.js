@@ -51,9 +51,11 @@ export default class Lab extends React.Component {
   }
 
   render() {
+     const { width, height, embeddableSrc, frameBorder, allowFullScreen } = this.props;
     return (
-      <iframe ref='iframe' width={this.props.width} height={this.props.height}
-              frameBorder='0' allowFullScreen  src={this.props.embeddableSrc}></iframe>
+      <iframe ref='iframe' src={embeddableSrc} frameBorder={frameBorder}
+              width={width} height={height} allowFullScreen={allowFullScreen}>
+      </iframe>
     )
   }
 
@@ -134,6 +136,8 @@ Lab.defaultProps = {
   embeddableSrc: 'lab/embeddable.html',
   width: '565px',
   height: '435px',
+  allowFullScreen: true,
+  frameBorder: '0',
   props: {},
   observedProps: [],
   // Batch Lab properties updates and send them to Lab after given time period.
