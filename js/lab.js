@@ -4,34 +4,38 @@ import iframePhone from 'iframe-phone';
 const DEF_UPDATE_DELAY = 75; // ms
 
 export default class Lab extends React.Component {
-  componentDidMount() {
-    this._phone = new iframePhone.ParentEndpoint(this.refs.iframe);
+  constructor(props) {
+    super(props);
+    this._handleIframeLoad = this._handleIframeLoad.bind(this);
+    this._asyncLabPropertiesUpdate = this._asyncLabPropertiesUpdate.bind(this);
     this._labUpdateTimeoutID = null;
     this._propsToSet = {};
-    this._asyncLabPropertiesUpdate = this._asyncLabPropertiesUpdate.bind(this);
+  }
 
-    this.refs.iframe.onload = () => {
-      this.interactiveController.on('modelLoaded.react-lab', () => {
-        this.props.onModelLoad();
-        this._setLabProperties(this.props.props);
-        this._addLabListeners(this.props.observedProps);
-        this._setLabPlaying(this.props.playing);
-      });
-      this._loadInteractive(this.props.interactive, this.props.model);
-    };
+  componentDidMount() {
+    this._phone = new iframePhone.ParentEndpoint(this.refs.iframe);
     this._phone.addListener('log', (content) => {
       this.props.onLogEvent(content.action, content.data);
     });
+    this.refs.iframe.addEventListener('load', this._handleIframeLoad);
   }
 
   componentWillUnmount() {
     this._phone.disconnect();
+    this.refs.iframe.removeEventListener('load', this._handleIframeLoad);
   }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.interactive !== this.props.interactive ||
         nextProps.model !== this.props.model) {
-      this._loadInteractive(nextProps.interactive, nextProps.model)
+      // Complete iframe reload is slower, but more bulletproof and workarounds Lab issues related to memory leaks.
+      if (nextProps.reloadIframeOnModelUpdate) {
+        // Looks a bit magic, but interactive will be loaded and completely setup (including interactive and model jsons)
+        // by the iframe "onload" handler. Take a look at _handleIframeLoad() method.
+        this.refs.iframe.contentWindow.location.reload();
+      } else {
+        this._loadInteractive(nextProps.interactive, nextProps.model);
+      }
     }
     if (nextProps.props !== this.props.props) {
       // Set only DIFF of new and old properties. It's quite important difference,
@@ -51,7 +55,7 @@ export default class Lab extends React.Component {
   }
 
   render() {
-     const { width, height, embeddableSrc, frameBorder, allowFullScreen } = this.props;
+    const { width, height, embeddableSrc, frameBorder, allowFullScreen } = this.props;
     return (
       <iframe ref='iframe' src={embeddableSrc} frameBorder={frameBorder}
               width={width} height={height} allowFullScreen={allowFullScreen}>
@@ -79,12 +83,26 @@ export default class Lab extends React.Component {
 
   // Private methods. Use React properties instead.
 
+  _handleIframeLoad() {
+    this.interactiveController.on('modelLoaded.react-lab', () => {
+      this.props.onModelLoad();
+      this._setLabProperties(this.props.props);
+      this._addLabListeners(this.props.observedProps);
+      this._setLabPlaying(this.props.playing);
+    });
+    this._loadInteractive(this.props.interactive, this.props.model);
+  }
+
   _loadInteractive(interactive, model) {
     // Iframe might be still loading. The interactive will be loaded when iframe is loaded.
     if (!this.interactiveController) return;
     if (interactive) {
       if (model) {
         interactive = combineInteractiveAndModel(interactive, model)
+      }
+      if (this.scriptingAPI) {
+        // Stop the model before loading a new one to avoid performance issues.
+        this.scriptingAPI.stop();
       }
       this.interactiveController.loadInteractive(interactive);
     }
@@ -145,7 +163,10 @@ Lab.defaultProps = {
   propsUpdateDelay: false,
   onModelLoad: function () {},
   onPropChange: function (name, value) {},
-  onLogEvent: function (actionName, data) {}
+  onLogEvent: function (actionName, data) {},
+  // Lab lets you update interactive or model without reloading the iframe, but that might lead to memory leaks
+  // and performance issues. Complete iframe reload is a safe option, but it increases loading time a bit.
+  reloadIframeOnModelUpdate: true
 };
 
 function combineInteractiveAndModel(interactive, model) {
