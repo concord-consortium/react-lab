@@ -411,18 +411,18 @@ define("../../vendor/almond/almond", function(){});
 define('lab.version',['require'],function (require) {
   return {
     "repo": {
-      "branch": "1.11.0",
+      "branch": "1.13.0",
       "commit": {
-        "sha":           "5ff9aff8918804f72b570651a95496b4b8775086",
-        "short_sha":     "5ff9aff8",
-        "url":           "https://github.com/concord-consortium/lab/commit/5ff9aff8",
+        "sha":           "346e02e72a9c84cbdd64c04a928d72a895a63250",
+        "short_sha":     "346e02e7",
+        "url":           "https://github.com/concord-consortium/lab/commit/346e02e7",
         "author":        "Piotr Janik",
         "email":         "janikpiotrek@gmail.com",
-        "date":          "2016-05-30 14:30:59 +0000",
-        "short_message": "Fix drag / click handler when atoms are overlapping - respect their rendering order",
-        "message":       "Fix drag / click handler when atoms are overlapping - respect their rendering order\n\n[#120181935]"
+        "date":          "2016-08-30 20:42:07 +0000",
+        "short_message": "Merge pull request #116 from lepulent/patch-1",
+        "message":       "Merge pull request #116 from lepulent/patch-1\n\nsrc/locales/es/interactives/oil-and-water.json"
       },
-      "last_tag":        "1.11.0",
+      "last_tag":        "1.13.0",
       "dirty": false
     }
   };

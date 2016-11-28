@@ -4369,6 +4369,13 @@ module.exports = function Graph(idOrElement, options, message) {
     if (opts || !options) {
       options = setupOptions(opts);
     }
+    if (options.lang) {
+      // Set language only if it's explicitly defined, don't use any default value.
+      // Language can be also set by client library using global object:
+      // LabGrapher.i18n.lang = 'es'
+      // Default option could overwrite that.
+      i18n.lang = options.lang;
+    }
 
     initializeLayout(idOrElement, mesg);
 
@@ -4825,7 +4832,7 @@ module.exports = function Graph(idOrElement, options, message) {
       if (options.buttonsStyle === "icons") {
         legendButton.append("i").attr("class", "icon-list-ul");
       } else {
-        legendButton.text("Key");
+        legendButton.text(i18n.t("labels.legend"));
       }
     }
 
@@ -4842,7 +4849,7 @@ module.exports = function Graph(idOrElement, options, message) {
       if (options.buttonsStyle === "icons") {
         autoscaleButton.append("i").attr("class", "icon-picture");
       } else {
-        autoscaleButton.text("Zoom");
+        autoscaleButton.text(i18n.t("labels.autoscale"));
       }
     }
 
@@ -4858,7 +4865,7 @@ module.exports = function Graph(idOrElement, options, message) {
       if (options.buttonsStyle === "icons") {
         selectionButton.append("i").attr("class", "icon-cut");
       } else {
-        selectionButton.text("Select");
+        selectionButton.text(i18n.t("labels.selection"));
       }
     }
 
@@ -4874,7 +4881,7 @@ module.exports = function Graph(idOrElement, options, message) {
       if (options.buttonsStyle === "icons") {
         drawButton.append("i").attr("class", "icon-pencil");
       } else {
-        drawButton.text("Draw");
+        drawButton.text(i18n.t("labels.draw"));
       }
     }
 
@@ -7039,17 +7046,45 @@ function getTranslation(lang, key) {
 },{"../locales/translations.json":4}],4:[function(require,module,exports){
 module.exports={
   "en-US": {
+    "labels": {
+      "autoscale": "Zoom",
+      "draw"     : "Draw",
+      "selection": "Select",
+      "legend"   : "Key"
+    },
     "tooltips": {
-        "autoscale": "Show all data (autoscale)",
-        "draw"     : "Draw new data points",
-        "selection": "Select data for export",
-        "legend"   : "Show/hide the legend"
+      "autoscale": "Show all data (autoscale)",
+      "draw"     : "Draw new data points",
+      "selection": "Select data for export",
+      "legend"   : "Show/hide the legend"
+    }
+  },
+  "es": {
+    "labels": {
+      "autoscale": "Zoom",
+      "draw"     : "Graficar",
+      "selection": "Elegir",
+      "legend"   : "Leyenda"
+    },
+    "tooltips": {
+      "autoscale": "Mostrar todos los datos (autoescala)",
+      "draw"     : "Graficar nuevos puntos",
+      "selection": "Seleccionar datos para exportar",
+      "legend"   : "Mostrar/Ocultar la leyenda"
     }
   },
   "pl": {
+    "labels": {
+      "autoscale": "Przybliż",
+      "draw"     : "Rysuj",
+      "selection": "Zaznacz",
+      "legend"   : "Legenda"
+    },
     "tooltips": {
         "autoscale": "Pokaż cały wykres (autoskalowanie)",
-        "selection": "Zaznacz dane do wyeksportowania"
+        "draw"     : "Rysuj nowe punkty",
+        "selection": "Zaznacz dane do wyeksportowania",
+        "legend"   : "Pokaż/ukryj legendę"
     }
   }
 }
