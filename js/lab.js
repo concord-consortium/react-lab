@@ -1,5 +1,6 @@
 import React from 'react';
 import iframePhone from 'iframe-phone';
+import MODEL_ONLY_INTERACTIVE from './model-only-interactive';
 
 const DEF_UPDATE_DELAY = 75; // ms
 
@@ -168,10 +169,10 @@ export default class Lab extends React.Component {
 }
 
 Lab.PropTypes = {
-  // Lab interactive JSON (parsed).
-  interactive: React.PropTypes.object.isRequired,
   // Lab model JSON (parsed).
   model: React.PropTypes.object.isRequired,
+  // Lab interactive JSON (parsed). If not provided, MODEL_ONLY_INTERACTIVE will be used.
+  interactive: React.PropTypes.object,
   // Source to Lab embeddable page. Needs to be under the same domain as the application.
   // This package is providing lab distribution that can be used (/lab).
   embeddableSrc: React.PropTypes.string,
@@ -197,6 +198,7 @@ Lab.PropTypes = {
 };
 
 Lab.defaultProps = {
+  interactive: MODEL_ONLY_INTERACTIVE,
   embeddableSrc: 'lab/embeddable.html',
   width: '565px',
   height: '435px',
