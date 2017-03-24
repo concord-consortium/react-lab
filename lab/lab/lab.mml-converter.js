@@ -411,19 +411,19 @@ define("../../vendor/almond/almond", function(){});
 define('lab.version',['require'],function (require) {
   return {
     "repo": {
-      "branch": "master",
+      "branch": "1.14.0",
       "commit": {
-        "sha":           "346e02e72a9c84cbdd64c04a928d72a895a63250",
-        "short_sha":     "346e02e7",
-        "url":           "https://github.com/concord-consortium/lab/commit/346e02e7",
+        "sha":           "948cde8e28f48fb7636d6c341d7882cadc97d09e",
+        "short_sha":     "948cde8e",
+        "url":           "https://github.com/concord-consortium/lab/commit/948cde8e",
         "author":        "Piotr Janik",
         "email":         "janikpiotrek@gmail.com",
-        "date":          "2016-08-30 16:42:07 -0400",
-        "short_message": "Merge pull request #116 from lepulent/patch-1",
-        "message":       "Merge pull request #116 from lepulent/patch-1\n\nsrc/locales/es/interactives/oil-and-water.json"
+        "date":          "2017-03-23 18:32:53 +0000",
+        "short_message": "Bump version number",
+        "message":       "Bump version number"
       },
-      "last_tag":        "1.13.0",
-      "dirty": true
+      "last_tag":        "1.14.0",
+      "dirty": false
     }
   };
 });
@@ -14564,7 +14564,7 @@ define('models/md2d/models/engine/constants/index',['require','exports','module'
 // using RequireJS. R.JS Optimizer will strip out this if statement.
 
 
-define('arrays/index',['require','exports','module'],function (require, exports, module) {
+define('arrays',['require','exports','module'],function (require, exports, module) {
   var arrays = {};
 
   arrays.version = '0.0.1';
@@ -14869,8 +14869,6 @@ define('arrays/index',['require','exports','module'],function (require, exports,
     if (arrays.hasOwnProperty(key)) exports[key] = arrays[key];
   }
 });
-
-define('arrays', ['arrays/index'], function (main) { return main; });
 
 /*global define: false, $: false */
 
@@ -15402,6 +15400,7 @@ define('models/md2d/models/metadata',[],function() {
         defaultValue: 0
       },
       visible: {
+        // Note that it also accepts fractional values, e.g. 0.5 (=> atom will be semi-transparent).
         defaultValue: 1
       },
       pinned: {

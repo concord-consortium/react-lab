@@ -1093,11 +1093,11 @@ body:fullscreen .fullscreen {
     background-image: url("resources/layout/fullscreen-exit-dark.svg"); }
 
 .credits {
-  background: url("resources/layout/cc-logo.png") no-repeat;
+  background: url("resources/layout/cc-logo.svg") no-repeat;
   background-size: 80%;
   background-position: 0.3em 0.2em; }
   .credits:hover {
-    background-image: url("resources/layout/cc-logo-dark.png"); }
+    background-image: url("resources/layout/cc-logo-dark.svg"); }
 
 #interactive-reload-icon > i {
   color: black;
