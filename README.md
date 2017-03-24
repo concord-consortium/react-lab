@@ -37,6 +37,20 @@ or:
 webpack --watch
 ```
 
+## Bundled Lab distribution
+
+This package includes pre-built Lab framework. Users of this library should also use bundled Lab distribution, as
+it's guaranteed to work with the current react-lab version. You can update it using:
+
+```
+./update.sh <version-number>
+e.g.
+./update.sh 1.14.0
+```
+
+It will download Lab 1.14.0 and replace library in `lab/lab` directory. You should always check if it still works,
+as in some cases the embeddable page might need to be updated too (however it's not very likely).
+
 ## License 
 
 [MIT](https://github.com/concord-consortium/grasp-seasons/blob/master/LICENSE)
