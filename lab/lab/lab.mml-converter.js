@@ -411,18 +411,18 @@ define("../../vendor/almond/almond", function(){});
 define('lab.version',['require'],function (require) {
   return {
     "repo": {
-      "branch": "1.14.0",
+      "branch": "1.16.4",
       "commit": {
-        "sha":           "948cde8e28f48fb7636d6c341d7882cadc97d09e",
-        "short_sha":     "948cde8e",
-        "url":           "https://github.com/concord-consortium/lab/commit/948cde8e",
-        "author":        "Piotr Janik",
-        "email":         "janikpiotrek@gmail.com",
-        "date":          "2017-03-23 18:32:53 +0000",
-        "short_message": "Bump version number",
-        "message":       "Bump version number"
+        "sha":           "0c005a14f17c87bfed645dc403af80eb4625f24b",
+        "short_sha":     "0c005a14",
+        "url":           "https://github.com/concord-consortium/lab/commit/0c005a14",
+        "author":        "Chris Hart",
+        "email":         "chart@concord.org",
+        "date":          "2019-09-30 20:04:47 +0000",
+        "short_message": "wsBcBAABCAAQBQJdkl/fCRBK7hj4Ov3rIwAAdHIIAJJQSkXwatYC8LJkKZtxP08/",
+        "message":       " wsBcBAABCAAQBQJdkl/fCRBK7hj4Ov3rIwAAdHIIAJJQSkXwatYC8LJkKZtxP08/\n RHden7S95byNjsdmqyvsmVknM4RJHRcRHjVo1FBe9J4WBnXnRYvl5qlf9gPvdjB/\n 4vQEc685mioGoSSQVOqPCuAymGGw+kUlDn61q49NRq5uvbe2oxYsaFJt6vt4oMAK\n ea2zAogaKFgQkJDr3q7y3nW/vNg6yZmH+du7mRjm+2/LdVsYz7ME49v1KtrQx8iE\n A27rtLexGw47N8CpoSyVZZvoCuarG0NMyhU2vFfx8o9aFZtFqmfo3dV9xgBw9k9U\n JxdTSm3yOKYKztSwp+Q7p0u0mHoZjU93b4ltBIYM8QIky4X8wVl5D2jKi3khsLY=\n =bqry\n -----END PGP SIGNATURE-----\n \n\nMerge pull request #142 from concord-consortium/dna-sequence-dialog\n\nAdjust wording on popup where user is prompted to enter a DNA sequence"
       },
-      "last_tag":        "1.14.0",
+      "last_tag":        "1.16.4",
       "dirty": false
     }
   };
@@ -15042,6 +15042,11 @@ define('models/md2d/models/metadata',[],function() {
         defaultValue: "",
         immutable: true
       },
+      dnaEngineImagesPath: {
+        // this path is relative to labConfig.modelsRootUrl
+        defaultValue: "",
+        immutable: true
+      },
       minX: {
         serialize: false
       },
@@ -15235,6 +15240,11 @@ define('models/md2d/models/metadata',[],function() {
       },
       chargeShading: {
         defaultValue: false,
+        storeInTickHistory: true
+      },
+      chargeShadingStyle: {
+        // "biology" (+ blue, - red) or "chemistry" (+ red, - blue).
+        defaultValue: "biology",
         storeInTickHistory: true
       },
       aminoAcidColorScheme: {

@@ -2,6 +2,7 @@ var path = require('path');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
+  mode: process.env.PRODUCTION ? 'production' : 'development',
   entry: {
     'react-lab': './js/lab.js'
   },
@@ -12,8 +13,17 @@ module.exports = {
     libraryTarget: 'umd'
   },
   module: {
-    loaders: [
-      { test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel-loader?optional=runtime' }
+    rules: [
+      {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-react']
+          }
+        }
+      }
     ]
   },
   externals: [

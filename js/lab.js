@@ -67,13 +67,13 @@ export default class Lab extends React.Component {
     return false;
   }
 
-  render() {
+  render () {
     const { width, height, embeddableSrc, frameBorder, allowFullScreen } = this.props;
     const { loading } = this.state;
     const style = loading ? {visibility: 'hidden'} : {};
     return (
       <iframe ref='iframe' src={embeddableSrc} frameBorder={frameBorder} style={style}
-              width={width} height={height} allowFullScreen={allowFullScreen}>
+        width={width} height={height} allowFullScreen={allowFullScreen}>
       </iframe>
     )
   }

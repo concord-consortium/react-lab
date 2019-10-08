@@ -411,18 +411,18 @@ define("../../vendor/almond/almond", function(){});
 define('lab.version',['require'],function (require) {
   return {
     "repo": {
-      "branch": "1.14.0",
+      "branch": "1.16.4",
       "commit": {
-        "sha":           "948cde8e28f48fb7636d6c341d7882cadc97d09e",
-        "short_sha":     "948cde8e",
-        "url":           "https://github.com/concord-consortium/lab/commit/948cde8e",
-        "author":        "Piotr Janik",
-        "email":         "janikpiotrek@gmail.com",
-        "date":          "2017-03-23 18:32:53 +0000",
-        "short_message": "Bump version number",
-        "message":       "Bump version number"
+        "sha":           "0c005a14f17c87bfed645dc403af80eb4625f24b",
+        "short_sha":     "0c005a14",
+        "url":           "https://github.com/concord-consortium/lab/commit/0c005a14",
+        "author":        "Chris Hart",
+        "email":         "chart@concord.org",
+        "date":          "2019-09-30 20:04:47 +0000",
+        "short_message": "wsBcBAABCAAQBQJdkl/fCRBK7hj4Ov3rIwAAdHIIAJJQSkXwatYC8LJkKZtxP08/",
+        "message":       " wsBcBAABCAAQBQJdkl/fCRBK7hj4Ov3rIwAAdHIIAJJQSkXwatYC8LJkKZtxP08/\n RHden7S95byNjsdmqyvsmVknM4RJHRcRHjVo1FBe9J4WBnXnRYvl5qlf9gPvdjB/\n 4vQEc685mioGoSSQVOqPCuAymGGw+kUlDn61q49NRq5uvbe2oxYsaFJt6vt4oMAK\n ea2zAogaKFgQkJDr3q7y3nW/vNg6yZmH+du7mRjm+2/LdVsYz7ME49v1KtrQx8iE\n A27rtLexGw47N8CpoSyVZZvoCuarG0NMyhU2vFfx8o9aFZtFqmfo3dV9xgBw9k9U\n JxdTSm3yOKYKztSwp+Q7p0u0mHoZjU93b4ltBIYM8QIky4X8wVl5D2jKi3khsLY=\n =bqry\n -----END PGP SIGNATURE-----\n \n\nMerge pull request #142 from concord-consortium/dna-sequence-dialog\n\nAdjust wording on popup where user is prompted to enter a DNA sequence"
       },
-      "last_tag":        "1.14.0",
+      "last_tag":        "1.16.4",
       "dirty": false
     }
   };
@@ -444,10 +444,6 @@ define('lab.config',[],function () {
     // Models root URL, appended to all model paths. Leave it empty if model paths are relative
     // to page that contains Lab interactive.
     "modelsRootUrl": "",
-    // Set codap to true if Lab is running inside of CODAP
-    "codap": false,
-    // dataGamesProxyPrefix was the old way of configuring CODAP
-    "dataGamesProxyPrefix": "",
     "utmCampaign": null,
     // You can set versioned home to function that accepts major version of Lab and returns
     // URL of embeddable page that uses particular version of Lab, e.g.:
@@ -9226,43 +9222,71 @@ module.exports={
   "en-US": {
     "labels": {
       "autoscale": "Zoom",
-      "draw"     : "Draw",
+      "draw": "Draw",
       "selection": "Select",
-      "legend"   : "Key"
+      "legend": "Key"
     },
     "tooltips": {
       "autoscale": "Show all data (autoscale)",
-      "draw"     : "Draw new data points",
+      "draw": "Draw new data points",
       "selection": "Select data for export",
-      "legend"   : "Show/hide the legend"
+      "legend": "Show/hide the legend"
+    }
+  },
+   "it": {
+    "labels": {
+      "autoscale": "Zoom",
+      "draw": "Disegnare",
+      "selection": "Selezionare",
+      "legend": "Chiave"
+    },
+    "tooltips": {
+      "autoscale": "Mostra tutti i dati (autoscala)",
+      "draw": "Disegnare nuovi punti dati",
+      "selection": "Seleziona i dati per l'esportazione",
+      "legend": "Mostra / nascondi la leggenda"
     }
   },
   "es": {
     "labels": {
       "autoscale": "Zoom",
-      "draw"     : "Graficar",
+      "draw": "Graficar",
       "selection": "Elegir",
-      "legend"   : "Leyenda"
+      "legend": "Leyenda"
     },
     "tooltips": {
       "autoscale": "Mostrar todos los datos (autoescala)",
-      "draw"     : "Graficar nuevos puntos",
+      "draw": "Graficar nuevos puntos",
       "selection": "Seleccionar datos para exportar",
-      "legend"   : "Mostrar/Ocultar la leyenda"
+      "legend": "Mostrar/Ocultar la leyenda"
     }
   },
   "pl": {
     "labels": {
       "autoscale": "Przybliż",
-      "draw"     : "Rysuj",
+      "draw": "Rysuj",
       "selection": "Zaznacz",
-      "legend"   : "Legenda"
+      "legend": "Legenda"
     },
     "tooltips": {
-        "autoscale": "Pokaż cały wykres (autoskalowanie)",
-        "draw"     : "Rysuj nowe punkty",
-        "selection": "Zaznacz dane do wyeksportowania",
-        "legend"   : "Pokaż/ukryj legendę"
+      "autoscale": "Pokaż cały wykres (autoskalowanie)",
+      "draw": "Rysuj nowe punkty",
+      "selection": "Zaznacz dane do wyeksportowania",
+      "legend": "Pokaż/ukryj legendę"
+    }
+  },
+  "ru": {
+    "labels": {
+      "autoscale": "Масштабировать",
+      "draw": "Рисовать",
+      "selection": "Выбрать",
+      "legend": "Ключ"
+    },
+    "tooltips": {
+      "autoscale": "Показать все данные (автоматическое масштабированиe)",
+      "draw": "Показать новые данные",
+      "selection": "Выбрать данные для экспорта",
+      "legend": "Показать/скрыть описание"
     }
   }
 }
@@ -9586,7 +9610,7 @@ define('text',['module'], function (module) {
 });
 
 
-define('text!locales/translations.json',[],function () { return '{\n  "en-US": {\n    "translation": {\n      "banner": {\n        "about": "About",\n        "about_tooltip": "Instructions",\n        "share": "Share",\n        "share_tooltip": "Share using e-mail, IM or embed in website",\n        "lang_tooltip": "Select language",\n        "reload_tooltip": "Reload interactive",\n        "help_tooltip": "Show help tips",\n        "credits_tooltip": "Learn more about The Concord Consortium",\n        "fullscreen_tooltip": "Toggle full-screen",\n        "video_play_pause_tooltip": "Start / pause the simulation",\n        "video_reset_tooltip": "Reset the simulation",\n        "video_step_back_tooltip": "Step back",\n        "video_step_forward_tooltip": "Step forward",\n        "text_start": "Start",\n        "text_start_tooltip": "Start the simulation or data collection",\n        "text_stop": "Stop",\n        "text_stop_tooltip": "Stop the simulation or data collection",\n        "text_reset": "Reset",\n        "text_reset_tooltip": "Reset the simulation or data collection",\n        "text_new_run": "New Run",\n        "text_new_run_tooltip": "Set up a new experiment run",\n        "text_analyze_data": "Analyze Data",\n        "text_analyze_data_tooltip": "Send data from the experiment to CODAP"\n      },\n      "dialog": {\n        "close_tooltip": "Close"\n      },\n      "about_dialog": {\n        "title": "About: __interactive_title__"\n      },\n      "share_dialog": {\n        "title": "Share: __interactive_title__",\n        "link": "link",\n        "paste_email_im": "Paste this __link__ in email or IM.",\n        "paste_html": "Paste HTML to embed in website or blog.",\n        "select_size": "Select Size:",\n        "size_larger": "__val__% larger",\n        "size_actual": "actual",\n        "size_smaller": "__val__% smaller"\n      },\n      "credits_dialog": {\n        "title": "Credits: __interactive_title__",\n        "credits_text": "This interactive was created by the __CC_link__ using our __Next_Gen_MW_link__ software, with funding by a grant from __Google_link__.",\n        "shareable_ver": "shareable version",\n        "find_shareable": "Find a __shareable_ver_link__ of this interactive along with dozens of other open-source interactives for science, math and engineering at __concord_org_link__."\n      },\n      "copyright": {\n        "copyright": "Copyright",\n        "all_rights_reserved": "All rights reserved.",\n        "license": "The software is licensed under the __MIT_link__ license.",\n        "attribution": "Please provide attribution to the Concord Consortium and the URL __concord_org_link__."\n      },\n      "md2d": {\n        "heatbath_icon_tooltip": "Heatbath active",\n        "ke_icon_tooltip": "Kinetic energy gradient",\n        "invalid_object_position_alert": "You can\'t drop the object there.",\n        "aminoacid_menu": {\n          "hydrophobic": "Hydrophobic",\n          "hydrophilic": "Hydrophilic",\n          "glycine": "Glycine",\n          "alanine": "Alanine",\n          "valine": "Valine",\n          "leucine": "Leucine",\n          "isoleucine": "Isoleucine",\n          "phenylalanine": "Phenylalanine",\n          "proline": "Proline",\n          "tryptophan": "Tryptophan",\n          "methionine": "Methionine",\n          "cysteine": "Cysteine",\n          "tyrosine": "Tyrosine",\n          "asparagine": "Asparagine",\n          "glutamine": "Glutamine",\n          "serine": "Serine",\n          "threonine": "Threonine",\n          "asparticacid": "Asparticacid",\n          "glutamicacid": "Glutamicacid",\n          "lysine": "Lysine",\n          "arginine": "Arginine",\n          "histidine": "Histidine"\n        },\n        "mutations_menu": {\n          "substitution_mutation": "Substitution mutation",\n          "insertion_mutation": "Insertion mutation",\n          "deletion_mutation": "Deletion mutation",\n          "insert": "Insert"\n        }\n      },\n      "sensor": {\n        "select_sensor": "Select Sensor",\n        "select_sensor_type": "Select type of sensor...",\n        "reading": "Reading:",\n        "zero": "Zero",\n        "zeroing": "Zeroing...",\n        "loading_sensor": "Loading sensor...",\n        "choose_sensor_title": "Select a sensor:",\n        "connect": "Connect",\n        "address_labquest2": "address of LabQuest2",\n        "messages": {\n          "ready": "Ready to collect.",\n          "ready_nocontrol": "Please stop the __controlling_client__ data collector to collect data here.",\n          "ready_nocontrol_noname": "Please stop the other active data collector to collect data here.",\n          "no_sensors": "No sensors found.",\n          "no_devices": "No devices plugged in.",\n          "not_connected": "Not connected.",\n          "connecting": "Connecting...",\n          "connection_in_progress": "Connecting to your sensors. If a message comes up about sensorconnector.concord.org, please accept it.",\n          "connection_failed": "Connection failed. __retry_link__",\n          "connection_failed_retry_link_text": "Try again",\n          "connection_failed_alert": "The Concord Consortium Sensor Connector is not installed or is not running. Please __click_here_link__ for instructions on using the Sensor Connector.",\n          "connection_failed_labquest2_alert": "Could not connect to the LabQuest2. Please make sure the address is correct and that the LabQuest2 can be reached from this computer",\n          "tare_labquest2_alert": "The LabQuest2 needs to be collecting live data in order to zero. Either set up a new run on the LabQuest2, or click the meter icon in the upper left.",\n          "click_here": "click here",\n          "connected": "Connected.",\n          "connected_start_labquest2": "Connected. Press start on your LabQuest2 to begin.",\n          "connected_start_sensorconnector": "Please stop the __controlling_client__ data collector to collect data here.",\n          "connected_start_sensorconnector_noname": "Please stop the other active data collector to collect data here.",\n          "starting_data_collection": "Starting data collection...",\n          "error_starting_data_collection": "Error starting data collection.",\n          "error_starting_data_collection_alert": "Could not start data collection. Make sure that (remote starting) is enabled",\n          "collecting_data": "Collecting data.",\n          "collecting_data_stop_labquest2": "Collecting data. Press stop on your LabQuest2 to end.",\n          "collecting_data_stop_sensorconnector": "Collecting data.",\n          "no_data": "No data is available.",\n          "no_data_alert": "The Sensor Connector does not appear to be reporting data for the plugged-in device",\n          "no_data_labquest2_alert": "The LabQuest does not appear to be reporting data for the plugged-in device",\n          "canceling_data_collection": "Canceling data collection...",\n          "error_canceling_data_collection": "Error canceling data collection.",\n          "error_canceling_data_collection_alert": "Could not cancel data collection. Make sure that (remote starting) is enabled",\n          "stopping_data_collection": "Stopping data collection...",\n          "error_stopping_data_collection": "Error stopping data collection.",\n          "error_stopping_data_collection_alert": "Could not stop data collection. Make sure that (remote starting) is enabled",\n          "data_collection_stopped": "Data collection stopped.",\n          "data_collection_complete": "Data collection complete.",\n          "disconnected": "Disconnected.",\n          "java_applet_error": "It appears that Java applets cannot run in your browser. If you are able to fix this, reload the page to use the sensor",\n          "java_applet_not_loading": "The sensor applet appears not to be loading. If you are able to fix this, reload the page to use the sensor",\n          "unexpected_error": "There was an unexpected error when connecting to the sensor.",\n          "sensor_not_attached": "The __sensor_name__ does not appear to be attached. Try re-attaching it, and then click \\"$t(sensor.messages.try_again)\\".",\n          "sensor_or_device_unplugged": "The __sensor_or_device_name__ was unplugged. Try plugging it back in, and then click \\"$t(sensor.messages.try_again)\\".",\n          "try_again": "Try Again",\n          "cancel": "Cancel"\n        },\n        "measurements": {\n          "sensor_reading": "Sensor Reading",\n          "time": "Time",\n          "distance": "Distance",\n          "acceleration": "Acceleration",\n          "altitude": "Altitude",\n          "angle": "Angle",\n          "CO2": "CO₂",\n          "CO2_concentration": "CO₂ Concentration",\n          "charge": "Charge",\n          "conductivity": "Conductivity",\n          "current": "Current",\n          "dissolved_oxygen": "DO",\n          "flow_rate": "Flow Rate",\n          "fluorescence_405_nm": "Fluorescence 405 nm",\n          "fluorescence_500_nm": "Fluorescence 500 nm",\n          "force": "Force",\n          "intensity": "Intensity",\n          "light_level": "Light Level",\n          "light_intensity": "Light Intensity",\n          "magnetic_field": "Magnetic Field",\n          "position": "Position",\n          "potential": "Potential",\n          "pressure": "Pressure",\n          "signal": "Signal",\n          "sound_level": "Sound Level",\n          "speed": "Speed",\n          "temperature": "Temperature",\n          "transmittance": "Transmittance",\n          "turbidity": "Turbidity",\n          "UV_intensity": "UV Intensity",\n          "velocity": "Velocity",\n          "volume": "Volume",\n          "pH": "pH",\n          "acidity": "Acidity",\n          "O2_concentration": "O₂ Concentration"\n        },\n        "names": {\n          "sensor": "sensor",\n          "no_sensor": "(no sensor)",\n          "light": "Light",\n          "motion": "Motion",\n          "accelerometer": "Accelerometer",\n          "dissolved_oxygen": "Dissolved Oxygen",\n          "pressure": "Pressure",\n          "charge_sensor": "Charge Sensor",\n          "voltage": "Voltage",\n          "pH": "pH",\n          "CO2_gas": "CO₂ Gas",\n          "colorimeter": "Colorimeter",\n          "conductivity": "Conductivity",\n          "current": "Current",\n          "temperature": "Temperature",\n          "force": "Force",\n          "anemometer": "Anemometer",\n          "hand_dynamometer": "Hand Dynamometer",\n          "heart_rate": "Heart Rate",\n          "magnetic_field": "Magnetic Field",\n          "rotary_motion": "Rotary Motion",\n          "linear_position_sensor": "Linear Position Sensor",\n          "sound_level": "Sound Level",\n          "spectrophotometer": "Spectrophotometer",\n          "spirometer": "Spirometer",\n          "turbidity": "Turbidity",\n          "UV_sensor": "UV Sensor",\n          "drop_counter": "Drop Counter",\n          "altitude": "Altitude",\n          "goMotion": "GoMotion",\n          "goTemp": "GoIO Temperature Sensor",\n          "goLinkTemperature": "GoIO Temperature Sensor",\n          "goLinkLight": "GoIO Light Sensor",\n          "goLinkForce": "GoIO Force Sensor",\n          "goLinkPH": "GoIO pH Sensor",\n          "goLinkCO2": "GoIO CO₂ sensor",\n          "goLinkO2": "GoIO O₂ sensor",\n          "labQuestMotion": "LabQuest Motion Sensor",\n          "labQuestTemperature": "LabQuest Temperature Sensor",\n          "labQuestLight": "LabQuest Light Sensor",\n          "labQuestForce": "LabQuest Force Sensor",\n          "labQuestPH": "LabQuest pH Sensor",\n          "labQuestCO2": "LabQuest CO₂ sensor",\n          "labQuestO2": "LabQuest O₂ sensor"\n        }\n      }\n    }\n  },\n  "pl": {\n    "translation": {\n      "banner": {\n        "about": "O symulacji",\n        "about_tooltip": "Instrukcje",\n        "share": "Udostępnij",\n        "share_tooltip": "Udostępnij tę symulację za pomocą e-mail, komunikatora lub umieść na swojej stronie internetowej",\n        "lang_tooltip": "Zmień język",\n        "reload_tooltip": "Załaduj symulację ponownie",\n        "help_tooltip": "Pokaż pomoc",\n        "credits_tooltip": "Dowiedz się więcej o Concord Consortium",\n        "fullscreen_tooltip": "Tryb pełnoekranowy",\n        "video_play_pause_tooltip": "Uruchom lub zatrzymaj symulację",\n        "video_reset_tooltip": "Zresetuj symulację",\n        "video_step_back_tooltip": "Krok wstecz",\n        "video_step_forward_tooltip": "Krok do przodu",\n        "text_start": "Uruchom",\n        "text_start_tooltip": "Uruchom symulację lub pobieranie danych",\n        "text_stop": "Zatrzymaj",\n        "text_stop_tooltip": "Zatrzymaj symulację lub pobieranie danych",\n        "text_reset": "Zresetuj",\n        "text_reset_tooltip": "Zresetuj symulację lub pobieranie danych"\n      },\n      "dialog": {\n        "close_tooltip": "Zamknij"\n      },\n      "about_dialog": {\n        "title": "O symulacji: __interactive_title__"\n      },\n      "share_dialog": {\n        "title": "Udostępnij: __interactive_title__",\n        "link": "odnośnik",\n        "paste_email_im": "Wklej ten __link__ do wiadomości e-mail lub wyślij za pomocą komunikatora.",\n        "paste_html": "Aby zamieścić symulację na swojej stronie lub blogu, wklej kod HTML znajdujący się poniżej.",\n        "select_size": "Wybierz rozmiar:",\n        "size_larger": "__val__% większy",\n        "size_actual": "aktualny",\n        "size_smaller": "__val__% mniejszy"\n      },\n      "credits_dialog": {\n        "title": "__interactive_title__",\n        "credits_text": "Ta symulacja została stworzona przez __CC_link__ przy użyciu __Next_Gen_MW_link__. Prace zostały sfinansowana przez grant otrzymany od __Google_link__.",\n        "shareable_ver": "Wersję tej symulacji, którą możesz udostępnić",\n        "find_shareable": "__shareable_ver_link__, wraz z setkami innych, darmowych symulacji i ćwiczeń znajdziesz na __concord_org_link__."\n      },\n      "copyright": {\n        "copyright": "Copyright",\n        "all_rights_reserved": "Wszystkie prawa zastrzeżone.",\n        "license": "To oprogramowanie jest rozpowszechniane na zasadach wolnej licencji __MIT_link__.",\n        "attribution": "Proszę umieścić odniesienia do Concord Consortium oraz witryny __concord_org_link__."\n      },\n      "md2d": {\n        "heatbath_icon_tooltip": "Stała temperatura",\n        "ke_icon_tooltip": "Skala energii kinetycznej",\n        "invalid_object_position_alert": "Niepoprawna pozycja obiektu.",\n        "aminoacid_menu": {\n          "hydrophobic": "Hydrofobowe",\n          "hydrophilic": "Hydrofilowe",\n          "glycine": "Glicyna",\n          "alanine": "Alanina",\n          "valine": "Walina",\n          "leucine": "Leucyna",\n          "isoleucine": "Izoleucyna",\n          "phenylalanine": "Fenyloalanina",\n          "proline": "Prolina",\n          "tryptophan": "Tryptofan",\n          "methionine": "Metionina",\n          "cysteine": "Cysteina",\n          "tyrosine": "Tyrozyna",\n          "asparagine": "Asparagina",\n          "glutamine": "Glutamina",\n          "serine": "Seryna",\n          "threonine": "Treonina",\n          "asparticacid": "Kwas asparaginowy",\n          "glutamicacid": "Kwas glutaminowy",\n          "lysine": "Lizyna",\n          "arginine": "Arginina",\n          "histidine": "Histydyna"\n        },\n        "mutations_menu": {\n          "substitution_mutation": "Substytucja",\n          "insertion_mutation": "Insercja",\n          "deletion_mutation": "Delecja",\n          "insert": "Wstaw"\n        }\n      },\n      "sensor": {\n        "select_sensor": "Wybierz sensor",\n        "select_sensor_type": "Wybierz rodzaj sensora...",\n        "reading": "Odczyt:",\n        "zero": "Wyzeruj",\n        "zeroing": "Zerowanie...",\n        "loading_sensor": "Ładowanie sensora...",\n        "choose_sensor_title": "Wybierz sensor:",\n        "connect": "Połącz",\n        "address_labquest2": "adres serwera LabQuest2",\n        "messages": {\n          "ready": "Gotowy do odczytu.",\n          "no_sensors": "Nie znaleziono sensorów.",\n          "no_devices": "Żadne urządzenie nie jest podłączone.",\n          "not_connected": "Brak połączenia.",\n          "connecting": "Łączenie...",\n          "connection_failed": "Połączenie nieudane.",\n          "connection_failed_alert": "Concord Consortium Sensor Connector nie jest zainstalowany lub nie działa. Proszę __click_here_link__ żeby otworzyć instrukcję dotyczącą korzystania z Sensor Connector.",\n          "connection_failed_labquest2_alert": "Nie udało się połączyć z LabQuest2. Upewnij się, że adres jest poprawny i LabQuest2 jest osiągalny z tego komputera.",\n          "tare_labquest2_alert": "LabQuest2 musi pobierać rzeczywiste dane aby się wyzerować. Ustaw nowy eksperyment na LabQuest2 lub kliknij ikonę licznika na górze po lewej stronie.",\n          "click_here": "kliknąć tutaj",\n          "connected": "Połączono.",\n          "connected_start_labquest2": "Połączono. Naciśnij start na LabQuest2 aby rozpocząć.",\n          "starting_data_collection": "Rozpoczynanie pobierania danych...",\n          "error_starting_data_collection": "Błąd podczas rozpoczynania pobierania danych.",\n          "error_starting_data_collection_alert": "Nie udało się rozpocząć pobierania danych. Upewnij się, że (remote starting) jest włączony",\n          "collecting_data": "Pobieranie danych.",\n          "collecting_data_stop_labquest2": "Pobieranie danych. Naciśnij stop na LabQuest2 aby zakończyć.",\n          "no_data": "Brak dostępnych danych.",\n          "no_data_alert": "Sensor Connector nie wydaje się raportować żadnych danych dla podłączonego urządzenia",\n          "no_data_labquest2_alert": "LabQuest nie wydaje się raportować żadnych danych dla podłączonego urządzenia",\n          "canceling_data_collection": "Anulowanie pobierania danych...",\n          "error_canceling_data_collection": "Błąd podczas anulowania pobierania danych.",\n          "error_canceling_data_collection_alert": "Nie udało się anulować pobierania danych. Upewnij się, że (remote starting) jest włączony",\n          "stopping_data_collection": "Zatrzymywanie pobierania danych...",\n          "error_stopping_data_collection": "Błąd podczas zatrzymywania pobierania danych.",\n          "error_stopping_data_collection_alert": "Nie udało się zatrzymać pobierania danych. Upewnij się, że (remote starting) jest włączony",\n          "data_collection_stopped": "Pobieranie danych zatrzymane.",\n          "data_collection_complete": "Pobieranie danych zakończone.",\n          "disconnected": "Rozłączono.",\n          "java_applet_error": "Aplety Java prawodpodobnie nie mogą być uruchomione w twojej przeglądarce. Jeżeli jesteś w stanie to naprawić to potem odśwież stronę, żeby użyć sensora.",\n          "java_applet_not_loading": "Sensor Aplet nie ładuje się. Jeżeli jesteś w stanie to naprawić to potem odśwież stronę, żeby użyć sensora.",\n          "unexpected_error": "Wystąpił nieoczekiwany błąd podczas próby połączenia z sensorem.",\n          "sensor_not_attached": "__sensor_name__ wydaje się być niedpołączony. Spróbuj podłączyć go ponownie i potem kliknij \\"$t(sensor.messages.try_again)\\".",\n          "sensor_or_device_unplugged": "__sensor_or_device_name__ został odłączony. Spróbuj podłączyć go ponownie i potem kliknij \\"$t(sensor.messages.try_again)\\".",\n          "try_again": "Spróbuj ponownie",\n          "cancel": "Anuluj"\n        },\n        "measurements": {\n          "sensor_reading": "Odczyt sensora",\n          "time": "Czas",\n          "distance": "Odległość",\n          "acceleration": "Przyspieszenie",\n          "altitude": "Wysokość",\n          "angle": "Kąt",\n          "CO2": "CO₂",\n          "CO2_concentration": "Stężenie CO₂",\n          "charge": "Ładunek",\n          "conductivity": "Przewodność właściwa",\n          "current": "Natężenie prądu",\n          "dissolved_oxygen": "Stężenie tlenu",\n          "flow_rate": "Strumień objętości",\n          "fluorescence_405_nm": "Fluorescencja 405 nm",\n          "fluorescence_500_nm": "Fluorescencja 500 nm",\n          "force": "Siła",\n          "intensity": "Natężenie",\n          "light_level": "Natężenie światła",\n          "light_intensity": "Intensywność światła",\n          "magnetic_field": "Pole magnetyczne",\n          "position": "Pozycja",\n          "potential": "Potencjał",\n          "pressure": "Ciśnienie",\n          "signal": "Sygnał",\n          "sound_level": "Natężenie dźwięku",\n          "speed": "Szybkość",\n          "temperature": "Temperatura",\n          "transmittance": "Transmitacja",\n          "turbidity": "Mętność",\n          "UV_intensity": "Natężenie UV",\n          "velocity": "Prędkość",\n          "volume": "Objętość",\n          "pH": "pH",\n          "acidity": "Kwasowość",\n          "O2_concentration": "Stężenie O₂"\n        },\n        "names": {\n          "sensor": "czujnik",\n          "no_sensor": "(brak czujnika)",\n          "light": "Światło",\n          "motion": "Ruch",\n          "accelerometer": "Akcelerometr",\n          "dissolved_oxygen": "Stężenie tlenu",\n          "pressure": "Ciśnienie",\n          "charge_sensor": "Czujnik ładunku",\n          "voltage": "Napięcie",\n          "pH": "pH",\n          "CO2_gas": "Czujnik CO₂",\n          "colorimeter": "Kolorymetr",\n          "conductivity": "Przewodność właściwa",\n          "current": "Natężenie prądu",\n          "temperature": "Temperatura",\n          "force": "Siła",\n          "anemometer": "Anemometr",\n          "hand_dynamometer": "Dynamometr",\n          "heart_rate": "Pulsometr",\n          "magnetic_field": "Pole magnetyczne",\n          "rotary_motion": "Ruch obrotowy",\n          "linear_position_sensor": "Czujnik położenia",\n          "sound_level": "Natężenie dźwięku",\n          "spectrophotometer": "Spektrofotometr",\n          "spirometer": "Spirometr",\n          "turbidity": "Mętność",\n          "UV_sensor": "Czujnik UV",\n          "drop_counter": "Licznik kropli",\n          "altitude": "Wysokość",\n          "goMotion": "GoMotion",\n          "goTemp": "GoIO czujnik temperatury",\n          "goLinkTemperature": "GoIO czujnik temperatury",\n          "goLinkLight": "GoIO czujnik światła",\n          "goLinkForce": "GoIO czujnik siły",\n          "goLinkPH": "GoIO czujnik pH",\n          "goLinkCO2": "GoIO czujnik CO₂",\n          "goLinkO2": "GoIO czujnik O₂",\n          "labQuestMotion": "LabQuest czujnik ruchu",\n          "labQuestTemperature": "LabQuest czujnik temperatury",\n          "labQuestLight": "LabQuest czujnik światła",\n          "labQuestForce": "LabQuest czujnik siły",\n          "labQuestPH": "LabQuest czujnik pH",\n          "labQuestCO2": "LabQuest czujnik CO₂",\n          "labQuestO2": "LabQuest czujnik O₂"\n        }\n      }\n    }\n  },\n  "nb-NO": {\n    "translation": {\n      "banner": {\n        "about": "Om simuleringen",\n        "about_tooltip": "Bruksanvisning",\n        "share": "Del",\n        "share_tooltip": "Del med e-post, melding eller innbygging",\n        "lang_tooltip": "Velg språk",\n        "reload_tooltip": "Last simuleringen på nytt",\n        "help_tooltip": "Vis hjelpetekster",\n        "credits_tooltip": "Lær mer om Concord Consortium",\n        "fullscreen_tooltip": "Slå fullskjermvisning av/på",\n        "video_play_pause_tooltip": "Start og stopp simuleringen",\n        "video_reset_tooltip": "Tilbakestill simuleringen",\n        "video_step_back_tooltip": "Gå et steg bakover",\n        "video_step_forward_tooltip": "Gå et steg framover",\n        "text_start": "Start",\n        "text_start_tooltip": "Start simuleringen eller datainnsamlingen",\n        "text_stop": "Stopp",\n        "text_stop_tooltip": "Stopp simuleringen eller datainnsamlingen",\n        "text_reset": "Tilbakestill",\n        "text_reset_tooltip": "Tilbakestill simuleringen eller datainnsamlingen"\n      },\n      "dialog": {\n        "close_tooltip": "Lukk"\n      },\n      "about_dialog": {\n        "title": "Om: __interactive_title__"\n      },\n      "share_dialog": {\n        "title": "-Del: __interactive_title__",\n        "link": "lenke",\n        "paste_email_im": "Lim inn denne __link__ i en e-post eller melding.",\n        "paste_html": "Lim inn HTML for innbygging på et nettsted eller en blogg.",\n        "select_size": "Velg størrelse:",\n        "size_larger": "__val__% større",\n        "size_actual": "faktisk",\n        "size_smaller": "__val__% mindre"\n      },\n      "credits_dialog": {\n        "title": "Informasjon om: __interactive_title__",\n        "credits_text": "Denne simuleringen er laget av __CC_link__ med bruk av __Next_Gen_MW_link__ programvare, finanisert av en bevilgning fra __Google_link__.",\n        "shareable_ver": "simuleringen kan deles",\n        "find_shareable": "Du finner en __shareable_ver_link__ av denne simuleringen, sammen med dusinvis andre open-source simuleringer for vitenskap, matematikk og teknologi på __concord_org_link__."\n      },\n      "copyright": {\n        "copyright": "Copyright",\n        "all_rights_reserved": "Alle rettigheter reservert.",\n        "license": "Denne programvaren er lisensiert under __MIT_link__ lisens.",\n        "attribution": "Vær vennlig å referere til Concord Consortium og URLen __concord_org_link__."\n      },\n      "md2d": {\n        "heatbath_icon_tooltip": "Varmebad er på",\n        "ke_icon_tooltip": "Kinetisk energigradient",\n        "invalid_object_position_alert": "You can\'t drop the object there.",\n        "aminoacid_menu": {\n          "hydrophobic": "Hydrofob",\n          "hydrophilic": "Hydrofil",\n          "glycine": "Glysin",\n          "alanine": "Alanin",\n          "valine": "Valin",\n          "leucine": "Leucin",\n          "isoleucine": "Isoleucin",\n          "phenylalanine": "Fenylalanin",\n          "proline": "Prolin",\n          "tryptophan": "Tryptofan",\n          "methionine": "Metionin",\n          "cysteine": "Cystin",\n          "tyrosine": "Tyrosin",\n          "asparagine": "Aspargin",\n          "glutamine": "Glutamin",\n          "serine": "Serin",\n          "threonine": "Threonin",\n          "asparticacid": "Asparginsyre",\n          "glutamicacid": "Glutaminsyre",\n          "lysine": "Lysin",\n          "arginine": "Arginin",\n          "histidine": "Histidin"\n        },\n        "mutations_menu": {\n          "substitution_mutation": "Substitusjonsmutasjon",\n          "insertion_mutation": "Insersjonsmutasjon",\n          "deletion_mutation": "Delesjonsmutasjon",\n          "insert": "Sett inn"\n        }\n      },\n      "sensor": {\n        "select_sensor": "Velg sensor",\n        "select_sensor_type": "Velg sensortype...",\n        "reading": "Avlesning:",\n        "zero": "Null",\n        "zeroing": "Nullstilling...",\n        "loading_sensor": "Laster sensor...",\n        "choose_sensor_title": "Velg en sensor:",\n        "connect": "Koble til",\n        "address_labquest2": "adressen til LabQuest2",\n        "messages": {\n          "ready": "Klar til innsamling.",\n          "no_sensors": "Finner ingen sensorer.",\n          "no_devices": "Ingen enheter er tilkoblet.",\n          "not_connected": "Ikke tilkoblet.",\n          "connecting": "Kobler til...",\n          "connection_failed": "Tilkobling feilet.",\n          "connection_failed_alert": "Concord Consortium Sensor Connector er ikke installert eller kjører ikke. Vennligst __click_here_link__ for instruksjoner om hvordan du bruker Sensor Connector.",\n          "connection_failed_labquest2_alert": "Kunne ikke koble til LabQuest2. Vennligst sjekk at adressen er riktig, og at LabQuest2 kan nås fra denne datamaskinen",\n          "tare_labquest2_alert": "LabQuest2 må samle inn data i sanntid for å kunne nullstilles. Sett enten opp en ny måling, eller klikk målerikonet oppe til venstre.",\n          "click_here": "klikk her",\n          "connected": "Tilkoblet.",\n          "connected_start_labquest2": "Tilkoblet. Trykk start på LabQuest2 for å begynne.",\n          "starting_data_collection": "Starter datainnsamling...",\n          "error_starting_data_collection": "Feil ved start av datainnsamling.",\n          "error_starting_data_collection_alert": "Kunne ikke starte datainnsamling. Forsikre deg om at (fjernstart) er aktivert.",\n          "collecting_data": "Samler inn data.",\n          "collecting_data_stop_labquest2": "Samler inn data. Trykk stopp på LabQuest2 for å avslutte.",\n          "no_data": "Ingen data er tilgengelig.",\n          "no_data_alert": "Sensorkonnektoren ser ikke ut til å levere data fra den tilkoblede enheten",\n          "no_data_labquest2_alert": "LabQuest ser ikke ut til å rapportere data fra den tilkoblede enheten",\n          "canceling_data_collection": "Avbryter datainnsamling...",\n          "error_canceling_data_collection": "Feil ved avbrytelse av datainnsamling.",\n          "error_canceling_data_collection_alert": "Kunne ikke avbryte datainnsamling. Sjekk at (fjernstart) er aktivert",\n          "stopping_data_collection": "Stopper datainnsamling...",\n          "error_stopping_data_collection": "Feil ved stopp av datainnsamling.",\n          "error_stopping_data_collection_alert": "Kunne ikke stoppe datainnsamling. Sjekk at (fjernstart) er aktivert",\n          "data_collection_stopped": "Datainnsamling stoppet.",\n          "data_collection_complete": "Datainnsamling er fullført.",\n          "disconnected": "Koblet fra.",\n          "java_applet_error": "Det ser ut som javaappleter ikke kan kjøre i nettleseren. Hvis du kan rette på dette, last siden på nytt for å bruke sensoren",\n          "java_applet_not_loading": "Sensorappleten ser ikke ut til å virke. Hvis du kan rette på dette, kan du laste siden på nytt for å bruke sensoren",\n          "unexpected_error": "Det oppsto en uventet feil da sensoren ble tilkoblet.",\n          "sensor_not_attached": " __sensor_name__ ser ikke ut til å være tilkoblet. Prøv å koble til på nytt, og klikk på \\"$t(sensor.messages.try_again)\\".",\n          "sensor_or_device_unplugged": " __sensor_or_device_name__ ble frakoblet. Prøv å koble til på nytt, og klikk på \\"$t(sensor.messages.try_again)\\".",\n          "try_again": "Prøv igjen",\n          "cancel": "Avbryt"\n        },\n        "measurements": {\n          "sensor_reading": "Sensoravlesning",\n          "time": "Tid",\n          "distance": "Avstand",\n          "acceleration": "Akselerasjon",\n          "altitude": "Høyde",\n          "angle": "Vinkel",\n          "CO2": "CO₂",\n          "CO2_concentration": "CO₂-konsentrasjon",\n          "charge": "Ladning",\n          "conductivity": "Ledningsevne",\n          "current": "Strøm",\n          "dissolved_oxygen": "OO",\n          "flow_rate": "Gjennomstrømningsmengde",\n          "fluorescence_405_nm": "Fluorescens 405 nm",\n          "fluorescence_500_nm": "Fluorescens 500 nm",\n          "force": "Kraft",\n          "intensity": "Intensitet",\n          "light_level": "Lysnivå",\n          "light_intensity": "Lysintensitet",\n          "magnetic_field": "Magnetfelt",\n          "position": "Posisjon",\n          "potential": "Potensial",\n          "pressure": "Trykk",\n          "signal": "Signal",\n          "sound_level": "Lydnivå",\n          "speed": "Fart",\n          "temperature": "Temperatur",\n          "transmittance": "Transmittans",\n          "turbidity": "Turbiditet",\n          "UV_intensity": "UV-intensitet",\n          "velocity": "Hastighet",\n          "volume": "Volum",\n          "pH": "pH",\n          "acidity": "Surhet",\n          "O2_concentration": "O₂-konsentrasjon"\n        },\n        "names": {\n          "sensor": "sensor",\n          "no_sensor": "(ingen sensor)",\n          "light": "Lys",\n          "motion": "Bevegelse",\n          "accelerometer": "Akselerometer",\n          "dissolved_oxygen": "Oppløst oksygen",\n          "pressure": "Trykk",\n          "charge_sensor": "Ladningssensor",\n          "voltage": "Spenning",\n          "pH": "pH",\n          "CO2_gas": "CO₂-gass",\n          "colorimeter": "Kolorimeter",\n          "conductivity": "Ledningsevne",\n          "current": "Strøm",\n          "temperature": "Temperatur",\n          "force": "Kraft",\n          "anemometer": "Anemometer",\n          "hand_dynamometer": "Hånddynamometer",\n          "heart_rate": "Hjertefrekvens",\n          "magnetic_field": "Magnetfelt",\n          "rotary_motion": "Rotasjon",\n          "linear_position_sensor": "Sensor for lineær posisjon",\n          "sound_level": "Lydnivå",\n          "spectrophotometer": "Spektrofotometer",\n          "spirometer": "Spirometer",\n          "turbidity": "Turbiditet",\n          "UV_sensor": "UV-sensor",\n          "drop_counter": "Dråpeteller",\n          "altitude": "Høyde",\n          "goMotion": "GoMotion",\n          "goTemp": "GoIO temperatursensor",\n          "goLinkTemperature": "GoIO temperatursensor",\n          "goLinkLight": "GoIO lyssensor",\n          "goLinkForce": "GoIO kraftsensor",\n          "goLinkPH": "GoIO pH-sensor",\n          "goLinkCO2": "GoIO CO₂-sensor",\n          "goLinkO2": "GoIO CO₂-sensor",\n          "labQuestMotion": "LabQuest bevegelsessensor",\n          "labQuestTemperature": "LabQuest temperatursensor",\n          "labQuestLight": "LabQuest lyssensor",\n          "labQuestForce": "LabQuest kraftsensor",\n          "labQuestPH": "LabQuest pH-sensor",\n          "labQuestCO2": "LabQuest CO₂-sensor",\n          "labQuestO2": "LabQuest O₂-sensor"\n        }\n      }\n    }\n  },\n  "nn-NO": {\n    "translation": {\n      "banner": {\n        "about": "Om simuleringa",\n        "about_tooltip": "Brukarrettleiing",\n        "share": "Del",\n        "share_tooltip": "Del med e-post, melding eller innbygging",\n        "lang_tooltip": "Vel språk",\n        "reload_tooltip": "Last simuleringa på nytt",\n        "help_tooltip": "Vis hjelpetekstar",\n        "credits_tooltip": "Lær meir om Concord Consortium",\n        "fullscreen_tooltip": "Slå fullskjermvising av/på",\n        "video_play_pause_tooltip": "Start og stopp simuleringa",\n        "video_reset_tooltip": "Tilbakestill simuleringa",\n        "video_step_back_tooltip": "Gå eit steg bakover",\n        "video_step_forward_tooltip": "Gå eit steg framover",\n        "text_start": "Start",\n        "text_start_tooltip": "Start simuleringa eller datainnsamlinga",\n        "text_stop": "Stopp",\n        "text_stop_tooltip": "Stopp simuleringa eller datainnsamlinga",\n        "text_reset": "Tilbakestill",\n        "text_reset_tooltip": "Tilbakestill simuleringa eller datainnsamlinga"\n      },\n      "dialog": {\n        "close_tooltip": "Lukk"\n      },\n      "about_dialog": {\n        "title": "Om: __interactive_title__"\n      },\n      "share_dialog": {\n        "title": "-Del: __interactive_title__",\n        "link": "lenke",\n        "paste_email_im": "Lim inn denne __link__ i ein e-post eller melding.",\n        "paste_html": "Lim inn HTML for innbygging på ein nettstad eller ein blogg.",\n        "select_size": "Vel storleik:",\n        "size_larger": "__val__% større",\n        "size_actual": "faktisk",\n        "size_smaller": "__val__% mindre"\n      },\n      "credits_dialog": {\n        "title": "Informasjon om: __interactive_title__",\n        "credits_text": "Denne simuleringa er laga av __CC_link__ med bruk av __Next_Gen_MW_link__ programvare, finanisert av ei løyving frå __Google_link__.",\n        "shareable_ver": "simuleringa kan delast",\n        "find_shareable": "Du finn ein __shareable_ver_link__ av denne simuleringa, saman med dusinvis andre open-source simuleringar for vitskap, matematikk og teknologi på __concord_org_link__."\n      },\n      "copyright": {\n        "copyright": "Copyright",\n        "all_rights_reserved": "Alle rettar reservert.",\n        "license": "Denne programvara er lisensiert under __MIT_link__ eller lisens.",\n        "attribution": "Vær venleg å referere til Concord Consortium og URLen __concord_org_link__."\n      },\n      "md2d": {\n        "heatbath_icon_tooltip": "Varmebad er på",\n        "ke_icon_tooltip": "Kinetisk energigradient",\n        "invalid_object_position_alert": "You can\'t drop the object there.",\n        "aminoacid_menu": {\n          "hydrophobic": "Hydrofob",\n          "hydrophilic": "Hydrofil",\n          "glycine": "Glysin",\n          "alanine": "Alanin",\n          "valine": "Valin",\n          "leucine": "Leucin",\n          "isoleucine": "Isoleucin",\n          "phenylalanine": "Fenylalanin",\n          "proline": "Prolin",\n          "tryptophan": "Tryptofan",\n          "methionine": "Metionin",\n          "cysteine": "Cystin",\n          "tyrosine": "Tyrosin",\n          "asparagine": "Aspargin",\n          "glutamine": "Glutamin",\n          "serine": "Serin",\n          "threonine": "Threonin",\n          "asparticacid": "Asparginsyre",\n          "glutamicacid": "Glutaminsyre",\n          "lysine": "Lysin",\n          "arginine": "Arginin",\n          "histidine": "Histidin"\n        },\n        "mutations_menu": {\n          "substitution_mutation": "Substitusjonsmutasjon",\n          "insertion_mutation": "Insersjonsmutasjon",\n          "deletion_mutation": "Delesjonsmutasjon",\n          "insert": "Sett inn"\n        }\n      },\n      "sensor": {\n        "select_sensor": "Vel sensor",\n        "select_sensor_type": "Vel sensortype...",\n        "reading": "Avlesing:",\n        "zero": "Null",\n        "zeroing": "Nullstilling...",\n        "loading_sensor": "Lastar sensor...",\n        "choose_sensor_title": "Vel en sensor:",\n        "connect": "Kople til",\n        "address_labquest2": "adressen til LabQuest2",\n        "messages": {\n          "ready": "Klar til innsamling.",\n          "no_sensors": "Finn ingen sensorer.",\n          "no_devices": "Inga eining er kopla til.",\n          "not_connected": "Ikkje tilkopla.",\n          "connecting": "Kopla til...",\n          "connection_failed": "Tilkopling feila.",\n          "connection_failed_alert": "Concord Consortium Sensor Connector er ikke installert eller kjører ikke. Vær venleg __click_here_link__ for, om naudsynt, å laste ned eit installasjonsprogram for sensortilkoplinga.",\n          "connection_failed_labquest2_alert": "Kunne ikkje kople til LabQuest2. Vær venleg, sjekk at adressen er rett, og at LabQuest2 kan nåast frå denne datamaskina",\n          "tare_labquest2_alert": "LabQuest2 må samle inn data i sann tid for å kunne nullstillast. Sett anten opp en ny måling, eller klikk målårikonet oppe til venstre.",\n          "click_here": "klikk her",\n          "connected": "Tilkopla.",\n          "connected_start_labquest2": "Tilkopla. Trykk start på LabQuest2 for å byrje.",\n          "starting_data_collection": "Startar datainnsamling...",\n          "error_starting_data_collection": "Feil ved start av datainnsamling.",\n          "error_starting_data_collection_alert": "Kunne ikkje starte datainnsamling. Forsikre deg om at (fjernstart) er aktivert.",\n          "collecting_data": "Samlar inn data.",\n          "collecting_data_stop_labquest2": "Samlar inn data. Trykk stopp på LabQuest2 for å avslutte.",\n          "no_data": "Ingen data er tilgengelege.",\n          "no_data_alert": "Sensorkonnektoren ser ikkje ut til å levere data frå den tilkopla eininga",\n          "no_data_labquest2_alert": "LabQuest ser ikkje ut til å rapportere data frå den tilkopla eininga",\n          "canceling_data_collection": "Avbryt datainnsamlinga...",\n          "error_canceling_data_collection": "Feil på avbrytinga av datainnsamlinga.",\n          "error_canceling_data_collection_alert": "Kunne ikkje avbryte datainnsamlinga. Sjekk at (fjernstart) er aktivert",\n          "stopping_data_collection": "Stopper datainnsamlinga...",\n          "error_stopping_data_collection": "Feil ved stopp av datainnsamlinga.",\n          "error_stopping_data_collection_alert": "Kunne ikkje stoppe datainnsamlinga. Sjekk at (fjernstart) er aktivert",\n          "data_collection_stopped": "Datainnsamlinga stoppa.",\n          "data_collection_complete": "Datainnsamlinga er fullført.",\n          "disconnected": "Kopla frå.",\n          "java_applet_error": "Det ser ut som javaappleter ikkje kan køyre i nettlesaren. Hvis du kan rette på dette, last inn sida på nytt for å bruke sensoren",\n          "java_applet_not_loading": "Sensorappleten ser ikkje ut til å virke. Hvis du kan rette på dette, kan du laste inn sida på nytt for å bruke sensoren",\n          "unexpected_error": "Det oppsto ein uventa feil då sensoren vart tilkopla.",\n          "sensor_not_attached": " __sensor_name__ ser ikkje ut til å vere tilkopla. Prøv å kople til på nytt, og klikk på \\"$t(sensor.messages.try_again)\\".",\n          "sensor_or_device_unplugged": " __sensor_or_device_name__ ble frakopla. Prøv å kople til på nytt, og klikk på \\"$t(sensor.messages.try_again)\\".",\n          "try_again": "Prøv igjen",\n          "cancel": "Avbryt"\n        },\n        "measurements": {\n          "sensor_reading": "Sensoravlesing",\n          "time": "Tid",\n          "distance": "Avstand",\n          "acceleration": "Akselerasjon",\n          "altitude": "Høgd",\n          "angle": "Vinkel",\n          "CO2": "CO₂",\n          "CO2_concentration": "CO₂-konsentrasjon",\n          "charge": "Ladning",\n          "conductivity": "Leiingsevne",\n          "current": "Strøm",\n          "dissolved_oxygen": "OO",\n          "flow_rate": "Gjennomstrømmingsmengd",\n          "fluorescence_405_nm": "Fluorescens 405 nm",\n          "fluorescence_500_nm": "Fluorescens 500 nm",\n          "force": "Kraft",\n          "intensity": "Intensitet",\n          "light_level": "Lysnivå",\n          "light_intensity": "Lysintensitet",\n          "magnetic_field": "Magnetfelt",\n          "position": "Posisjon",\n          "potential": "Potensial",\n          "pressure": "Trykk",\n          "signal": "Signal",\n          "sound_level": "Lydnivå",\n          "speed": "Fart",\n          "temperature": "Temperatur",\n          "transmittance": "Transmittans",\n          "turbidity": "Turbiditet",\n          "UV_intensity": "UV-intensitet",\n          "velocity": "Hastigheit",\n          "volume": "Volum",\n          "pH": "pH",\n          "acidity": "Surleik",\n          "O2_concentration": "O₂-konsentrasjon"\n        },\n        "names": {\n          "sensor": "sensor",\n          "no_sensor": "(ingen sensor)",\n          "light": "Lys",\n          "motion": "Rørsle",\n          "accelerometer": "Akselerometer",\n          "dissolved_oxygen": "Løyst oksygen",\n          "pressure": "Trykk",\n          "charge_sensor": "Ladingssensor",\n          "voltage": "Spenning",\n          "pH": "pH",\n          "CO2_gas": "CO₂-gass",\n          "colorimeter": "Kolorimeter",\n          "conductivity": "Leiingsevne",\n          "current": "Strøm",\n          "temperature": "Temperatur",\n          "force": "Kraft",\n          "anemometer": "Anemometer",\n          "hand_dynamometer": "Handdynamometer",\n          "heart_rate": "Hjertefrekvens",\n          "magnetic_field": "Magnetfelt",\n          "rotary_motion": "Rotasjon",\n          "linear_position_sensor": "Sensor for lineær posisjon",\n          "sound_level": "Lydnivå",\n          "spectrophotometer": "Spektrofotometer",\n          "spirometer": "Spirometer",\n          "turbidity": "Turbiditet",\n          "UV_sensor": "UV-sensor",\n          "drop_counter": "Dropeteljar",\n          "altitude": "Høgd",\n          "goMotion": "GoMotion",\n          "goTemp": "GoIO temperatursensor",\n          "goLinkTemperature": "GoIO temperatursensor",\n          "goLinkLight": "GoIO lyssensor",\n          "goLinkForce": "GoIO kraftsensor",\n          "goLinkPH": "GoIO pH-sensor",\n          "goLinkCO2": "GoIO CO₂-sensor",\n          "goLinkO2": "GoIO CO₂-sensor",\n          "labQuestMotion": "LabQuest rørslesensor",\n          "labQuestTemperature": "LabQuest temperatursensor",\n          "labQuestLight": "LabQuest lyssensor",\n          "labQuestForce": "LabQuest kraftsensor",\n          "labQuestPH": "LabQuest pH-sensor",\n          "labQuestCO2": "LabQuest CO₂-sensor",\n          "labQuestO2": "LabQuest O₂-sensor"\n        }\n      }\n    }\n  },\n  "pt-BR": {\n    "translation": {\n      "banner": {\n        "about": "Sobre",\n        "about_tooltip": "Instruções",\n        "share": "Compartilhar",\n        "share_tooltip": "Compartilha por e-mail, mensagem ou inclui em site",\n        "lang_tooltip": "Seleciona a língua",\n        "reload_tooltip": "Recarrega o interativo",\n        "help_tooltip": "Mostra dicas",\n        "credits_tooltip": "Saber mais sobre The Concord Consortium",\n        "fullscreen_tooltip": "Alterna para tela cheia",\n        "video_play_pause_tooltip": "Inicia / pausa a simulação",\n        "video_reset_tooltip": "Reinicia a simulação",\n        "video_step_back_tooltip": "Passo atrás",\n        "video_step_forward_tooltip": "Passo adiante",\n        "text_start": "Iniciar",\n        "text_start_tooltip": "Inicia a simulação ou coleta de dados",\n        "text_stop": "Parar",\n        "text_stop_tooltip": "Para a simulação ou coleta de dados",\n        "text_reset": "Reiniciar",\n        "text_reset_tooltip": "Reinicia a simulação ou coleta de dados",\n        "text_new_run": "Nova corrida",\n        "text_new_run_tooltip": "Prepara nova corrida experimental",\n        "text_analyze_data": "Analisar dados",\n        "text_analyze_data_tooltip": "Envia dados experimentais para CODAP"\n      },\n      "dialog": {\n        "close_tooltip": "Fecha"\n      },\n      "about_dialog": {\n        "title": "Sobre: __interactive_title__"\n      },\n      "share_dialog": {\n        "title": "Compartilhar: __interactive_title__",\n        "link": "link",\n        "paste_email_im": "Cole este __link__ no email ou mensagem.",\n        "paste_html": "Cole o HTML para incluir em site ou blog.",\n        "select_size": "Selecione o tamanho:",\n        "size_larger": "__val__% maior",\n        "size_actual": "real",\n        "size_smaller": "__val__% menor"\n      },\n      "credits_dialog": {\n        "title": "Créditos: __interactive_title__",\n        "credits_text": "Este interativo foi criado pelo __CC_link__ usando nosso __Next_Gen_MW_link__ software, com o apoio financeiro do __Google_link__.",\n        "shareable_ver": "versão compartilhável",\n        "find_shareable": "Encontre uma __shareable_ver_link__ deste interativo e mais dezenas de outros interativos de código aberto para ciência, matemática e engenharia em __concord_org_link__."\n      },\n      "copyright": {\n        "copyright": "Copyright",\n        "all_rights_reserved": "Todos direitos reservados.",\n        "license": "O software é licenciado sob a licença __MIT_link__.",\n        "attribution": "Por favor, forneça a atribuição ao Concord Consortium and a URL __concord_org_link__."\n      },\n      "md2d": {\n        "heatbath_icon_tooltip": "Banho de calor ativo",\n        "ke_icon_tooltip": "Gradiente de energia cinética",\n        "invalid_object_position_alert": "You can\'t drop the object there.",\n        "aminoacid_menu": {\n          "hydrophobic": "Hidrofóbico",\n          "hydrophilic": "Hidrofílico",\n          "glycine": "Glicina",\n          "alanine": "Alanina",\n          "valine": "Valina",\n          "leucine": "Leucina",\n          "isoleucine": "Isoleucina",\n          "phenylalanine": "Phenilalanina",\n          "proline": "Prolina",\n          "tryptophan": "Triptofano",\n          "methionine": "Metionina",\n          "cysteine": "Cisteína",\n          "tyrosine": "Tirosina",\n          "asparagine": "Asparagina",\n          "glutamine": "Glutamina",\n          "serine": "Serina",\n          "threonine": "Treonina",\n          "asparticacid": "Ácido aspártico",\n          "glutamicacid": "Ácido glutâmico",\n          "lysine": "Lisina",\n          "arginine": "Arginina",\n          "histidine": "Histidina"\n        },\n        "mutations_menu": {\n          "substitution_mutation": "Mutação de substituição",\n          "insertion_mutation": "Mutação de inserção",\n          "deletion_mutation": "Mutação de deleção",\n          "insert": "Inserir"\n        }\n      },\n      "sensor": {\n        "select_sensor": "Selecione o sensor",\n        "select_sensor_type": "Selecione o tipo de sensor...",\n        "reading": "Leitura:",\n        "zero": "Zero",\n        "zeroing": "Zerando...",\n        "loading_sensor": "Carregando sensor...",\n        "choose_sensor_title": "Selecione o sensor:",\n        "connect": "Conectar",\n        "address_labquest2": "endereço do LabQuest2",\n        "messages": {\n          "ready": "Pronto para coletar.",\n          "ready_nocontrol": "Por favor pare o coletor de dados __controlling_client__ para coletar dados aqui.",\n          "ready_nocontrol_noname": "Por favor pare o outro coletor de dados ativo para coletar dados aqui.",\n          "no_sensors": "Nenhum sensor encontrado.",\n          "no_devices": "Nenhum dispositivo plugado.",\n          "not_connected": "Não contectado.",\n          "connecting": "Conectando...",\n          "connection_failed": "Conexão falhou.",\n          "connection_in_progress": "Conectando-se a seus sensores. Se uma mensagem surge sobre sensorconnector.concord.org, por favor, aceite -o",\n          "connection_failed_alert": "O Conector de Sensores do Concord Consortium não está instalado ou não está funcionando. Por favor __click_here_link__ obter instruções sobre a utilização do Conector de Sensores.",\n          "connection_failed_labquest2_alert": "Não foi possível conectar ao LabQuest2. Por favor verifique se o endereço está certo e se o LabQuest2 pode ser alcançado deste computador",\n          "tare_labquest2_alert": "O LabQuest2 precisa conectar dados ao vivo para zerar. Inicie uma nova corrida no LabQuest2 ou clique no ícone do medidor no alto à esquerda.",\n          "click_here": "clique aqui",\n          "connected": "Conectado.",\n          "connected_start_labquest2": "Conectado. Aperte iniciar no seu LabQuest2 to começar.",\n          "connected_start_sensorconnector": "Por favor pare o coletor de dados __controlling_client__ para coletar dados aqui.",\n          "connected_start_sensorconnector_noname": "Por favor pare o outro coletor de dados ativo para coletar dados aqui.",\n          "starting_data_collection": "Iniciando coleta de dados...",\n          "error_starting_data_collection": "Erro ao iniciar a coleta de dados.",\n          "error_starting_data_collection_alert": "Não foi possível iniciar a coleta de dados. Verifique se (remote starting) está habilitado",\n          "collecting_data": "Coletando dados.",\n          "collecting_data_stop_labquest2": "Coletando dados. Pressione parar no seu LabQuest2 para encerrar.",\n          "collecting_data_stop_sensorconnector": "Coletando dados.",\n          "no_data": "Não há dados disponíveis.",\n          "no_data_alert": "O Conector de Sensores parece não estar reportando dados ao dispositivo plugado",\n          "no_data_labquest2_alert": "The LabQuest parece não estar reportando dados ao dispositivo plugado",\n          "canceling_data_collection": "Cancelando coleta de dados...",\n          "error_canceling_data_collection": "Erro ao cancelar a coleta de dados.",\n          "error_canceling_data_collection_alert": "Não foi possível cancelar a coleta de dados. Verifique se (remote starting) está habilitado",\n          "stopping_data_collection": "Interrompendo a coleta de dados...",\n          "error_stopping_data_collection": "Erro ao interromper a coleta de dados.",\n          "error_stopping_data_collection_alert": "Não foi possível interromper a coleta de dados. Verifique se (remote starting) está habilitado",\n          "data_collection_stopped": "Coleta de dados interrompida.",\n          "data_collection_complete": "Coleta de dados completa.",\n          "disconnected": "Desconectado.",\n          "java_applet_error": "Parece que applets Java não podem rodar no seu navegador. Se você puder consertar isso, recarregue a página para usar o sensor.",\n          "java_applet_not_loading": "O applet do sensor parece não estar carregando. Se você puder consertar isso, recarregue a página para usar o sensor.",\n          "unexpected_error": "Houve um erro inesperado ao conectar com o sensor.",\n          "sensor_not_attached": "O __sensor_name__ parece não estar conectado. Tente reconectá-lo, e então clique \\"$t(sensor.messages.try_again)\\".",\n          "sensor_or_device_unplugged": "O __sensor_or_device_name__ estava deplugado. Tente reconectá-lo, e então clique \\"$t(sensor.messages.try_again)\\".",\n          "try_again": "Tentar de novo",\n          "cancel": "Cancelar"\n        },\n        "measurements": {\n          "sensor_reading": "Leitura do sensor",\n          "time": "Tempo",\n          "distance": "Distância",\n          "acceleration": "Aceleração",\n          "altitude": "Altitude",\n          "angle": "Ângulo",\n          "CO2": "CO₂",\n          "CO2_concentration": "Concentração de CO₂",\n          "charge": "Carga",\n          "conductivity": "Condutividade",\n          "current": "Corrente",\n          "dissolved_oxygen": "OD",\n          "flow_rate": "Taxa de fluxo",\n          "fluorescence_405_nm": "Fluorescência a 405 nm",\n          "fluorescence_500_nm": "Fluorescência a 500 nm",\n          "force": "Força",\n          "intensity": "Intensidade",\n          "light_level": "Nível de luz",\n          "light_intensity": "Intensidade de luz",\n          "magnetic_field": "Campo magnético",\n          "position": "Posição",\n          "potential": "Potencial",\n          "pressure": "Pressão",\n          "signal": "Sinal",\n          "sound_level": "Nível de som",\n          "speed": "Velocidade",\n          "temperature": "Temperatura",\n          "transmittance": "Transmitância",\n          "turbidity": "Turbidez",\n          "UV_intensity": "Intensidade UV",\n          "velocity": "Velocidade",\n          "volume": "Volume",\n          "pH": "pH",\n          "acidity": "Acidez",\n          "O2_concentration": "Concentração de O₂"\n        },\n        "names": {\n          "sensor": "sensor",\n          "no_sensor": "(sem sensor)",\n          "light": "Luz",\n          "motion": "Movimento",\n          "accelerometer": "Acelerômetro",\n          "dissolved_oxygen": "Oxigênio Dissolvido",\n          "pressure": "Pressão",\n          "charge_sensor": "Sensor de Carga",\n          "voltage": "Voltagem",\n          "pH": "pH",\n          "CO2_gas": "Gas CO₂",\n          "colorimeter": "Colorímetro",\n          "conductivity": "Condutividade",\n          "current": "Corrente",\n          "temperature": "Temperatura",\n          "force": "Força",\n          "anemometer": "Anemômetro",\n          "hand_dynamometer": "Dinamômetro de Mão",\n          "heart_rate": "Frequência Cardíaca",\n          "magnetic_field": "Campo Magnético",\n          "rotary_motion": "Movimento de Rotação",\n          "linear_position_sensor": "Sensor de Posição Linear",\n          "sound_level": "Nível de Som",\n          "spectrophotometer": "Espectrofotômetro",\n          "spirometer": "Espirômetro",\n          "turbidity": "Turbidez",\n          "UV_sensor": "Sensor UV",\n          "drop_counter": "Contador de Gotas",\n          "altitude": "Altitude",\n          "goMotion": "GoMotion",\n          "goTemp": "Sensor de Temperatura GoIO",\n          "goLinkTemperature": "Sensor de Temperatura GoIO",\n          "goLinkLight": "Sensor de Luz GoIO",\n          "goLinkForce": "Sensor de Força GoIO",\n          "goLinkPH": "Sensor de pH GoIO",\n          "goLinkCO2": "Sensor de  CO₂ GoIO",\n          "goLinkO2": "Sensor de  O₂ GoIO",\n          "labQuestMotion": "Sensor de Movimento LabQuest",\n          "labQuestTemperature": "Sensor de Temperatura LabQuest",\n          "labQuestLight": "Sensor de Luz LabQuest",\n          "labQuestForce": "Sensor de Força LabQuest",\n          "labQuestPH": "Sensor de pH LabQuest",\n          "labQuestCO2": "Sensor de CO₂ LabQuest",\n          "labQuestO2": "Sensor de O₂ LabQuest"\n        }\n      }\n    }\n  },\n  "cs-CZ": {\n    "translation": {\n      "banner": {\n        "about": "O simulaci",\n        "about_tooltip": "Pokyny",\n        "share": "Sdílet",\n        "share_tooltip": "Sdílet pomocí e-mailu, IM nebo vložení do webové stránky",\n        "lang_tooltip": "Vybrat jazyk",\n        "reload_tooltip": "Opakovat simulaci",\n        "help_tooltip": "Zobrazit nápovědu",\n        "credits_tooltip": "Dozvědět se více o The Concord Consortium",\n        "fullscreen_tooltip": "Režim celé obrazovky",\n        "video_play_pause_tooltip": "Start / pauza simulace",\n        "video_reset_tooltip": "Obnova simulace",\n        "video_step_back_tooltip": "Krok zpět",\n        "video_step_forward_tooltip": "Krok vpřed",\n        "text_start": "Start",\n        "text_start_tooltip": "Start simulace nebo sběru dat",\n        "text_stop": "Stop",\n        "text_stop_tooltip": "Zastavit simulaci nebo sběr dat",\n        "text_reset": "Obnovit",\n        "text_reset_tooltip": "Obnovit simulaci nebo sběr dat",\n        "text_new_run": "Nový pokus",\n        "text_new_run_tooltip": "Nastavení nového pokusu",\n        "text_analyze_data": "Analyzovat data",\n        "text_analyze_data_tooltip": "Poslat data z experimentu do CODAP"\n      },\n      "dialog": {\n        "close_tooltip": "Zavřít"\n      },\n      "about_dialog": {\n        "title": "O simulaci: __interactive_title__"\n      },\n      "share_dialog": {\n        "title": "Sdílet: __interactive_title__",\n        "link": "odkaz",\n        "paste_email_im": "Vložit __link__ do e-mailu nebo IM.",\n        "paste_html": "HTML kód pro vložení do webové stránky nebo blogu",\n        "select_size": "Vybrat velikost:",\n        "size_larger": "__val__% vetší",\n        "size_actual": "současná",\n        "size_smaller": "__val__% menší"\n      },\n      "credits_dialog": {\n        "title": "Credits: __interactive_title__",\n        "credits_text": "Tato simulace byla vytvořena pomocí __CC_link__ využívající našeho __Next_Gen_MW_link__ softwaru. Práce byla financována z grantu __Google_link__.",\n        "shareable_ver": "Verze pro sdílení",\n        "find_shareable": "__shareable_ver_link__ s dalšími simulacemi z přírodních věd, matematiky a strojírenství je možné najít na __concord_org_link__."\n      },\n      "copyright": {\n        "copyright": "Copyright",\n        "all_rights_reserved": "Všechna práva vyhrazena.",\n        "license": "Software je licencován pod __MIT_link__.",\n        "attribution": "Prosím, zajistěte práva Concord Consortium a URL __concord_org_link__."\n      },\n      "md2d": {\n        "heatbath_icon_tooltip": "Vodní lázeň",\n        "ke_icon_tooltip": "Gradient kinetické energie",\n        "invalid_object_position_alert": "You can\'t drop the object there.",\n        "aminoacid_menu": {\n          "hydrophobic": "Hydrofobní",\n          "hydrophilic": "Hydrofilní",\n          "glycine": "Glycin",\n          "alanine": "Alanin",\n          "valine": "Valin",\n          "leucine": "Leucin",\n          "isoleucine": "Isoleucin",\n          "phenylalanine": "Fenylalanin",\n          "proline": "Prolin",\n          "tryptophan": "Tryptofan",\n          "methionine": "Methionin",\n          "cysteine": "Cystein",\n          "tyrosine": "Tyrosin",\n          "asparagine": "Asparagin",\n          "glutamine": "Glutamin",\n          "serine": "Serin",\n          "threonine": "Threonin",\n          "asparticacid": "Kyselina asparagová",\n          "glutamicacid": "Kyselina glutamová",\n          "lysine": "Lysin",\n          "arginine": "Arginin",\n          "histidine": "Histidin"\n        },\n        "mutations_menu": {\n          "substitution_mutation": "Substituční mutace",\n          "insertion_mutation": "Inzerce",\n          "deletion_mutation": "Delece",\n          "insert": "Vložení"\n        }\n      },\n      "sensor": {\n        "select_sensor": "Vybrat čidlo",\n        "select_sensor_type": "Vybrat druh čidla...",\n        "reading": "Hodnota:",\n        "zero": "Vynulovat",\n        "zeroing": "Nulování...",\n        "loading_sensor": "Nahrávání čidla...",\n        "choose_sensor_title": "Vybrat čidlo:",\n        "connect": "Připojeno",\n        "address_labquest2": "adresa LabQuest2",\n        "messages": {\n          "ready": "Připraven ke sběr dat.",\n          "ready_nocontrol": "Prosím, zastavte __controlling_client__ sběr dat, aby bylo možné sbírat data zde.",\n          "ready_nocontrol_noname": "Prosím, zastavte ostatní sběry dat, aby bylo možné sbírat data zde.",\n          "no_sensors": "Čidlo nenalezeno.",\n          "no_devices": "Není připojeno žádné zařízení.",\n          "not_connected": "Nepřipojeno.",\n          "connecting": "Připojování...",\n          "connection_in_progress": "Připojování čidel. Pokud se objeví zpráva o sensorconnector.concord.org, potvrďte ji, prosím.",\n          "connection_failed": "Připojení selhalo. __retry_link__",\n          "connection_failed_retry_link_text": "Zkusit znovu",\n          "connection_failed_alert": "Concord Consortium Sensor Connector není naistalován nebo spuštěn. Prosím, pro další instrukce k používání Sensor Connector __click_here_link__ .",\n          "connection_failed_labquest2_alert": "Nepodařilo se spojit s LabQuest2. Prosím, ověřte zda je adresa správná a jestli je možné se s LabQuest2 spojit z toho počítače.",\n          "tare_labquest2_alert": "Pro vynulování potřebuje LabQuest2 sbírat aktuální data. Buď nastavte nový pokus v LabQuest2, nebo klepněte na ikonu měření v levém horním rohu.",\n          "click_here": "Klepněte zde",\n          "connected": "Připojeno.",\n          "connected_start_labquest2": "Připojeno. Pro zahájení pokusu klepněte na start v LabQuest2.",\n          "connected_start_sensorconnector": "Prosím, zastavte __controlling_client__ sběr dat, aby bylo možné sbírat data zde.",\n          "starting_data_collection": "Začíná sběr dat...",\n          "error_starting_data_collection": "Chyba při zahájení sběru dat.",\n          "error_starting_data_collection_alert": "Nebylo možné zahájit sběr dat. Ujistěte se, že (remote starting) je povolený.",\n          "collecting_data": "Sbírám data.",\n          "collecting_data_stop_labquest2": "Sbírám data. Klikněte na stop v LabQuest2, aby se sběr ukončil.",\n          "collecting_data_stop_sensorconnector": "Sběr dat.",\n          "no_data": "Data nejsou k dispozici.",\n          "no_data_alert": "Sensor Connector nezaznamenává data ze zapojeného zařízení.",\n          "no_data_labquest2_alert": "LabQuest nezaznamenává data ze zapojeného zařízení.",\n          "canceling_data_collection": "Rušení sběru dat...",\n          "error_canceling_data_collection": "Chyba při rušení sběru dat.",\n          "error_canceling_data_collection_alert": "Není možné zrušit sběr dat. Ujistěte se, že (remote starting) je povolený.",\n          "stopping_data_collection": "Zastavování sběru dat...",\n          "error_stopping_data_collection": "Chyba při zastavování sběru dat.",\n          "error_stopping_data_collection_alert": "Není možné zastavit sběr dat. Ujistěte se, že (remote starting) je povolený.",\n          "data_collection_stopped": "Sběr dat zastaven.",\n          "data_collection_complete": "Sběr dat dokončen.",\n          "disconnected": "Odpojeno.",\n          "java_applet_error": "Java aplety nemohou být spuštěny v prohlížeči. Po opravě znovu načtěte stránku, aby bylo možné použít sezor.",\n          "java_applet_not_loading": "čidlo se nenačítá. Po opravě znovu načtěte stránku, aby bylo možné použít sezor.",\n          "unexpected_error": "Nastala neočekáváná chyba při připojování čidla.",\n          "sensor_not_attached": "__sensor_name__ není připojený. Zkuste ho připojit znovu a poté klikněte na \\"$t(sensor.messages.try_again)\\".",\n          "sensor_or_device_unplugged": " __sensor_or_device_name__ byl odpojen. Zkuste ho připojit znovu a poté klepněte na \\"$t(sensor.messages.try_again)\\".",\n          "try_again": "Zkusit znovu",\n          "cancel": "Zrušit"\n        },\n        "measurements": {\n          "sensor_reading": "Hodnota čidla",\n          "time": "Čas",\n          "distance": "Vzdálenost",\n          "acceleration": "Zrychlení",\n          "altitude": "Výška",\n          "angle": "Úhel",\n          "CO2": "CO2",\n          "CO2_concentration": "Koncentrace CO2",\n          "charge": "Náboj",\n          "conductivity": "Vodivost",\n          "current": "Proud",\n          "dissolved_oxygen": "DO - rozpuštěný kyslík",\n          "flow_rate": "Objemový průtok",\n          "fluorescence_405_nm": "Fluorescence 405 nm",\n          "fluorescence_500_nm": "Fluorescence 500 nm",\n          "force": "Síla",\n          "intensity": "Intenzita",\n          "light_level": "Množství světla",\n          "light_intensity": "Intenzita osvětlení",\n          "magnetic_field": "Magnetické pole",\n          "position": "Pozice",\n          "potential": "Potenciál",\n          "pressure": "Tlak",\n          "signal": "Signál",\n          "sound_level": "Hlasitost",\n          "speed": "Rychlost",\n          "temperature": "Teplota",\n          "transmittance": "Transmitance",\n          "turbidity": "Turbidita (zákal)",\n          "UV_intensity": "Intenzita UV záření",\n          "velocity": "Rychlost",\n          "volume": "Objem",\n          "pH": "pH",\n          "acidity": "Kyselost",\n          "O2_concentration": "Koncentrace O2"\n        },\n        "names": {\n          "sensor": "čidlo",\n          "no_sensor": "(žádné čidlo)",\n          "light": "Světlo",\n          "motion": "Pohyb",\n          "accelerometer": "Akcelerometer (čidlo zrychlení)",\n          "dissolved_oxygen": "Rozpuštěný kyslík",\n          "pressure": "Tlak",\n          "charge_sensor": "Elektroskop (čidlo náboje)",\n          "voltage": "Elektrické napětí",\n          "pH": "pH",\n          "CO2_gas": "CO2",\n          "colorimeter": "Kolorimetr",\n          "conductivity": "Vodivost",\n          "current": "Elektrický proud",\n          "temperature": "Teplota",\n          "force": "Síla",\n          "anemometer": "Anemometr",\n          "hand_dynamometer": "Ruční siloměr",\n          "heart_rate": "Srdeční tep",\n          "magnetic_field": "Magnetické pole",\n          "rotary_motion": "Rotační pohyb",\n          "linear_position_sensor": "Lineární poloha",\n          "sound_level": "Hlasitost",\n          "spectrophotometer": "Spektrofotometr",\n          "spirometer": "Spirometr",\n          "turbidity": "Turbidita (zákal)",\n          "UV_sensor": "Čidlo UV záření",\n          "drop_counter": "Čítač kapek",\n          "altitude": "Výška",\n          "goMotion": "GoMotion",\n          "goTemp": "GoIO teplotní čidlo",\n          "goLinkTemperature": "GoIO teplotní čidlo",\n          "goLinkLight": "GoIO světelné čidlo",\n          "goLinkForce": "GoIO čidlo pro měření síly",\n          "goLinkPH": "GoIO čidlo pH",\n          "goLinkCO2": "GoIO čidlo pro měžení CO2",\n          "goLinkO2": "GoIO čidlo pro měření O2",\n          "labQuestMotion": "LabQuest pohybové čidlo",\n          "labQuestTemperature": "LabQuest teplotní čidlo",\n          "labQuestLight": "LabQuest světelné čidlo",\n          "labQuestForce": "LabQuest čidlo pro měření síly",\n          "labQuestPH": "LabQuest čidlo pH",\n          "labQuestCO2": "LabQuest čidlo pro měření CO2",\n          "labQuestO2": "LabQuest čidlo pro měření O2"\n        }\n      }\n    }\n  },\n  "es": {\n    "translation": {\n      "banner": {\n        "about": "Acerca de",\n        "about_tooltip": "Instrucciones",\n        "share": "Compartir",\n        "share_tooltip": "Compartir a través de e-mail, MI o embeber en sitio web",\n        "lang_tooltip": "Elegir idioma",\n        "reload_tooltip": "Recargar el interactivo",\n        "help_tooltip": "Mostrar ayuda",\n        "credits_tooltip": "Saber más sobre The Concord Consortium",\n        "fullscreen_tooltip": "Cambiar a pantalla completa",\n        "video_play_pause_tooltip": "Iniciar / pausar la simulación",\n        "video_reset_tooltip": "Resetear la simulación",\n        "video_step_back_tooltip": "Un paso atrás",\n        "video_step_forward_tooltip": "Un paso adelante",\n        "text_start": "Iniciar",\n        "text_start_tooltip": "Iniciar la simulación o recolección de datos",\n        "text_stop": "Detener",\n        "text_stop_tooltip": "Detener la simulación o recolección de datos",\n        "text_reset": "Resetear",\n        "text_reset_tooltip": "Resetear la simulación o recolección de datos"\n      },\n      "dialog": {\n        "close_tooltip": "Cerrar"\n      },\n      "about_dialog": {\n        "title": "Acerca de: __interactive_title__"\n      },\n      "share_dialog": {\n        "title": "Compartir: __interactive_title__",\n        "link": "enlace",\n        "paste_email_im": "Pegar este __link__ en email o MI",\n        "paste_html": "Pegar HTML para embeber en sitio web o blog.",\n        "select_size": "Elegir tamaño:",\n        "size_larger": "__val__% más grande",\n        "size_actual": "actual",\n        "size_smaller": "__val__% más pequeño"\n      },\n      "credits_dialog": {\n        "title": "Créditos: __interactive_title__",\n        "credits_text": "Este interactivo fue creado por the __CC_link__ usando nuestro software __Next_Gen_MW_link__, con fondos provenientes de un gran de __Google_link__.",\n        "shareable_ver": "versión para compartir",\n        "find_shareable": "Buscar un __shareable_ver_link__ de este interactivo junto a docenas de otros interactivos de código abierto para ciencias, matemática e ingeniería en __concord_org_link__."\n      },\n      "copyright": {\n        "copyright": "Copyright",\n        "all_rights_reserved": "Todos los derechos reservados.",\n        "license": "Este software está licenciado bajo licencia de __MIT_link__.",\n        "attribution": "Por favor dar atribución a The Concord Consortium y la URL __concord_org_link__."\n      }\n    }\n  },\n  "ru": {\n    "translation": {\n      "banner": {\n        "about": "Об интерактиве",\n        "about_tooltip": "Инструкция",\n        "share": "Опубликовать ссылку",\n        "share_tooltip": "Поделиться данными в e-mail, IM или вставить их на страницу в web-страницу",\n        "lang_tooltip": "Выбрать язык",\n        "reload_tooltip": "Перезагрузить интерактив",\n        "help_tooltip": "Показать подсказку",\n        "credits_tooltip": "Подробнее о Конкорд Консорциуме",\n        "fullscreen_tooltip": "Переключить на полноэкранную версию",\n        "video_play_pause_tooltip": "Старт/пауза симуляции",\n        "video_reset_tooltip": "Перезагрузить симуляцию",\n        "video_step_back_tooltip": "Шаг назад",\n        "video_step_forward_tooltip": "Шаг вперед",\n        "text_start": "Старт",\n        "text_start_tooltip": "Запустить симуляции или сбор данных",\n        "text_stop": "Стоп",\n        "text_stop_tooltip": "Остановить симуляцию или сбор данных ",\n        "text_reset": "Перегрузить",\n        "text_reset_tooltip": " Перегрузить симуляцию или сбор данных",\n        "text_new_run": "Повторный запуск",\n        "text_new_run_tooltip": "Повторить запуск нового эксперимента",\n        "text_analyze_data": "Анализ данных",\n        "text_analyze_data_tooltip": "Послать данные опыта на CODAP"\n      },\n      "dialog": {\n        "close_tooltip": "Закрыть"\n      },\n      "about_dialog": {\n        "title": "Об интерактиве: __interactive_title__"\n      },\n      "share_dialog": {\n        "title": "Поделиться: __interactive_title__",\n        "link": " линк ",\n        "paste_email_im": "Вставить этот __link__ в e-mail или IM.",\n        "paste_html": " Скопировать HTML для вставки в web-site или блог.",\n        "select_size": "Выбрать размер:",\n        "size_larger": "__val__% больше",\n        "size_actual": "actual",\n        "size_smaller": "__val__% меньше"\n      },\n      "credits_dialog": {\n        "title": "Авторство: __interactive_title__",\n        "credits_text": "Данные интерактивные  учебные продукты были созданы __CC_link__ с использованием нашего __Next_Gen_MW_link__ программного продукта, при финансовой поддержке  за счет гранта от __Google_link__.",\n        "shareable_ver": "версия для обмена",\n        "find_shareable": "Найти __shareable_ver_link__ коллекцию интерактивных учебных продуктов наряду с десятками  других открытых программных продуктов по естественным наукам, математике и инжинирингу в материалах __concord_org_link__."\n      },\n      "copyright": {\n        "copyright": "Авторские права",\n        "all_rights_reserved": "Все права защищены.",\n        "license": "Лицензия на данный программный продукт предоставляется в соответствии с __MIT_link__ лицензией.",\n        "attribution": "Просьба при использовании данного продукта ссылаться на Конкорд Консорциум URL __concord_org_link__."\n      },\n      "md2d": {\n        "heatbath_icon_tooltip": "Тепловая баня активна",\n        "ke_icon_tooltip": "Градиент кинетической энергии",\n        "invalid_object_position_alert": "Нельзя сбросить объект здесь.",\n        "aminoacid_menu": {\n          "hydrophobic": "Гидрофобный",\n          "hydrophilic": "Гидрофильный",\n          "glycine": "Глицин",\n          "alanine": "Аланин",\n          "valine": "Валин",\n          "leucine": "Лейцин",\n          "isoleucine": "Изолейцин",\n          "phenylalanine": "Фенилаланин",\n          "proline": "Пролин",\n          "tryptophan": "Триптофан",\n          "methionine": "Метионин",\n          "cysteine": "Цистеин",\n          "tyrosine": "Тирозин",\n          "asparagine": "Аспарагин",\n          "glutamine": "Глутамин",\n          "serine": "Серин",\n          "threonine": "Треонин",\n          "asparticacid": "Аспартат",\n          "glutamicacid": "Глутамат",\n          "lysine": "Лизин",\n          "arginine": "Аргинин",\n          "histidine": "Гистидин"\n        },\n        "mutations_menu": {\n          "substitution_mutation": "Мутация: Замена нуклеотида",\n          "insertion_mutation": "Мутация: Вставка нуклеотида",\n          "deletion_mutation": " Мутация: Удаление нуклеотида ",\n          "insert": "Вставить"\n        }\n      },\n      "sensor": {\n        "select_sensor": "Выбрать датчик",\n        "select_sensor_type": "Выбрать тип датчика…",\n        "reading": "Съем данных:",\n        "zero": "Ноль",\n        "zeroing": "Выбор ноля...",\n        "loading_sensor": "Загрузка датчика...",\n        "choose_sensor_title": "Выбор датчика:",\n        "connect": "Соединить",\n        "address_labquest2": "адрес LabQuest2",\n        "messages": {\n          "ready": "Готов к сбору данных.",\n          "ready_nocontrol": "Пожалуйста остановите __controlling_client__ сборщик данных будет собирать данные здесь.",\n          "ready_nocontrol_noname": "Пожалуйста остановите все остальные активные сборщики данных, чтобы собрать данные здесь.",\n          "no_sensors": "Ни один датчик не найден.",\n          "no_devices": "Ни одно устройство не подключено.",\n          "not_connected": "Нет соединения.",\n          "connecting": "Идет подсоединение...",\n          "connection_in_progress": " Идет подсоединение к вашему датчику. Если придет сообщение от sensorconnector.concord.org, пожалуйста примите его.",\n          "connection_failed": "Подсоединения не произошло. __retry_link__",\n          " Подсоединение_failed_retry_link_text": "Повторить попытку",\n          "подсоединения _failed_внимание": "Программа для подсоединения датчиков Concord Consortium Sensor Connector либо не инсталлирована, либо не подключена. Пожалуйста __click_here_link__ для получения инструкции по использованию программы Sensor Connector.",\n          "connection_failed_labquest2_alert": "Не произошло подсоединение к LabQuest2. Пожалуйста убедитесь, в правильности адреса и в том, что LabQuest2 доступен на данном компьютере",\n          "tare_labquest2_alert": "LabQuest2 должен начать сбор данных, чтобы выставить значение ноля. Запустите новое измерение на LabQuest2 или нажмите на иконку измерительного устройства в левом верхнем углу экрана.",\n          "click_here": "Нажать здесь",\n          "connected": "Подсоединение произошло.",\n          "connected_start_labquest2": " Подсоединение произошло. Чтобы начать работу, нажмите кнопку Старт на вашем LabQuest2.",\n          "connected_start_sensorconnector": "Пожалуйста остановите __controlling_client__ сборщик данных чтобы собрать данные здесь.",\n          "connected_start_sensorconnector_noname": "Пожалуйста остановите  другие сборщики данных чтобы собрать данные здесь.",\n          "starting_data_collection": "Начать сбор данных...",\n          "ошибка_starting_data_collection": "Ошибка при запуске сбора данных.",\n          "error_starting_data_collection_alert": " Не запускается сбор данных. Убедитесь в том, что (удаленный старт) разрешен ",\n          "collecting_data": "Идет сбор данных.",\n          "collecting_data_stop_labquest2": " Идет сбор данных. Чтобы его завершит, нажмите кнопку Стоп на LabQuest2.",\n          "collecting_data_stop_sensorconnector": " Идет сбор данных.",\n          "no_data": "Данные не доступны.",\n          "no_data_alert": "Похоже, что The Sensor Connector не передает данные для подключенных устройств",\n          "no_data_labquest2_alert": " Похоже, что LabQuest не передает данные для подключенных устройств",\n          "canceling_data_collection": "Отмена сбора данных...",\n          "error_canceling_data_collection": "Ошибка при отмене сбора данных.",\n          "error_canceling_data_collection_alert": "Не получается отменить сбор данных. Убедитесь в том, что (удаленный старт) разрешен",\n          "stopping_data_collection": "Происходит остановка сбора данных...",\n          "error_stopping_data_collection": " Ошибка при остановке сбора данных.",\n          "error_stopping_data_collection_alert": "Не удалось остановить сбор данных. Убедитесь в том, что (удаленный старт) разрешен ",\n          "data_collection_stopped": "Сбор данных остановлен.",\n          "data_collection_complete": " Сбор данных завершен.",\n          "disconnected": "Произошло отсоединение.",\n          "java_applet_error": "Похоже на то, что Java апплеты не поддерживаются вашим браузером. Попытайтесь решить эту проблему, а затем перезагрузите страницу для того, чтобы использовать датчики",\n          "java_applet_not_loading": " Похоже на то, что апплеты датчиков не загружаются. Попытайтесь решить эту проблему, а затем перезагрузите страницу для того, чтобы использовать датчики",\n          "unexpected_error": "Произошла непредвиденная ошибка при подсоединении к датчику.",\n          "sensor_not_attached": "Похоже, что __sensor_name__ не прикрепиля. Пожалуйста повторите попытку и затем кликните на \\"$t(sensor.messages.try_again)\\".",\n          "датчик_or_device_не подключен": "The __sensor_or_device_name__ был отключен. Пожалуйста подключите его и затем кликните \\"$t(sensor.messages.try_again)\\".",\n          "try_again": "Повторить попытку",\n          "cancel": "Отменить"\n        },\n        "measurements": {\n          "sensor_reading": "Идет считывание датчика",\n          "time": "Время",\n          "distance": "Расстояние",\n          "acceleration": "Ускорение",\n          "altitude": "Высота над уровнем моря",\n          "angle": "Угол",\n          "CO2": "CO₂",\n          "CO2_concentration": "CO₂ Концентрация",\n          "charge": "Заряд",\n          "conductivity": "Проводимость",\n          "current": "Ток",\n          "dissolved_oxygen": "Растворенный кислород",\n          "flow_rate": "Скорость потока",\n          "fluorescence_405_nm": "Флюоресценция 405 nm",\n          "fluorescence_500_nm": "Флюоресценция 500 nm",\n          "force": "Сила",\n          "intensity": "Интенсивность",\n          "light_level": "Уровень освещенности",\n          "light_intensity": " Интенсивность освещенности ",\n          "magnetic_field": "Магнитное поле",\n          "position": "Расположение",\n          "potential": "Потенциал",\n          "pressure": "Давление",\n          "signal": "Сигнал",\n          "sound_level": "Уровень шума",\n          "speed": "Скорость",\n          "temperature": "Температура",\n          "transmittance": "Пропускание",\n          "turbidity": "Мутность",\n          "UV_intensity": "Интенсивность УФ",\n          "velocity": "Вектор скорости",\n          "volume": "Объем",\n          "pH": "рН",\n          "acidity": "Кислотность",\n          "O2_concentration": " Концентрация O₂"\n        },\n        "names": {\n          "sensor": "датчик",\n          "no_sensor": "(нет датчика)",\n          "light": "Освещенность",\n          "motion": "Перемещение",\n          "accelerometer": "Измеритель ускорения",\n          "dissolved_oxygen": "Растворенный кислород",\n          "pressure": "Давление",\n          "charge_sensor": "Сменить датчик",\n          "voltage": "Напряжение",\n          "pH": "рН",\n          "CO2_gas": "CO₂ газ",\n          "colorimeter": "Колориметр",\n          "conductivity": "Проводимость",\n          "current": "Ток",\n          "temperature": "Температура",\n          "force": "Сила",\n          "anemometer": "Анемометр",\n          "hand_dynamometer": "Ручной динамометр",\n          "heart_rate": "Частота сердечных сокращений",\n          "magnetic_field": "Магнитное поле",\n          "rotary_motion": "Угловое перемещение",\n          "linear_position_sensor": "Датчик прямолинейного перемещения",\n          "sound_level": "Уровень шума",\n          "spectrophotometer": "Спектрофотометр",\n          "spirometer": "Спирометр ",\n          "turbidity": "Мутность",\n          "UV_sensor": "УФ датчик ",\n          "drop_counter": "Счетчик капель",\n          "altitude": "Высота над уривнем моря",\n          "goMotion": "GoMotion",\n          "goTemp": "GoIO температурный датчик",\n          "goLinkTemperature": "GoIO температурный датчик",\n          "goLinkLight": "GoIO оптический датчик ",\n          "goLinkForce": "GoIO датчик силы ",\n          "goLinkPH": "GoIO pH датчик ",\n          "goLinkCO2": "GoIO CO₂ датчик ",\n          "goLinkO2": "GoIO O₂ датчик",\n          "labQuestMotion": "LabQuest датчик перемещения",\n          "labQuestTemperature": "LabQuest температурный датчик ",\n          "labQuestLight": "LabQuest оптический датчик ",\n          "labQuestForce": "LabQuest датчик силы ",\n          "labQuestPH": "LabQuest pH датчик ",\n          "labQuestCO2": "LabQuest CO₂ датчик ",\n          "labQuestO2": "LabQuest O₂ датчик"\n        }\n      }\n    }\n  }\n}';});
+define('text!locales/translations.json',[],function () { return '{\n  "en-US": {\n    "translation": {\n      "banner": {\n        "about": "About",\n        "about_tooltip": "Instructions",\n        "share": "Share",\n        "share_tooltip": "Share using e-mail, IM or embed in website",\n        "lang_tooltip": "Select language",\n        "reload_tooltip": "Reload interactive",\n        "help_tooltip": "Show help tips",\n        "credits_tooltip": "Learn more about The Concord Consortium",\n        "fullscreen_tooltip": "Toggle full-screen",\n        "video_play_pause_tooltip": "Start / pause the simulation",\n        "video_reset_tooltip": "Reset the simulation",\n        "video_step_back_tooltip": "Step back",\n        "video_step_forward_tooltip": "Step forward",\n        "text_start": "Start",\n        "text_start_tooltip": "Start the simulation or data collection",\n        "text_stop": "Stop",\n        "text_stop_tooltip": "Stop the simulation or data collection",\n        "text_reset": "Reset",\n        "text_reset_tooltip": "Reset the simulation or data collection",\n        "text_new_run": "New Run",\n        "text_new_run_tooltip": "Set up a new experiment run",\n        "text_analyze_data": "Analyze Data",\n        "text_analyze_data_tooltip": "Send data from the experiment to CODAP"\n      },\n      "dialog": {\n        "close_tooltip": "Close"\n      },\n      "about_dialog": {\n        "title": "About: __interactive_title__"\n      },\n      "share_dialog": {\n        "title": "Share: __interactive_title__",\n        "link": "link",\n        "paste_email_im": "Paste this __link__ in email or IM.",\n        "paste_html": "Paste HTML to embed in website or blog.",\n        "select_size": "Select Size:",\n        "size_larger": "__val__% larger",\n        "size_actual": "actual",\n        "size_smaller": "__val__% smaller"\n      },\n      "credits_dialog": {\n        "title": "Credits: __interactive_title__",\n        "credits_text": "This interactive was created by the __CC_link__ using our __Next_Gen_MW_link__ software, with funding by a grant from __Google_link__.",\n        "shareable_ver": "shareable version",\n        "find_shareable": "Find a __shareable_ver_link__ of this interactive along with dozens of other open-source interactives for science, math and engineering at __concord_org_link__."\n      },\n      "copyright": {\n        "copyright": "Copyright",\n        "all_rights_reserved": "All rights reserved.",\n        "license": "The software is licensed under the __MIT_link__ license. Please see __license_link__ for other software and associated licensing included in this product.",\n        "attribution": "Please provide attribution to the Concord Consortium and the URL __concord_org_link__."\n      },\n      "md2d": {\n        "heatbath_icon_tooltip": "Heatbath active",\n        "ke_icon_tooltip": "Kinetic energy gradient",\n        "invalid_object_position_alert": "You can\'t drop the object there.",\n        "aminoacid_menu": {\n          "hydrophobic": "Hydrophobic",\n          "hydrophilic": "Hydrophilic",\n          "glycine": "Glycine",\n          "alanine": "Alanine",\n          "valine": "Valine",\n          "leucine": "Leucine",\n          "isoleucine": "Isoleucine",\n          "phenylalanine": "Phenylalanine",\n          "proline": "Proline",\n          "tryptophan": "Tryptophan",\n          "methionine": "Methionine",\n          "cysteine": "Cysteine",\n          "tyrosine": "Tyrosine",\n          "asparagine": "Asparagine",\n          "glutamine": "Glutamine",\n          "serine": "Serine",\n          "threonine": "Threonine",\n          "asparticacid": "Aspartic acid",\n          "glutamicacid": "Glutamic acid",\n          "lysine": "Lysine",\n          "arginine": "Arginine",\n          "histidine": "Histidine"\n        },\n        "mutations_menu": {\n          "substitution_mutation": "Substitution mutation",\n          "insertion_mutation": "Insertion mutation",\n          "deletion_mutation": "Deletion mutation",\n          "insert": "Insert"\n        }\n      },\n      "sensor": {\n        "select_sensor": "Select Sensor",\n        "select_sensor_type": "Select type of sensor...",\n        "reading": "Reading:",\n        "zero": "Zero",\n        "zeroing": "Zeroing...",\n        "loading_sensor": "Loading sensor...",\n        "choose_sensor_title": "Select a sensor:",\n        "connect": "Connect",\n        "address_labquest2": "address of LabQuest2",\n        "messages": {\n          "ready": "Ready to collect.",\n          "ready_nocontrol": "Please stop the __controlling_client__ data collector to collect data here.",\n          "ready_nocontrol_noname": "Please stop the other active data collector to collect data here.",\n          "no_sensors": "No sensors found.",\n          "no_devices": "No devices plugged in.",\n          "not_connected": "Not connected.",\n          "connecting": "Connecting...",\n          "connection_in_progress": "Connecting to your sensors. If a message comes up about sensorconnector.concord.org, please accept it.",\n          "connection_failed": "Connection failed. __retry_link__",\n          "connection_failed_retry_link_text": "Try again",\n          "connection_failed_alert": "The Concord Consortium Sensor Connector is not installed or is not running. Please __click_here_link__ for instructions on using the Sensor Connector.",\n          "connection_failed_labquest2_alert": "Could not connect to the LabQuest2. Please make sure the address is correct and that the LabQuest2 can be reached from this computer",\n          "tare_labquest2_alert": "The LabQuest2 needs to be collecting live data in order to zero. Either set up a new run on the LabQuest2, or click the meter icon in the upper left.",\n          "click_here": "click here",\n          "connected": "Connected.",\n          "connected_start_labquest2": "Connected. Press start on your LabQuest2 to begin.",\n          "connected_start_sensorconnector": "Please stop the __controlling_client__ data collector to collect data here.",\n          "connected_start_sensorconnector_noname": "Please stop the other active data collector to collect data here.",\n          "starting_data_collection": "Starting data collection...",\n          "error_starting_data_collection": "Error starting data collection.",\n          "error_starting_data_collection_alert": "Could not start data collection. Make sure that (remote starting) is enabled",\n          "collecting_data": "Collecting data.",\n          "collecting_data_stop_labquest2": "Collecting data. Press stop on your LabQuest2 to end.",\n          "collecting_data_stop_sensorconnector": "Collecting data.",\n          "no_data": "No data is available.",\n          "no_data_alert": "The Sensor Connector does not appear to be reporting data for the plugged-in device",\n          "no_data_labquest2_alert": "The LabQuest does not appear to be reporting data for the plugged-in device",\n          "canceling_data_collection": "Canceling data collection...",\n          "error_canceling_data_collection": "Error canceling data collection.",\n          "error_canceling_data_collection_alert": "Could not cancel data collection. Make sure that (remote starting) is enabled",\n          "stopping_data_collection": "Stopping data collection...",\n          "error_stopping_data_collection": "Error stopping data collection.",\n          "error_stopping_data_collection_alert": "Could not stop data collection. Make sure that (remote starting) is enabled",\n          "data_collection_stopped": "Data collection stopped.",\n          "data_collection_complete": "Data collection complete.",\n          "disconnected": "Disconnected.",\n          "java_applet_error": "It appears that Java applets cannot run in your browser. If you are able to fix this, reload the page to use the sensor",\n          "java_applet_not_loading": "The sensor applet appears not to be loading. If you are able to fix this, reload the page to use the sensor",\n          "unexpected_error": "There was an unexpected error when connecting to the sensor.",\n          "sensor_not_attached": "The __sensor_name__ does not appear to be attached. Try re-attaching it, and then click \\"$t(sensor.messages.try_again)\\".",\n          "sensor_or_device_unplugged": "The __sensor_or_device_name__ was unplugged. Try plugging it back in, and then click \\"$t(sensor.messages.try_again)\\".",\n          "try_again": "Try Again",\n          "cancel": "Cancel"\n        },\n        "measurements": {\n          "sensor_reading": "Sensor Reading",\n          "time": "Time",\n          "distance": "Distance",\n          "acceleration": "Acceleration",\n          "altitude": "Altitude",\n          "angle": "Angle",\n          "CO2": "CO₂",\n          "CO2_concentration": "CO₂ Concentration",\n          "charge": "Charge",\n          "conductivity": "Conductivity",\n          "current": "Current",\n          "dissolved_oxygen": "DO",\n          "flow_rate": "Flow Rate",\n          "fluorescence_405_nm": "Fluorescence 405 nm",\n          "fluorescence_500_nm": "Fluorescence 500 nm",\n          "force": "Force",\n          "intensity": "Intensity",\n          "light_level": "Light Level",\n          "light_intensity": "Light Intensity",\n          "magnetic_field": "Magnetic Field",\n          "position": "Position",\n          "potential": "Potential",\n          "pressure": "Pressure",\n          "signal": "Signal",\n          "sound_level": "Sound Level",\n          "speed": "Speed",\n          "temperature": "Temperature",\n          "transmittance": "Transmittance",\n          "turbidity": "Turbidity",\n          "UV_intensity": "UV Intensity",\n          "velocity": "Velocity",\n          "volume": "Volume",\n          "pH": "pH",\n          "acidity": "Acidity",\n          "O2_concentration": "O₂ Concentration"\n        },\n        "names": {\n          "sensor": "sensor",\n          "no_sensor": "(no sensor)",\n          "light": "Light",\n          "motion": "Motion",\n          "accelerometer": "Accelerometer",\n          "dissolved_oxygen": "Dissolved Oxygen",\n          "pressure": "Pressure",\n          "charge_sensor": "Charge Sensor",\n          "voltage": "Voltage",\n          "pH": "pH",\n          "CO2_gas": "CO₂ Gas",\n          "colorimeter": "Colorimeter",\n          "conductivity": "Conductivity",\n          "current": "Current",\n          "temperature": "Temperature",\n          "force": "Force",\n          "anemometer": "Anemometer",\n          "hand_dynamometer": "Hand Dynamometer",\n          "heart_rate": "Heart Rate",\n          "magnetic_field": "Magnetic Field",\n          "rotary_motion": "Rotary Motion",\n          "linear_position_sensor": "Linear Position Sensor",\n          "sound_level": "Sound Level",\n          "spectrophotometer": "Spectrophotometer",\n          "spirometer": "Spirometer",\n          "turbidity": "Turbidity",\n          "UV_sensor": "UV Sensor",\n          "drop_counter": "Drop Counter",\n          "altitude": "Altitude",\n          "goMotion": "GoMotion",\n          "goTemp": "GoIO Temperature Sensor",\n          "goLinkTemperature": "GoIO Temperature Sensor",\n          "goLinkLight": "GoIO Light Sensor",\n          "goLinkForce": "GoIO Force Sensor",\n          "goLinkPH": "GoIO pH Sensor",\n          "goLinkCO2": "GoIO CO₂ sensor",\n          "goLinkO2": "GoIO O₂ sensor",\n          "labQuestMotion": "LabQuest Motion Sensor",\n          "labQuestTemperature": "LabQuest Temperature Sensor",\n          "labQuestLight": "LabQuest Light Sensor",\n          "labQuestForce": "LabQuest Force Sensor",\n          "labQuestPH": "LabQuest pH Sensor",\n          "labQuestCO2": "LabQuest CO₂ sensor",\n          "labQuestO2": "LabQuest O₂ sensor"\n        }\n      },\n      "codap": {\n        "dataContextName": "Runs",\n        "parentTable": {\n          "singleCase": "run",\n          "pluralCase": "runs",\n          "singleCaseWithArticle": "a run",\n          "setOfCases": "set",\n          "setOfCasesWithArticle": "a set"\n        },\n        "childTable": {\n          "singleCase": "measurement",\n          "pluralCase": "measurements",\n          "singleCaseWithArticle": "a measurement",\n          "setOfCases": "time series",\n          "setOfCasesWithArticle": "a time series"\n        },\n        "singleTable": {\n          "singleCase": "measurement",\n          "pluralCase": "measurements",\n          "singleCaseWithArticle": "a measurement",\n          "setOfCases": "set",\n          "setOfCasesWithArticle": "a set"\n        }\n      }\n    }\n  },\n  \n  "el": {\n    "translation": {\n      "banner": {\n        "about": "Πληροφορίες",\n        "about_tooltip": "Οδηγίες",\n        "share": "Κοινοποίηση",\n        "share_tooltip": "Κοινοποίηση με e-mail, μήνυμα ή ενσωμάτωση σε ιστότοπο",\n        "lang_tooltip": "Επιλογή γλώσσας",\n        "reload_tooltip": "Επαναφόρτωση διαδραστικού",\n        "help_tooltip": "Εμφάνιση συμβουλών",\n        "credits_tooltip": "Μάθε περισσότερα για το Concord Consortium",\n        "fullscreen_tooltip": "Εναλλαγή πλήρους οθόνης",\n        "video_play_pause_tooltip": "Έναρξη / παύση της προσομοίωσης",\n        "video_reset_tooltip": "Επαναφορά της προσομοίωσης",\n        "video_step_back_tooltip": "Βήμα πίσω",\n        "video_step_forward_tooltip": "Βήμα εμπρός",\n        "text_start": "Εκτέλεση",\n        "text_start_tooltip": "Έναρξη της προσομοίωσης ή συλλογή δεδομένων",\n        "text_stop": "Σταμάτημα",\n        "text_stop_tooltip": "Σταμάτημα της προσομοίωσης ή συλλογή δεδομένων",\n        "text_reset": "Επαναφορά",\n        "text_reset_tooltip": "Επαναφορά της προσομοίωσης ή συλλογή δεδομένων",\n        "text_new_run": "Νέα εκτέλεση",\n        "text_new_run_tooltip": "Ρύθμιση μιας νέας εκτέλεσης πειράματος",\n        "text_analyze_data": "Ανάλυση δεδομένων",\n        "text_analyze_data_tooltip": "Αποστολή δεδομένων από το πείραμα στο CODAP"\n      },\n      "dialog": {\n        "close_tooltip": "Κλείσιμο"\n      },\n      "about_dialog": {\n        "title": "Πληροφορίες: __interactive_title__"\n      },\n      "share_dialog": {\n        "title": "Κοινοποίηση: __interactive_title__",\n        "link": "συνδέσμου",\n        "paste_email_im": "Επικόλληση αυτού του __link__ σε email ή μήνυμα.",\n        "paste_html": "Επικόλληση HTML για ενσωμάτωση σε ιστότοπο ή ιστολόγιο.",\n        "select_size": "Επιλογή μεγέθους:",\n        "size_larger": "__val__% μεγαλύτερο",\n        "size_actual": "πραγματικό",\n        "size_smaller": "__val__% μικρότερο"\n      },\n      "credits_dialog": {\n        "title": "Παράγοντες: __interactive_title__",\n        "credits_text": "Αυτό το διαδραστικό δημιουργήθηκε από __CC_link__ χρησιμοποιώντας το λογισμικό __Next_Gen_MW_link__, με χρηματοδότηση μέσω μιας δωρεάς από __Google_link__.",\n        "shareable_ver": "κοινοποιήσιμη έκδοση",\n        "find_shareable": "Εύρεση μιας __shareable_ver_link__ αυτού του διαδραστικού μαζί με δεκάδες άλλων διαδραστικών ανοικτού κώδικα για επιστήμη, μαθηματικά και μηχανική στο __concord_σrg_link__."\n      },\n      "copyright": {\n        "copyright": "Πνευματικά δικαιώματα",\n        "all_rights_reserved": "Όλα τα δικαιώματα κατοχυρωμένα.",\n        "license": "Το λογισμικό είναι αδειοδοτημένο κάτω από άδεια __MIT_link__.",\n        "attribution": "Παρακαλώ αναφέρετε το Concord Consortium και το URL __concord_org_link__."\n      },\n      "md2d": {\n        "heatbath_icon_tooltip": "Λουτρό θερμότητας ενεργό",\n        "ke_icon_tooltip": "Κλίση κινητικής ενέργειας",\n        "invalid_object_position_alert": "Δεν μπορείτε να ρίξετε το αντικείμενο εκεί.",\n        "aminoacid_menu": {\n          "hydrophobic": "Υδρόφοβο",\n          "hydrophilic": "Υδρόφιλο",\n          "glycine": "Γλυκίνη",\n          "alanine": "Αλανίνη",\n          "valine": "Βαλίνη",\n          "leucine": "Λευκίνη",\n          "isoleucine": "Ισολευκίνη",\n          "phenylalanine": "Φαινυλαλανίνη",\n          "proline": "Προλίνη",\n          "tryptophan": "Τρυπτοφάνη",\n          "methionine": "Μεθειονίνη",\n          "cysteine": "Κυστεΐνη",\n          "tyrosine": "Τυροσίνη",\n          "asparagine": "Ασπαραγίνη",\n          "glutamine": "Γλουταμίνη",\n          "serine": "Σερίνη",\n          "threonine": "Θρεονίνη",\n          "asparticacid": "Ασπαρτικό οξύ",\n          "glutamicacid": "Γλουταμινικό οξύ",\n          "lysine": "Λυσίνη",\n          "arginine": "Αργινίνη",\n          "histidine": "Ιστιδίνη"\n        },\n        "mutations_menu": {\n          "substitution_mutation": "Μετάλλαξη αντικατάστασης",\n          "insertion_mutation": "Μετάλλαξη προσθήκης",\n          "deletion_mutation": "Μετάλλαξη αφαίρεσης",\n          "insert": "Εισαγωγή"\n        }\n      },\n      "sensor": {\n        "select_sensor": "Επιλογή αισθητήρα",\n        "select_sensor_type": "Επιλογή τύπου αισθητήρα...",\n        "reading": "Ανάγνωση:",\n        "zero": "Μηδέν",\n        "zeroing": "Μηδενισμός...",\n        "loading_sensor": "Φόρτωμα αισθητήρα...",\n        "choose_sensor_title": "Επιλογή αισθητήρα:",\n        "connect": "Σύνδεση",\n        "address_labquest2": "διεύθυνση του LabQuest2",\n        "messages": {\n          "ready": "Έτοιμο για συλλογή.",\n          "ready_nocontrol": "Παρακαλώ σταματήστε το συλλέκτη δεδομένων __controlling_client__ για να συλλέξετε δεδομένα εδώ.",\n          "ready_nocontrol_noname": "Παρακαλώ σταματήστε τον άλλο ενεργό συλλέκτη δεδομένων για να συλλέξετε δεδομένα εδώ.",\n          "no_sensors": "Δε βρέθηκαν αισθητήρες.",\n          "no_devices": "Δεν υπάρχουν συνδεδεμένες συσκευές.",\n          "not_connected": "Μη συνδεδεμένο.",\n          "connecting": "Σύνδεση...",\n          "connection_in_progress": "Γίνετε σύνδεση στους αισθητήρες σας. Αν εμφανιστεί ένα μήνυμα για το sensorconnector.concord.org, παρακαλώ αποδεχτείτε το.",\n          "connection_failed": "Η σύνδεση απέτυχε. __retry_link__",\n          "connection_failed_retry_link_text": "Προσπαθήστε ξανά",\n          "connection_failed_alert": "Το Concord Consortium Sensor Connector δεν είναι εγκατεστημένο ή δεν εκτελείται. Παρακαλώ __click_here_link__ για οδηγίες χρήσης του Sensor Connector.",\n          "connection_failed_labquest2_alert": "Δεν ήταν δυνατό να γίνει σύνδεση στο LabQuest2. Παρακαλώ σιγουρευτείτε πως η διεύθυνση είναι σωστή και πως το LabQuest2 μπορεί να προσπελαστεί από αυτόν τον υπολογιστή",\n          "tare_labquest2_alert": "Το LabQuest2 χρειάζεται να συλλέγει ζωντανά δεδομένα για να μηδενιστεί. Είτε ρυθμίστε μια νέα εκτέλεση στο LabQuest2, ή κάντε κλικ στο εικονίδιο μετρητή πάνω αριστερά.",\n          "click_here": "πατήστε εδώ",\n          "connected": "Συνδεδεμένο.",\n          "connected_start_labquest2": "Συνδεδεμένο. Πατήστε έναρξη στο LabQuest2 για έναρξη.",\n          "connected_start_sensorconnector": "Παρακαλώ σταματήστε το συλλέκτη δεδομένων __controlling_client__ για να συλλέξετε δεδομένα εδώ.",\n          "connected_start_sensorconnector_noname": "Παρακαλώ σταματήστε τον άλλο ενεργό συλλέκτη δεδομένων για να συλλέξετε δεδομένα εδώ.",\n          "starting_data_collection": "Έναρξη συλλογής δεδομένων...",\n          "error_starting_data_collection": "Σφάλμα έναρξης συλλογής δεδομένων.",\n          "error_starting_data_collection_alert": "Δεν ήταν δυνατή η έναρξη συλλογής δεδομένων. Σιγουρευτείτε πως η (απομακρυσμένη έναρξη) είναι ενεργοποιημένη",\n          "collecting_data": "Συλλογή δεδομένων.",\n          "collecting_data_stop_labquest2": "Συλλογή δεδομένων. Πατήστε σταμάτημα στο LabQuest2 για τερματισμό.",\n          "collecting_data_stop_sensorconnector": "Συλλογή δεδομένων.",\n          "no_data": "Δεν υπάρχουν διαθέσιμα δεδομένα.",\n          "no_data_alert": "Το Sensor Connector δε φαίνεται να αναφέρει δεδομένα για τη συνδεδεμένη συσκευή",\n          "no_data_labquest2_alert": "Το LabQuest δε φαίνεται να αναφέρει δεδομένα για τη συνδεδεμένη συσκευή",\n          "canceling_data_collection": "Ακύρωση συλλογής δεδομένων...",\n          "error_canceling_data_collection": "Σφάλμα ακύρωσης συλλογής δεδομένων.",\n          "error_canceling_data_collection_alert": "Δεν ήταν δυνατή η ακύρωση συλλογής δεδομένων. Σιγουρευτείτε πως η (απομακρυσμένη εκκίνηση) είναι ενεργοποιημένη",\n          "stopping_data_collection": "Τερματισμός συλλογής δεδομένων...",\n          "error_stopping_data_collection": "Σφάλμα τερματισμού συλλογής δεδομένων.",\n          "error_stopping_data_collection_alert": "Δεν ήταν δυνατός ο τερματισμός συλλογής δεδομένων. Σιγουτευτείτε πως η (απομακρυσμένη συλλογή δεδομένων) είναι ενεργοποιημένη",\n          "data_collection_stopped": "Η συλλογή δεδομένων τερματίστηκε.",\n          "data_collection_complete": "Η συλλογή δεδομένων ολοκληρώθηκε.",\n          "disconnected": "Αποσυνδεδεμένο.",\n          "java_applet_error": "Φαίνεται πως δεν επιτρέπεται εκτέλεση Java applet στο φυλλομετρητή σας. Αν μπορείτε να το διορθώσετε, επαναφορτώστε τη σελίδα για να χρησιμοποιήσετε τον αισθητήρα",\n          "java_applet_not_loading": "Το applet του αισθητήρα φαίνεται να μη φορτώνεται. Αν μπορείτε να το διορθώσετε, επαναφορτώστε τη σελίδα για να χρησιμοποιήσετε τον αισθητήρα",\n          "unexpected_error": "Υπήρξε ένα μη αναμενόμενο σφάλμα κατά τη σύνδεση στον αισθητήρα.",\n          "sensor_not_attached": "Το __sensor_name__ does δεν φαίνεται να είναι συνδεδεμένο. Δοκιμάστε να το επανασυνδέσετε, και έπειτα πατήστε \\"$t(sensor.messages.try_again)\\".",\n          "sensor_or_device_unplugged": "Το __sensor_or_device_name__ αποσυνδέθηκε. Δοκιμάστε να το επανασυνδέσετε, και έπειτα πατήστε \\"$t(sensor.messages.try_again)\\".",\n          "try_again": "Προσπαθήστε ξανά",\n          "cancel": "Άκυρο"\n        },\n        "measurements": {\n          "sensor_reading": "Μέτρηση αισθητήρα",\n          "time": "Χρόνος",\n          "distance": "Απόσταση",\n          "acceleration": "Επιτάχυνση",\n          "altitude": "Υψόμετρο",\n          "angle": "Γωνία",\n          "CO2": "CO₂",\n          "CO2_concentration": "Συγκέντρωση CO₂",\n          "charge": "Φορτίο",\n          "conductivity": "Αγωγιμότητα",\n          "current": "Ρεύμα",\n          "dissolved_oxygen": "DO (διαλυμένο Οξυγόνο)",\n          "flow_rate": "Ρυθμός ροής",\n          "fluorescence_405_nm": "Φθορισμός 405 nm",\n          "fluorescence_500_nm": "Φθορισμός 500 nm",\n          "force": "Δύναμη",\n          "intensity": "Ένταση",\n          "light_level": "Επίπεδο φωτός",\n          "light_intensity": "Ένταση φωτός",\n          "magnetic_field": "Μαγνητικό πεδίο",\n          "position": "Θέση",\n          "potential": "Δυναμικό",\n          "pressure": "Πίεση",\n          "signal": "Σήμα",\n          "sound_level": "Επίπεδο ήχου",\n          "speed": "Ταχύτητα",\n          "temperature": "Θερμοκρασία",\n          "transmittance": "Μεταδοτικότητα",\n          "turbidity": "Θολότητα",\n          "UV_intensity": "Ένταση UV",\n          "velocity": "Διανυσματική ταχύτητα",\n          "volume": "Volume",\n          "pH": "pH",\n          "acidity": "Οξύτητα",\n          "O2_concentration": "Συγκέντρωση O₂"\n        },\n        "names": {\n          "sensor": "αισθητήρας",\n          "no_sensor": "(χωρίς αισθητήρα)",\n          "light": "Φώς",\n          "motion": "Κίνηση",\n          "accelerometer": "Επιταχυνσιόμετρο",\n          "dissolved_oxygen": "Διαλυμένο Οξυγόνο",\n          "pressure": "Πίεση",\n          "charge_sensor": "Αισθητήρας φορτίου",\n          "voltage": "Τάση",\n          "pH": "pH",\n          "CO2_gas": "Αέριο CO₂",\n          "colorimeter": "Χρωματόμετρο",\n          "conductivity": "Αγωγιμότητα",\n          "current": "Ρεύμα",\n          "temperature": "Θερμοκρασία",\n          "force": "Δύναμη",\n          "anemometer": "Ανεμόμετρο",\n          "hand_dynamometer": "Δυναμόμετρο χειρός",\n          "heart_rate": "Καρδιακός ρυθμός",\n          "magnetic_field": "Μαγνητικό πεδίο",\n          "rotary_motion": "Περιστροφική κίνηση",\n          "linear_position_sensor": "Αισθητήρας γραμικής θέσης",\n          "sound_level": "Επίπεδο ήχου",\n          "spectrophotometer": "Φασματοφωτόμετρο",\n          "spirometer": "Σπιρόμετρο",\n          "turbidity": "Θολότητα",\n          "UV_sensor": "Αισθητήρας UV",\n          "drop_counter": "Μετρητής πτώσης",\n          "altitude": "Υψόμετρο",\n          "goMotion": "GoMotion",\n          "goTemp": "GoIO αισθητήρας θερμοκρασίας",\n          "goLinkTemperature": "GoIO αισθητήρας θερμοκρασίας",\n          "goLinkLight": "GoIO αισθητήρας φωτός",\n          "goLinkForce": "GoIO αισθητήρας δύναμης",\n          "goLinkPH": "GoIO αισθητήρας pH",\n          "goLinkCO2": "GoIO αισθητήρας CO₂",\n          "goLinkO2": "GoIO αισθητήρας O₂",\n          "labQuestMotion": "LabQuest αισθητήρας κίνησης",\n          "labQuestTemperature": "LabQuest αισθητήρας θερμοκρασίας",\n          "labQuestLight": "LabQuest αισθητήρας φωτός",\n          "labQuestForce": "LabQuest αισθητήρας δύναμης",\n          "labQuestPH": "LabQuest αισθητήρας pH",\n          "labQuestCO2": "LabQuest αισθητήρας CO₂",\n          "labQuestO2": "LabQuest αισθητήρας O₂"\n        }\n      }\n    }\n  },\n  \n  "it": {\n    "translation": {\n      "banner": {\n        "about": "Chi siamo",\n        "about_tooltip": "Istruzioni",\n        "share": "Condividere",\n        "share_tooltip": "Condividi tramite e-mail, IM o incorporato nel sito web",\n        "lang_tooltip": "Seleziona la lingua",\n        "reload_tooltip": "Ricarica interattiva",\n        "help_tooltip": "Mostra suggerimenti di aiuto",\n        "credits_tooltip": "Scopri di più su The Concord Consortium",\n        "fullscreen_tooltip": "Passare a schermo intero",\n        "video_play_pause_tooltip": "Avviare / mettere in pausa la simulazione",\n        "video_reset_tooltip": "Ripristina la simulazione",\n        "video_step_back_tooltip": "Fai un passo indietro",\n        "video_step_forward_tooltip": "Passo in avanti",\n        "text_start": "Inizio",\n        "text_start_tooltip": "Avviare la simulazione o la raccolta di dati",\n        "text_stop": "Stop",\n        "text_stop_tooltip": "Interrompere la simulazione o la raccolta dei dati",\n        "text_reset": "Reset",\n        "text_reset_tooltip": "Ripristina la simulazione o la raccolta di dati",\n        "text_new_run": "Nuova corsa",\n        "text_new_run_tooltip": "Imposta un nuovo run di esperimenti",\n        "text_analyze_data": "Analizzare i dati",\n        "text_analyze_data_tooltip": "Invia dati dall\'esperimento a CODAP"\n      },\n      "dialog": {\n        "close_tooltip": "Chiudere"\n      },\n      "about_dialog": {\n        "title": "Di: __interactive_title__"\n      },\n      "share_dialog": {\n        "title": "Condividere: __interactive_title__",\n        "link": "link",\n        "paste_email_im": "Incolla questo __link__ in posta elettronica o IM.",\n        "paste_html": "Incolla HTML per incorporare in sito o blog.",\n        "select_size": "Seleziona la dimensione:",\n        "size_larger": "__val__% più grandi",\n        "size_actual": "effettivo",\n        "size_smaller": "__val__% più piccola"\n      },\n      "credits_dialog": {\n        "title": "Crediti: __interactive_title__",\n        "credits_text": "Questo interattivo è stato creato da __CC_link__ usando il nostru __Next_Gen_MW_link__ software, con finanziamento da una sovvenzione di __Google_link__.",\n        "shareable_ver": "versione condivisibile",\n        "find_shareable": "Trova un __shareable_ver_link__ di questo interattivo insieme a decine di altri interattivi open-source per la scienza, la matematica e l\'ingegneria a __concord_org_link__."\n      },\n      "copyright": {\n        "copyright": "Diritto d\'autore",\n        "all_rights_reserved": "Tutti i diritti riservati.",\n        "license": "Il software è concesso in licenza sotto il __MIT_link__ license.",\n        "attribution": "Fornire l\'attribuzione al Consorzio Concord e all\'URL __concord_org_link__."\n      },\n      "md2d": {\n        "heatbath_icon_tooltip": "Bagno termico attivo",\n        "ke_icon_tooltip": "Gradiente di energia cinetica",\n        "invalid_object_position_alert": "Non puoi posizionare l\'oggetto in quel luogo.",\n        "aminoacid_menu": {\n          "hydrophobic": "Idrofobo",\n          "hydrophilic": "Idrofilo",\n          "glycine": "Glycine",\n          "alanine": "Alanina",\n          "valine": "Valina",\n          "leucine": "Leucina",\n          "isoleucine": "Isoleucine",\n          "phenylalanine": "Fenilalanina",\n          "proline": "Proline",\n          "tryptophan": "Triptofano",\n          "methionine": "Metionina",\n          "cysteine": "Cisteina",\n          "tyrosine": "Tirosina",\n          "asparagine": "Asparagina",\n          "glutamine": "Glutammina",\n          "serine": "Serina",\n          "threonine": "Treonina",\n          "asparticacid": "Acido aspartico",\n          "glutamicacid": "Acido glutammico",\n          "lysine": "Lisina",\n          "arginine": "Arginina",\n          "histidine": "Istidina"\n        },\n        "mutations_menu": {\n          "substitution_mutation": "Mutazione di sostituzione",\n          "insertion_mutation": "Mutazione di inserzione",\n          "deletion_mutation": "Mutazione deletione",\n          "insert": "Inserire"\n        }\n      },\n      "sensor": {\n        "select_sensor": "Selezionare Sensore",\n        "select_sensor_type": "Seleziona il tipo di sensore ...",\n        "reading": "Lettura:",\n        "zero": "Zero",\n        "zeroing": "Azzeramento...",\n        "loading_sensor": "Sensore di carico...",\n        "choose_sensor_title": "Selezionare un sensore:",\n        "connect": "Collegare",\n        "address_labquest2": "Indirizzo di LabQuest2",\n        "messages": {\n          "ready": "Pronta da raccogliere.",\n          "ready_nocontrol": "Si prega di fermare __controlling_client__ raccoglitore di dati per raccogliere i dati qui.",\n          "ready_nocontrol_noname": "Fermati l\'altro collezionista attivo per raccogliere i dati qui.",\n          "no_sensors": "Nessun sensore è stato trovato.",\n          "no_devices": "Nessun dispositivo collegato.",\n          "not_connected": "Non collegata.",\n          "connecting": "Connessione in corso ...",\n          "connection_in_progress": "Collegamento ai sensori. Se viene visualizzato un messaggio sensorconnector.concord.org, si prega di accettarlo.",\n          "connection_failed": "Connessione fallita. __retry_link__",\n          "connection_failed_retry_link_text": "Riprova",\n          "connection_failed_alert": "Il Concord Consortium Sensor Connector non è installato o non è in esecuzione. Per favore __click_here_link__ per istruzioni sull\'utilizzo del connettore del sensore.",\n          "connection_failed_labquest2_alert": "Impossibile connettersi a LabQuest2. Assicurarsi che l\'indirizzo sia corretto e che il LabQuest2 possa essere raggiunto da questo computer",\n          "tare_labquest2_alert": "Il LabQuest2 deve raccogliere i dati dal vivo per zero. Impostare una nuova esecuzione su LabQuest2 oppure fare clic sull\'icona del contatore in alto a sinistra.",\n          "click_here": "clicca qui",\n          "connected": "Collegato.",\n          "connected_start_labquest2": "Collegato. Avviare l\'inizio del tuo LabQuest2 per iniziare.",\n          "connected_start_sensorconnector": "Si prega di fermare __controlling_client__ raccoglitore di dati per raccogliere i dati qui.",\n          "connected_start_sensorconnector_noname": "Ferma l\'altro collezionista attivo per raccogliere i dati qui.",\n          "starting_data_collection": "Inizia la raccolta dati ...",\n          "error_starting_data_collection": "Errore durante la raccolta dati.",\n          "error_starting_data_collection_alert": "Impossibile avviare la raccolta dati. Assicurarsi che sia abilitato (avvio remoto)",\n          "collecting_data": "Raccolta dati.",\n          "collecting_data_stop_labquest2": "Raccolta dati. Arrestare la sosta sul tuo LabQuest2 per terminare.",\n          "collecting_data_stop_sensorconnector": "Raccolta dati.",\n          "no_data": "Nessun dato disponibile.",\n          "no_data_alert": "Il connettore del sensore non sembra riportare i dati per il dispositivo collegato",\n          "no_data_labquest2_alert": "Il LabQuest non sembra riportare i dati per il dispositivo collegato",\n          "canceling_data_collection": "Annullamento della raccolta dati ...",\n          "error_canceling_data_collection": "Errore durante l\'annullamento della raccolta dati.",\n          "error_canceling_data_collection_alert": "Impossibile annullare la raccolta dei dati. Assicurarsi che sia abilitato (avvio remoto)",\n          "stopping_data_collection": "Arresto della raccolta dati ...",\n          "error_stopping_data_collection": "Errore durante l\'arresto della raccolta dati.",\n          "error_stopping_data_collection_alert": "Impossibile arrestare la raccolta dati. Assicurarsi che sia abilitato (avvio remoto)",\n          "data_collection_stopped": "La raccolta dati è stata interrotta.",\n          "data_collection_complete": "La raccolta dei dati è completa.",\n          "disconnected": "Scollegato.",\n          "java_applet_error": "Sembra che gli applet Java non possano essere eseguiti nel tuo browser. Se è in grado di risolvere questo problema, ricaricare la pagina per utilizzare il sensore",\n          "java_applet_not_loading": "L\'applet del sensore sembra non essere caricato. Se è in grado di risolvere questo problema, ricaricare la pagina per utilizzare il sensore",\n          "unexpected_error": "Si è verificato un errore imprevisto quando si connette al sensore.",\n          "sensor_not_attached": "Il __sensor_name__ non sembra essere allegato. Provare a ricollegarlo, quindi fare clic su \\"$t(sensor.messages.try_again)\\".",\n          "sensor_or_device_unplugged": "Il __sensor_or_device_name__ È stato scollegato. Provare a collegarlo nuovamente e quindi fare clic su \\"$t(sensor.messages.try_again)\\".",\n          "try_again": "Riprova",\n          "cancel": "Annulla"\n        },\n        "measurements": {\n          "sensor_reading": "Lettura del sensore",\n          "time": "Tempo",\n          "distance": "Distanza",\n          "acceleration": "Accelerazione",\n          "altitude": "Altitudine",\n          "angle": "Angolo",\n          "CO2": "CO₂",\n          "CO2_concentration": "CO₂ Concentrazione",\n          "charge": "Carica",\n          "conductivity": "Conducibilità",\n          "current": "Current",\n          "dissolved_oxygen": "FARE",\n          "flow_rate": "Portata",\n          "fluorescence_405_nm": "Fluorescenza 405 nm",\n          "fluorescence_500_nm": "Fluorescenza 500 nm",\n          "force": "Vigore",\n          "intensity": "Intensità",\n          "light_level": "Livello luminoso",\n          "light_intensity": "Intensità luminosa",\n          "magnetic_field": "Campo magnetico",\n          "position": "Posizione",\n          "potential": "Potenziale",\n          "pressure": "Pressure",\n          "signal": "Segnale",\n          "sound_level": "Livello audio",\n          "speed": "Velocità",\n          "temperature": "Temperatura",\n          "transmittance": "Trasmissione",\n          "turbidity": "Torbidità",\n          "UV_intensity": "Intensità UV",\n          "velocity": "Velocità",\n          "volume": "Volume",\n          "pH": "pH",\n          "acidity": "Acidità",\n          "O2_concentration": "O₂ Concentrazione"\n        },\n        "names": {\n          "sensor": "sensore",\n          "no_sensor": "(Nessun sensore)",\n          "light": "Leggero",\n          "motion": "Movimento",\n          "accelerometer": "Accelerometro",\n          "dissolved_oxygen": "Ossigeno dissolto",\n          "pressure": "Pressione",\n          "charge_sensor": "Sensore di carica",\n          "voltage": "Voltaggio",\n          "pH": "pH",\n          "CO2_gas": "CO₂ Gas",\n          "colorimeter": "Colorimetro",\n          "conductivity": "Conducibilità",\n          "current": "Attuale",\n          "temperature": "Temperature",\n          "force": "Vigore",\n          "anemometer": "Anemometro",\n          "hand_dynamometer": "Dynamometer della mano",\n          "heart_rate": "Frequenza cardiaca",\n          "magnetic_field": "Campo magnetico",\n          "rotary_motion": "Moto rotativo",\n          "linear_position_sensor": "Sensore di posizione lineare",\n          "sound_level": "Livello audio",\n          "spectrophotometer": "spettrofotometro",\n          "spirometer": "Spirometro",\n          "turbidity": "torbidità",\n          "UV_sensor": "Sensore UV",\n          "drop_counter": "Contatore di caduta",\n          "altitude": "Altitudine",\n          "goMotion": "GoMotion",\n          "goTemp": "Sensore di temperatura GoIO",\n          "goLinkTemperature": "Sensore di temperatura GoIO",\n          "goLinkLight": "Sensore di luce GoIO",\n          "goLinkForce": "Sensore di forza GoIO",\n          "goLinkPH": "Sensore pH GoIO",\n          "goLinkCO2": "Sensore GoIO CO₂",\n          "goLinkO2": "Sensore GoIO O2",\n          "labQuestMotion": "LabQuest Motion Sensore",\n          "labQuestTemperature": "Sensore di temperatura LabQuest",\n          "labQuestLight": "Sensore di luce LabQuest",\n          "labQuestForce": "Sensore di forza LabQuest",\n          "labQuestPH": "Sensore pH LabQuest",\n          "labQuestCO2": "Sensore COQQuest CO₂",\n          "labQuestO2": "Sensore LabQuest O2"\n        }\n      }\n    }\n  },\n  \n  "pl": {\n    "translation": {\n      "banner": {\n        "about": "O symulacji",\n        "about_tooltip": "Instrukcje",\n        "share": "Udostępnij",\n        "share_tooltip": "Udostępnij tę symulację za pomocą e-mail, komunikatora lub umieść na swojej stronie internetowej",\n        "lang_tooltip": "Zmień język",\n        "reload_tooltip": "Załaduj symulację ponownie",\n        "help_tooltip": "Pokaż pomoc",\n        "credits_tooltip": "Dowiedz się więcej o Concord Consortium",\n        "fullscreen_tooltip": "Tryb pełnoekranowy",\n        "video_play_pause_tooltip": "Uruchom lub zatrzymaj symulację",\n        "video_reset_tooltip": "Zresetuj symulację",\n        "video_step_back_tooltip": "Krok wstecz",\n        "video_step_forward_tooltip": "Krok do przodu",\n        "text_start": "Uruchom",\n        "text_start_tooltip": "Uruchom symulację lub pobieranie danych",\n        "text_stop": "Zatrzymaj",\n        "text_stop_tooltip": "Zatrzymaj symulację lub pobieranie danych",\n        "text_reset": "Zresetuj",\n        "text_reset_tooltip": "Zresetuj symulację lub pobieranie danych",\n        "text_new_run": "Nowy pomiar",\n        "text_new_run_tooltip": "Rozpocznij nowy eksperyment",\n        "text_analyze_data": "Analizuj dane",\n        "text_analyze_data_tooltip": "Wyślij wyniki eksperymentu do CODAP"\n      },\n      "dialog": {\n        "close_tooltip": "Zamknij"\n      },\n      "about_dialog": {\n        "title": "O symulacji: __interactive_title__"\n      },\n      "share_dialog": {\n        "title": "Udostępnij: __interactive_title__",\n        "link": "odnośnik",\n        "paste_email_im": "Wklej ten __link__ do wiadomości e-mail lub wyślij za pomocą komunikatora.",\n        "paste_html": "Aby zamieścić symulację na swojej stronie lub blogu, wklej kod HTML znajdujący się poniżej.",\n        "select_size": "Wybierz rozmiar:",\n        "size_larger": "__val__% większy",\n        "size_actual": "aktualny",\n        "size_smaller": "__val__% mniejszy"\n      },\n      "credits_dialog": {\n        "title": "__interactive_title__",\n        "credits_text": "Ta symulacja została stworzona przez __CC_link__ przy użyciu __Next_Gen_MW_link__. Prace zostały sfinansowana przez grant otrzymany od __Google_link__.",\n        "shareable_ver": "Wersję tej symulacji, którą możesz udostępnić",\n        "find_shareable": "__shareable_ver_link__, wraz z setkami innych, darmowych symulacji i ćwiczeń znajdziesz na __concord_org_link__."\n      },\n      "copyright": {\n        "copyright": "Copyright",\n        "all_rights_reserved": "Wszystkie prawa zastrzeżone.",\n        "license": "To oprogramowanie jest rozpowszechniane na zasadach wolnej licencji __MIT_link__. Szczegóły licencji znajdują się w pliku __license_link__.",\n        "attribution": "Proszę umieścić odniesienia do Concord Consortium oraz witryny __concord_org_link__."\n      },\n      "md2d": {\n        "heatbath_icon_tooltip": "Stała temperatura",\n        "ke_icon_tooltip": "Skala energii kinetycznej",\n        "invalid_object_position_alert": "Niepoprawna pozycja obiektu.",\n        "aminoacid_menu": {\n          "hydrophobic": "Hydrofobowe",\n          "hydrophilic": "Hydrofilowe",\n          "glycine": "Glicyna",\n          "alanine": "Alanina",\n          "valine": "Walina",\n          "leucine": "Leucyna",\n          "isoleucine": "Izoleucyna",\n          "phenylalanine": "Fenyloalanina",\n          "proline": "Prolina",\n          "tryptophan": "Tryptofan",\n          "methionine": "Metionina",\n          "cysteine": "Cysteina",\n          "tyrosine": "Tyrozyna",\n          "asparagine": "Asparagina",\n          "glutamine": "Glutamina",\n          "serine": "Seryna",\n          "threonine": "Treonina",\n          "asparticacid": "Kwas asparaginowy",\n          "glutamicacid": "Kwas glutaminowy",\n          "lysine": "Lizyna",\n          "arginine": "Arginina",\n          "histidine": "Histydyna"\n        },\n        "mutations_menu": {\n          "substitution_mutation": "Substytucja",\n          "insertion_mutation": "Insercja",\n          "deletion_mutation": "Delecja",\n          "insert": "Wstaw"\n        }\n      },\n      "sensor": {\n        "select_sensor": "Wybierz sensor",\n        "select_sensor_type": "Wybierz rodzaj sensora...",\n        "reading": "Odczyt:",\n        "zero": "Wyzeruj",\n        "zeroing": "Zerowanie...",\n        "loading_sensor": "Ładowanie sensora...",\n        "choose_sensor_title": "Wybierz sensor:",\n        "connect": "Połącz",\n        "address_labquest2": "adres serwera LabQuest2",\n        "messages": {\n          "ready": "Gotowy do odczytu.",\n          "no_sensors": "Nie znaleziono sensorów.",\n          "no_devices": "Żadne urządzenie nie jest podłączone.",\n          "not_connected": "Brak połączenia.",\n          "connecting": "Łączenie...",\n          "connection_failed": "Połączenie nieudane.",\n          "connection_failed_alert": "Concord Consortium Sensor Connector nie jest zainstalowany lub nie działa. Proszę __click_here_link__ żeby otworzyć instrukcję dotyczącą korzystania z Sensor Connector.",\n          "connection_failed_labquest2_alert": "Nie udało się połączyć z LabQuest2. Upewnij się, że adres jest poprawny i LabQuest2 jest osiągalny z tego komputera.",\n          "tare_labquest2_alert": "LabQuest2 musi pobierać rzeczywiste dane aby się wyzerować. Ustaw nowy eksperyment na LabQuest2 lub kliknij ikonę licznika na górze po lewej stronie.",\n          "click_here": "kliknąć tutaj",\n          "connected": "Połączono.",\n          "connected_start_labquest2": "Połączono. Naciśnij start na LabQuest2 aby rozpocząć.",\n          "starting_data_collection": "Rozpoczynanie pobierania danych...",\n          "error_starting_data_collection": "Błąd podczas rozpoczynania pobierania danych.",\n          "error_starting_data_collection_alert": "Nie udało się rozpocząć pobierania danych. Upewnij się, że (remote starting) jest włączony",\n          "collecting_data": "Pobieranie danych.",\n          "collecting_data_stop_labquest2": "Pobieranie danych. Naciśnij stop na LabQuest2 aby zakończyć.",\n          "no_data": "Brak dostępnych danych.",\n          "no_data_alert": "Sensor Connector nie wydaje się raportować żadnych danych dla podłączonego urządzenia",\n          "no_data_labquest2_alert": "LabQuest nie wydaje się raportować żadnych danych dla podłączonego urządzenia",\n          "canceling_data_collection": "Anulowanie pobierania danych...",\n          "error_canceling_data_collection": "Błąd podczas anulowania pobierania danych.",\n          "error_canceling_data_collection_alert": "Nie udało się anulować pobierania danych. Upewnij się, że (remote starting) jest włączony",\n          "stopping_data_collection": "Zatrzymywanie pobierania danych...",\n          "error_stopping_data_collection": "Błąd podczas zatrzymywania pobierania danych.",\n          "error_stopping_data_collection_alert": "Nie udało się zatrzymać pobierania danych. Upewnij się, że (remote starting) jest włączony",\n          "data_collection_stopped": "Pobieranie danych zatrzymane.",\n          "data_collection_complete": "Pobieranie danych zakończone.",\n          "disconnected": "Rozłączono.",\n          "java_applet_error": "Aplety Java prawodpodobnie nie mogą być uruchomione w twojej przeglądarce. Jeżeli jesteś w stanie to naprawić to potem odśwież stronę, żeby użyć sensora.",\n          "java_applet_not_loading": "Sensor Aplet nie ładuje się. Jeżeli jesteś w stanie to naprawić to potem odśwież stronę, żeby użyć sensora.",\n          "unexpected_error": "Wystąpił nieoczekiwany błąd podczas próby połączenia z sensorem.",\n          "sensor_not_attached": "__sensor_name__ wydaje się być niedpołączony. Spróbuj podłączyć go ponownie i potem kliknij \\"$t(sensor.messages.try_again)\\".",\n          "sensor_or_device_unplugged": "__sensor_or_device_name__ został odłączony. Spróbuj podłączyć go ponownie i potem kliknij \\"$t(sensor.messages.try_again)\\".",\n          "try_again": "Spróbuj ponownie",\n          "cancel": "Anuluj"\n        },\n        "measurements": {\n          "sensor_reading": "Odczyt sensora",\n          "time": "Czas",\n          "distance": "Odległość",\n          "acceleration": "Przyspieszenie",\n          "altitude": "Wysokość",\n          "angle": "Kąt",\n          "CO2": "CO₂",\n          "CO2_concentration": "Stężenie CO₂",\n          "charge": "Ładunek",\n          "conductivity": "Przewodność właściwa",\n          "current": "Natężenie prądu",\n          "dissolved_oxygen": "Stężenie tlenu",\n          "flow_rate": "Strumień objętości",\n          "fluorescence_405_nm": "Fluorescencja 405 nm",\n          "fluorescence_500_nm": "Fluorescencja 500 nm",\n          "force": "Siła",\n          "intensity": "Natężenie",\n          "light_level": "Natężenie światła",\n          "light_intensity": "Intensywność światła",\n          "magnetic_field": "Pole magnetyczne",\n          "position": "Pozycja",\n          "potential": "Potencjał",\n          "pressure": "Ciśnienie",\n          "signal": "Sygnał",\n          "sound_level": "Natężenie dźwięku",\n          "speed": "Szybkość",\n          "temperature": "Temperatura",\n          "transmittance": "Transmitacja",\n          "turbidity": "Mętność",\n          "UV_intensity": "Natężenie UV",\n          "velocity": "Prędkość",\n          "volume": "Objętość",\n          "pH": "pH",\n          "acidity": "Kwasowość",\n          "O2_concentration": "Stężenie O₂"\n        },\n        "names": {\n          "sensor": "czujnik",\n          "no_sensor": "(brak czujnika)",\n          "light": "Światło",\n          "motion": "Ruch",\n          "accelerometer": "Akcelerometr",\n          "dissolved_oxygen": "Stężenie tlenu",\n          "pressure": "Ciśnienie",\n          "charge_sensor": "Czujnik ładunku",\n          "voltage": "Napięcie",\n          "pH": "pH",\n          "CO2_gas": "Czujnik CO₂",\n          "colorimeter": "Kolorymetr",\n          "conductivity": "Przewodność właściwa",\n          "current": "Natężenie prądu",\n          "temperature": "Temperatura",\n          "force": "Siła",\n          "anemometer": "Anemometr",\n          "hand_dynamometer": "Dynamometr",\n          "heart_rate": "Pulsometr",\n          "magnetic_field": "Pole magnetyczne",\n          "rotary_motion": "Ruch obrotowy",\n          "linear_position_sensor": "Czujnik położenia",\n          "sound_level": "Natężenie dźwięku",\n          "spectrophotometer": "Spektrofotometr",\n          "spirometer": "Spirometr",\n          "turbidity": "Mętność",\n          "UV_sensor": "Czujnik UV",\n          "drop_counter": "Licznik kropli",\n          "altitude": "Wysokość",\n          "goMotion": "GoMotion",\n          "goTemp": "GoIO czujnik temperatury",\n          "goLinkTemperature": "GoIO czujnik temperatury",\n          "goLinkLight": "GoIO czujnik światła",\n          "goLinkForce": "GoIO czujnik siły",\n          "goLinkPH": "GoIO czujnik pH",\n          "goLinkCO2": "GoIO czujnik CO₂",\n          "goLinkO2": "GoIO czujnik O₂",\n          "labQuestMotion": "LabQuest czujnik ruchu",\n          "labQuestTemperature": "LabQuest czujnik temperatury",\n          "labQuestLight": "LabQuest czujnik światła",\n          "labQuestForce": "LabQuest czujnik siły",\n          "labQuestPH": "LabQuest czujnik pH",\n          "labQuestCO2": "LabQuest czujnik CO₂",\n          "labQuestO2": "LabQuest czujnik O₂"\n        }\n      },\n      "codap": {\n        "dataContextName": "Wyniki",\n        "parentTable": {\n          "singleCase": "eksperyment",\n          "pluralCase": "eksperymenty",\n          "singleCaseWithArticle": "eksperyment",\n          "setOfCases": "zbiór danych",\n          "setOfCasesWithArticle": "zbiór danych"\n        },\n        "childTable": {\n          "singleCase": "pomiar",\n          "pluralCase": "pomiary",\n          "singleCaseWithArticle": "pomiar",\n          "setOfCases": "szereg czasowy",\n          "setOfCasesWithArticle": "szereg czasowy"\n        },\n        "singleTable": {\n          "singleCase": "pomiar",\n          "pluralCase": "pomiary",\n          "singleCaseWithArticle": "pomiar",\n          "setOfCases": "zbiór danych",\n          "setOfCasesWithArticle": "zbiór danych"\n        }\n      }\n    }\n  },\n  \n  "nb-NO": {\n    "translation": {\n      "banner": {\n        "about": "Om simuleringen",\n        "about_tooltip": "Bruksanvisning",\n        "share": "Del",\n        "share_tooltip": "Del med e-post, melding eller innbygging",\n        "lang_tooltip": "Velg språk",\n        "reload_tooltip": "Last simuleringen på nytt",\n        "help_tooltip": "Vis hjelpetekster",\n        "credits_tooltip": "Lær mer om Concord Consortium",\n        "fullscreen_tooltip": "Slå fullskjermvisning av/på",\n        "video_play_pause_tooltip": "Start og stopp simuleringen",\n        "video_reset_tooltip": "Tilbakestill simuleringen",\n        "video_step_back_tooltip": "Gå et steg bakover",\n        "video_step_forward_tooltip": "Gå et steg framover",\n        "text_start": "Start",\n        "text_start_tooltip": "Start simuleringen eller datainnsamlingen",\n        "text_stop": "Stopp",\n        "text_stop_tooltip": "Stopp simuleringen eller datainnsamlingen",\n        "text_reset": "Tilbakestill",\n        "text_reset_tooltip": "Tilbakestill simuleringen eller datainnsamlingen"\n      },\n      "dialog": {\n        "close_tooltip": "Lukk"\n      },\n      "about_dialog": {\n        "title": "Om: __interactive_title__"\n      },\n      "share_dialog": {\n        "title": "-Del: __interactive_title__",\n        "link": "lenke",\n        "paste_email_im": "Lim inn denne __link__ i en e-post eller melding.",\n        "paste_html": "Lim inn HTML for innbygging på et nettsted eller en blogg.",\n        "select_size": "Velg størrelse:",\n        "size_larger": "__val__% større",\n        "size_actual": "faktisk",\n        "size_smaller": "__val__% mindre"\n      },\n      "credits_dialog": {\n        "title": "Informasjon om: __interactive_title__",\n        "credits_text": "Denne simuleringen er laget av __CC_link__ med bruk av __Next_Gen_MW_link__ programvare, finanisert av en bevilgning fra __Google_link__.",\n        "shareable_ver": "simuleringen kan deles",\n        "find_shareable": "Du finner en __shareable_ver_link__ av denne simuleringen, sammen med dusinvis andre open-source simuleringer for vitenskap, matematikk og teknologi på __concord_org_link__."\n      },\n      "copyright": {\n        "copyright": "Copyright",\n        "all_rights_reserved": "Alle rettigheter reservert.",\n        "license": "Denne programvaren er lisensiert under __MIT_link__ lisens.",\n        "attribution": "Vær vennlig å referere til Concord Consortium og URLen __concord_org_link__."\n      },\n      "md2d": {\n        "heatbath_icon_tooltip": "Varmebad er på",\n        "ke_icon_tooltip": "Kinetisk energigradient",\n        "invalid_object_position_alert": "You can\'t drop the object there.",\n        "aminoacid_menu": {\n          "hydrophobic": "Hydrofob",\n          "hydrophilic": "Hydrofil",\n          "glycine": "Glysin",\n          "alanine": "Alanin",\n          "valine": "Valin",\n          "leucine": "Leucin",\n          "isoleucine": "Isoleucin",\n          "phenylalanine": "Fenylalanin",\n          "proline": "Prolin",\n          "tryptophan": "Tryptofan",\n          "methionine": "Metionin",\n          "cysteine": "Cystin",\n          "tyrosine": "Tyrosin",\n          "asparagine": "Aspargin",\n          "glutamine": "Glutamin",\n          "serine": "Serin",\n          "threonine": "Threonin",\n          "asparticacid": "Asparginsyre",\n          "glutamicacid": "Glutaminsyre",\n          "lysine": "Lysin",\n          "arginine": "Arginin",\n          "histidine": "Histidin"\n        },\n        "mutations_menu": {\n          "substitution_mutation": "Substitusjonsmutasjon",\n          "insertion_mutation": "Insersjonsmutasjon",\n          "deletion_mutation": "Delesjonsmutasjon",\n          "insert": "Sett inn"\n        }\n      },\n      "sensor": {\n        "select_sensor": "Velg sensor",\n        "select_sensor_type": "Velg sensortype...",\n        "reading": "Avlesning:",\n        "zero": "Null",\n        "zeroing": "Nullstilling...",\n        "loading_sensor": "Laster sensor...",\n        "choose_sensor_title": "Velg en sensor:",\n        "connect": "Koble til",\n        "address_labquest2": "adressen til LabQuest2",\n        "messages": {\n          "ready": "Klar til innsamling.",\n          "no_sensors": "Finner ingen sensorer.",\n          "no_devices": "Ingen enheter er tilkoblet.",\n          "not_connected": "Ikke tilkoblet.",\n          "connecting": "Kobler til...",\n          "connection_failed": "Tilkobling feilet.",\n          "connection_failed_alert": "Concord Consortium Sensor Connector er ikke installert eller kjører ikke. Vennligst __click_here_link__ for instruksjoner om hvordan du bruker Sensor Connector.",\n          "connection_failed_labquest2_alert": "Kunne ikke koble til LabQuest2. Vennligst sjekk at adressen er riktig, og at LabQuest2 kan nås fra denne datamaskinen",\n          "tare_labquest2_alert": "LabQuest2 må samle inn data i sanntid for å kunne nullstilles. Sett enten opp en ny måling, eller klikk målerikonet oppe til venstre.",\n          "click_here": "klikk her",\n          "connected": "Tilkoblet.",\n          "connected_start_labquest2": "Tilkoblet. Trykk start på LabQuest2 for å begynne.",\n          "starting_data_collection": "Starter datainnsamling...",\n          "error_starting_data_collection": "Feil ved start av datainnsamling.",\n          "error_starting_data_collection_alert": "Kunne ikke starte datainnsamling. Forsikre deg om at (fjernstart) er aktivert.",\n          "collecting_data": "Samler inn data.",\n          "collecting_data_stop_labquest2": "Samler inn data. Trykk stopp på LabQuest2 for å avslutte.",\n          "no_data": "Ingen data er tilgengelig.",\n          "no_data_alert": "Sensorkonnektoren ser ikke ut til å levere data fra den tilkoblede enheten",\n          "no_data_labquest2_alert": "LabQuest ser ikke ut til å rapportere data fra den tilkoblede enheten",\n          "canceling_data_collection": "Avbryter datainnsamling...",\n          "error_canceling_data_collection": "Feil ved avbrytelse av datainnsamling.",\n          "error_canceling_data_collection_alert": "Kunne ikke avbryte datainnsamling. Sjekk at (fjernstart) er aktivert",\n          "stopping_data_collection": "Stopper datainnsamling...",\n          "error_stopping_data_collection": "Feil ved stopp av datainnsamling.",\n          "error_stopping_data_collection_alert": "Kunne ikke stoppe datainnsamling. Sjekk at (fjernstart) er aktivert",\n          "data_collection_stopped": "Datainnsamling stoppet.",\n          "data_collection_complete": "Datainnsamling er fullført.",\n          "disconnected": "Koblet fra.",\n          "java_applet_error": "Det ser ut som javaappleter ikke kan kjøre i nettleseren. Hvis du kan rette på dette, last siden på nytt for å bruke sensoren",\n          "java_applet_not_loading": "Sensorappleten ser ikke ut til å virke. Hvis du kan rette på dette, kan du laste siden på nytt for å bruke sensoren",\n          "unexpected_error": "Det oppsto en uventet feil da sensoren ble tilkoblet.",\n          "sensor_not_attached": " __sensor_name__ ser ikke ut til å være tilkoblet. Prøv å koble til på nytt, og klikk på \\"$t(sensor.messages.try_again)\\".",\n          "sensor_or_device_unplugged": " __sensor_or_device_name__ ble frakoblet. Prøv å koble til på nytt, og klikk på \\"$t(sensor.messages.try_again)\\".",\n          "try_again": "Prøv igjen",\n          "cancel": "Avbryt"\n        },\n        "measurements": {\n          "sensor_reading": "Sensoravlesning",\n          "time": "Tid",\n          "distance": "Avstand",\n          "acceleration": "Akselerasjon",\n          "altitude": "Høyde",\n          "angle": "Vinkel",\n          "CO2": "CO₂",\n          "CO2_concentration": "CO₂-konsentrasjon",\n          "charge": "Ladning",\n          "conductivity": "Ledningsevne",\n          "current": "Strøm",\n          "dissolved_oxygen": "OO",\n          "flow_rate": "Gjennomstrømningsmengde",\n          "fluorescence_405_nm": "Fluorescens 405 nm",\n          "fluorescence_500_nm": "Fluorescens 500 nm",\n          "force": "Kraft",\n          "intensity": "Intensitet",\n          "light_level": "Lysnivå",\n          "light_intensity": "Lysintensitet",\n          "magnetic_field": "Magnetfelt",\n          "position": "Posisjon",\n          "potential": "Potensial",\n          "pressure": "Trykk",\n          "signal": "Signal",\n          "sound_level": "Lydnivå",\n          "speed": "Fart",\n          "temperature": "Temperatur",\n          "transmittance": "Transmittans",\n          "turbidity": "Turbiditet",\n          "UV_intensity": "UV-intensitet",\n          "velocity": "Hastighet",\n          "volume": "Volum",\n          "pH": "pH",\n          "acidity": "Surhet",\n          "O2_concentration": "O₂-konsentrasjon"\n        },\n        "names": {\n          "sensor": "sensor",\n          "no_sensor": "(ingen sensor)",\n          "light": "Lys",\n          "motion": "Bevegelse",\n          "accelerometer": "Akselerometer",\n          "dissolved_oxygen": "Oppløst oksygen",\n          "pressure": "Trykk",\n          "charge_sensor": "Ladningssensor",\n          "voltage": "Spenning",\n          "pH": "pH",\n          "CO2_gas": "CO₂-gass",\n          "colorimeter": "Kolorimeter",\n          "conductivity": "Ledningsevne",\n          "current": "Strøm",\n          "temperature": "Temperatur",\n          "force": "Kraft",\n          "anemometer": "Anemometer",\n          "hand_dynamometer": "Hånddynamometer",\n          "heart_rate": "Hjertefrekvens",\n          "magnetic_field": "Magnetfelt",\n          "rotary_motion": "Rotasjon",\n          "linear_position_sensor": "Sensor for lineær posisjon",\n          "sound_level": "Lydnivå",\n          "spectrophotometer": "Spektrofotometer",\n          "spirometer": "Spirometer",\n          "turbidity": "Turbiditet",\n          "UV_sensor": "UV-sensor",\n          "drop_counter": "Dråpeteller",\n          "altitude": "Høyde",\n          "goMotion": "GoMotion",\n          "goTemp": "GoIO temperatursensor",\n          "goLinkTemperature": "GoIO temperatursensor",\n          "goLinkLight": "GoIO lyssensor",\n          "goLinkForce": "GoIO kraftsensor",\n          "goLinkPH": "GoIO pH-sensor",\n          "goLinkCO2": "GoIO CO₂-sensor",\n          "goLinkO2": "GoIO CO₂-sensor",\n          "labQuestMotion": "LabQuest bevegelsessensor",\n          "labQuestTemperature": "LabQuest temperatursensor",\n          "labQuestLight": "LabQuest lyssensor",\n          "labQuestForce": "LabQuest kraftsensor",\n          "labQuestPH": "LabQuest pH-sensor",\n          "labQuestCO2": "LabQuest CO₂-sensor",\n          "labQuestO2": "LabQuest O₂-sensor"\n        }\n      }\n    }\n  },\n  \n  "nn-NO": {\n    "translation": {\n      "banner": {\n        "about": "Om simuleringa",\n        "about_tooltip": "Brukarrettleiing",\n        "share": "Del",\n        "share_tooltip": "Del med e-post, melding eller innbygging",\n        "lang_tooltip": "Vel språk",\n        "reload_tooltip": "Last simuleringa på nytt",\n        "help_tooltip": "Vis hjelpetekstar",\n        "credits_tooltip": "Lær meir om Concord Consortium",\n        "fullscreen_tooltip": "Slå fullskjermvising av/på",\n        "video_play_pause_tooltip": "Start og stopp simuleringa",\n        "video_reset_tooltip": "Tilbakestill simuleringa",\n        "video_step_back_tooltip": "Gå eit steg bakover",\n        "video_step_forward_tooltip": "Gå eit steg framover",\n        "text_start": "Start",\n        "text_start_tooltip": "Start simuleringa eller datainnsamlinga",\n        "text_stop": "Stopp",\n        "text_stop_tooltip": "Stopp simuleringa eller datainnsamlinga",\n        "text_reset": "Tilbakestill",\n        "text_reset_tooltip": "Tilbakestill simuleringa eller datainnsamlinga"\n      },\n      "dialog": {\n        "close_tooltip": "Lukk"\n      },\n      "about_dialog": {\n        "title": "Om: __interactive_title__"\n      },\n      "share_dialog": {\n        "title": "-Del: __interactive_title__",\n        "link": "lenke",\n        "paste_email_im": "Lim inn denne __link__ i ein e-post eller melding.",\n        "paste_html": "Lim inn HTML for innbygging på ein nettstad eller ein blogg.",\n        "select_size": "Vel storleik:",\n        "size_larger": "__val__% større",\n        "size_actual": "faktisk",\n        "size_smaller": "__val__% mindre"\n      },\n      "credits_dialog": {\n        "title": "Informasjon om: __interactive_title__",\n        "credits_text": "Denne simuleringa er laga av __CC_link__ med bruk av __Next_Gen_MW_link__ programvare, finanisert av ei løyving frå __Google_link__.",\n        "shareable_ver": "simuleringa kan delast",\n        "find_shareable": "Du finn ein __shareable_ver_link__ av denne simuleringa, saman med dusinvis andre open-source simuleringar for vitskap, matematikk og teknologi på __concord_org_link__."\n      },\n      "copyright": {\n        "copyright": "Copyright",\n        "all_rights_reserved": "Alle rettar reservert.",\n        "license": "Denne programvara er lisensiert under __MIT_link__ eller lisens.",\n        "attribution": "Vær venleg å referere til Concord Consortium og URLen __concord_org_link__."\n      },\n      "md2d": {\n        "heatbath_icon_tooltip": "Varmebad er på",\n        "ke_icon_tooltip": "Kinetisk energigradient",\n        "invalid_object_position_alert": "You can\'t drop the object there.",\n        "aminoacid_menu": {\n          "hydrophobic": "Hydrofob",\n          "hydrophilic": "Hydrofil",\n          "glycine": "Glysin",\n          "alanine": "Alanin",\n          "valine": "Valin",\n          "leucine": "Leucin",\n          "isoleucine": "Isoleucin",\n          "phenylalanine": "Fenylalanin",\n          "proline": "Prolin",\n          "tryptophan": "Tryptofan",\n          "methionine": "Metionin",\n          "cysteine": "Cystin",\n          "tyrosine": "Tyrosin",\n          "asparagine": "Aspargin",\n          "glutamine": "Glutamin",\n          "serine": "Serin",\n          "threonine": "Threonin",\n          "asparticacid": "Asparginsyre",\n          "glutamicacid": "Glutaminsyre",\n          "lysine": "Lysin",\n          "arginine": "Arginin",\n          "histidine": "Histidin"\n        },\n        "mutations_menu": {\n          "substitution_mutation": "Substitusjonsmutasjon",\n          "insertion_mutation": "Insersjonsmutasjon",\n          "deletion_mutation": "Delesjonsmutasjon",\n          "insert": "Sett inn"\n        }\n      },\n      "sensor": {\n        "select_sensor": "Vel sensor",\n        "select_sensor_type": "Vel sensortype...",\n        "reading": "Avlesing:",\n        "zero": "Null",\n        "zeroing": "Nullstilling...",\n        "loading_sensor": "Lastar sensor...",\n        "choose_sensor_title": "Vel en sensor:",\n        "connect": "Kople til",\n        "address_labquest2": "adressen til LabQuest2",\n        "messages": {\n          "ready": "Klar til innsamling.",\n          "no_sensors": "Finn ingen sensorer.",\n          "no_devices": "Inga eining er kopla til.",\n          "not_connected": "Ikkje tilkopla.",\n          "connecting": "Kopla til...",\n          "connection_failed": "Tilkopling feila.",\n          "connection_failed_alert": "Concord Consortium Sensor Connector er ikke installert eller kjører ikke. Vær venleg __click_here_link__ for, om naudsynt, å laste ned eit installasjonsprogram for sensortilkoplinga.",\n          "connection_failed_labquest2_alert": "Kunne ikkje kople til LabQuest2. Vær venleg, sjekk at adressen er rett, og at LabQuest2 kan nåast frå denne datamaskina",\n          "tare_labquest2_alert": "LabQuest2 må samle inn data i sann tid for å kunne nullstillast. Sett anten opp en ny måling, eller klikk målårikonet oppe til venstre.",\n          "click_here": "klikk her",\n          "connected": "Tilkopla.",\n          "connected_start_labquest2": "Tilkopla. Trykk start på LabQuest2 for å byrje.",\n          "starting_data_collection": "Startar datainnsamling...",\n          "error_starting_data_collection": "Feil ved start av datainnsamling.",\n          "error_starting_data_collection_alert": "Kunne ikkje starte datainnsamling. Forsikre deg om at (fjernstart) er aktivert.",\n          "collecting_data": "Samlar inn data.",\n          "collecting_data_stop_labquest2": "Samlar inn data. Trykk stopp på LabQuest2 for å avslutte.",\n          "no_data": "Ingen data er tilgengelege.",\n          "no_data_alert": "Sensorkonnektoren ser ikkje ut til å levere data frå den tilkopla eininga",\n          "no_data_labquest2_alert": "LabQuest ser ikkje ut til å rapportere data frå den tilkopla eininga",\n          "canceling_data_collection": "Avbryt datainnsamlinga...",\n          "error_canceling_data_collection": "Feil på avbrytinga av datainnsamlinga.",\n          "error_canceling_data_collection_alert": "Kunne ikkje avbryte datainnsamlinga. Sjekk at (fjernstart) er aktivert",\n          "stopping_data_collection": "Stopper datainnsamlinga...",\n          "error_stopping_data_collection": "Feil ved stopp av datainnsamlinga.",\n          "error_stopping_data_collection_alert": "Kunne ikkje stoppe datainnsamlinga. Sjekk at (fjernstart) er aktivert",\n          "data_collection_stopped": "Datainnsamlinga stoppa.",\n          "data_collection_complete": "Datainnsamlinga er fullført.",\n          "disconnected": "Kopla frå.",\n          "java_applet_error": "Det ser ut som javaappleter ikkje kan køyre i nettlesaren. Hvis du kan rette på dette, last inn sida på nytt for å bruke sensoren",\n          "java_applet_not_loading": "Sensorappleten ser ikkje ut til å virke. Hvis du kan rette på dette, kan du laste inn sida på nytt for å bruke sensoren",\n          "unexpected_error": "Det oppsto ein uventa feil då sensoren vart tilkopla.",\n          "sensor_not_attached": " __sensor_name__ ser ikkje ut til å vere tilkopla. Prøv å kople til på nytt, og klikk på \\"$t(sensor.messages.try_again)\\".",\n          "sensor_or_device_unplugged": " __sensor_or_device_name__ ble frakopla. Prøv å kople til på nytt, og klikk på \\"$t(sensor.messages.try_again)\\".",\n          "try_again": "Prøv igjen",\n          "cancel": "Avbryt"\n        },\n        "measurements": {\n          "sensor_reading": "Sensoravlesing",\n          "time": "Tid",\n          "distance": "Avstand",\n          "acceleration": "Akselerasjon",\n          "altitude": "Høgd",\n          "angle": "Vinkel",\n          "CO2": "CO₂",\n          "CO2_concentration": "CO₂-konsentrasjon",\n          "charge": "Ladning",\n          "conductivity": "Leiingsevne",\n          "current": "Strøm",\n          "dissolved_oxygen": "OO",\n          "flow_rate": "Gjennomstrømmingsmengd",\n          "fluorescence_405_nm": "Fluorescens 405 nm",\n          "fluorescence_500_nm": "Fluorescens 500 nm",\n          "force": "Kraft",\n          "intensity": "Intensitet",\n          "light_level": "Lysnivå",\n          "light_intensity": "Lysintensitet",\n          "magnetic_field": "Magnetfelt",\n          "position": "Posisjon",\n          "potential": "Potensial",\n          "pressure": "Trykk",\n          "signal": "Signal",\n          "sound_level": "Lydnivå",\n          "speed": "Fart",\n          "temperature": "Temperatur",\n          "transmittance": "Transmittans",\n          "turbidity": "Turbiditet",\n          "UV_intensity": "UV-intensitet",\n          "velocity": "Hastigheit",\n          "volume": "Volum",\n          "pH": "pH",\n          "acidity": "Surleik",\n          "O2_concentration": "O₂-konsentrasjon"\n        },\n        "names": {\n          "sensor": "sensor",\n          "no_sensor": "(ingen sensor)",\n          "light": "Lys",\n          "motion": "Rørsle",\n          "accelerometer": "Akselerometer",\n          "dissolved_oxygen": "Løyst oksygen",\n          "pressure": "Trykk",\n          "charge_sensor": "Ladingssensor",\n          "voltage": "Spenning",\n          "pH": "pH",\n          "CO2_gas": "CO₂-gass",\n          "colorimeter": "Kolorimeter",\n          "conductivity": "Leiingsevne",\n          "current": "Strøm",\n          "temperature": "Temperatur",\n          "force": "Kraft",\n          "anemometer": "Anemometer",\n          "hand_dynamometer": "Handdynamometer",\n          "heart_rate": "Hjertefrekvens",\n          "magnetic_field": "Magnetfelt",\n          "rotary_motion": "Rotasjon",\n          "linear_position_sensor": "Sensor for lineær posisjon",\n          "sound_level": "Lydnivå",\n          "spectrophotometer": "Spektrofotometer",\n          "spirometer": "Spirometer",\n          "turbidity": "Turbiditet",\n          "UV_sensor": "UV-sensor",\n          "drop_counter": "Dropeteljar",\n          "altitude": "Høgd",\n          "goMotion": "GoMotion",\n          "goTemp": "GoIO temperatursensor",\n          "goLinkTemperature": "GoIO temperatursensor",\n          "goLinkLight": "GoIO lyssensor",\n          "goLinkForce": "GoIO kraftsensor",\n          "goLinkPH": "GoIO pH-sensor",\n          "goLinkCO2": "GoIO CO₂-sensor",\n          "goLinkO2": "GoIO CO₂-sensor",\n          "labQuestMotion": "LabQuest rørslesensor",\n          "labQuestTemperature": "LabQuest temperatursensor",\n          "labQuestLight": "LabQuest lyssensor",\n          "labQuestForce": "LabQuest kraftsensor",\n          "labQuestPH": "LabQuest pH-sensor",\n          "labQuestCO2": "LabQuest CO₂-sensor",\n          "labQuestO2": "LabQuest O₂-sensor"\n        }\n      }\n    }\n  },\n  \n  "pt-BR": {\n    "translation": {\n      "banner": {\n        "about": "Sobre",\n        "about_tooltip": "Instruções",\n        "share": "Compartilhar",\n        "share_tooltip": "Compartilha por e-mail, mensagem ou inclui em site",\n        "lang_tooltip": "Seleciona a língua",\n        "reload_tooltip": "Recarrega o interativo",\n        "help_tooltip": "Mostra dicas",\n        "credits_tooltip": "Saber mais sobre The Concord Consortium",\n        "fullscreen_tooltip": "Alterna para tela cheia",\n        "video_play_pause_tooltip": "Inicia / pausa a simulação",\n        "video_reset_tooltip": "Reinicia a simulação",\n        "video_step_back_tooltip": "Passo atrás",\n        "video_step_forward_tooltip": "Passo adiante",\n        "text_start": "Iniciar",\n        "text_start_tooltip": "Inicia a simulação ou coleta de dados",\n        "text_stop": "Parar",\n        "text_stop_tooltip": "Para a simulação ou coleta de dados",\n        "text_reset": "Reiniciar",\n        "text_reset_tooltip": "Reinicia a simulação ou coleta de dados",\n        "text_new_run": "Nova corrida",\n        "text_new_run_tooltip": "Prepara nova corrida experimental",\n        "text_analyze_data": "Analisar dados",\n        "text_analyze_data_tooltip": "Envia dados experimentais para CODAP"\n      },\n      "dialog": {\n        "close_tooltip": "Fecha"\n      },\n      "about_dialog": {\n        "title": "Sobre: __interactive_title__"\n      },\n      "share_dialog": {\n        "title": "Compartilhar: __interactive_title__",\n        "link": "link",\n        "paste_email_im": "Cole este __link__ no email ou mensagem.",\n        "paste_html": "Cole o HTML para incluir em site ou blog.",\n        "select_size": "Selecione o tamanho:",\n        "size_larger": "__val__% maior",\n        "size_actual": "real",\n        "size_smaller": "__val__% menor"\n      },\n      "credits_dialog": {\n        "title": "Créditos: __interactive_title__",\n        "credits_text": "Este interativo foi criado pelo __CC_link__ usando nosso __Next_Gen_MW_link__ software, com o apoio financeiro do __Google_link__.",\n        "shareable_ver": "versão compartilhável",\n        "find_shareable": "Encontre uma __shareable_ver_link__ deste interativo e mais dezenas de outros interativos de código aberto para ciência, matemática e engenharia em __concord_org_link__."\n      },\n      "copyright": {\n        "copyright": "Copyright",\n        "all_rights_reserved": "Todos direitos reservados.",\n        "license": "O software é licenciado sob a licença __MIT_link__.",\n        "attribution": "Por favor, forneça a atribuição ao Concord Consortium and a URL __concord_org_link__."\n      },\n      "md2d": {\n        "heatbath_icon_tooltip": "Banho de calor ativo",\n        "ke_icon_tooltip": "Gradiente de energia cinética",\n        "invalid_object_position_alert": "You can\'t drop the object there.",\n        "aminoacid_menu": {\n          "hydrophobic": "Hidrofóbico",\n          "hydrophilic": "Hidrofílico",\n          "glycine": "Glicina",\n          "alanine": "Alanina",\n          "valine": "Valina",\n          "leucine": "Leucina",\n          "isoleucine": "Isoleucina",\n          "phenylalanine": "Phenilalanina",\n          "proline": "Prolina",\n          "tryptophan": "Triptofano",\n          "methionine": "Metionina",\n          "cysteine": "Cisteína",\n          "tyrosine": "Tirosina",\n          "asparagine": "Asparagina",\n          "glutamine": "Glutamina",\n          "serine": "Serina",\n          "threonine": "Treonina",\n          "asparticacid": "Ácido aspártico",\n          "glutamicacid": "Ácido glutâmico",\n          "lysine": "Lisina",\n          "arginine": "Arginina",\n          "histidine": "Histidina"\n        },\n        "mutations_menu": {\n          "substitution_mutation": "Mutação de substituição",\n          "insertion_mutation": "Mutação de inserção",\n          "deletion_mutation": "Mutação de deleção",\n          "insert": "Inserir"\n        }\n      },\n      "sensor": {\n        "select_sensor": "Selecione o sensor",\n        "select_sensor_type": "Selecione o tipo de sensor...",\n        "reading": "Leitura:",\n        "zero": "Zero",\n        "zeroing": "Zerando...",\n        "loading_sensor": "Carregando sensor...",\n        "choose_sensor_title": "Selecione o sensor:",\n        "connect": "Conectar",\n        "address_labquest2": "endereço do LabQuest2",\n        "messages": {\n          "ready": "Pronto para coletar.",\n          "ready_nocontrol": "Por favor pare o coletor de dados __controlling_client__ para coletar dados aqui.",\n          "ready_nocontrol_noname": "Por favor pare o outro coletor de dados ativo para coletar dados aqui.",\n          "no_sensors": "Nenhum sensor encontrado.",\n          "no_devices": "Nenhum dispositivo plugado.",\n          "not_connected": "Não contectado.",\n          "connecting": "Conectando...",\n          "connection_failed": "Conexão falhou.",\n          "connection_in_progress": "Conectando-se a seus sensores. Se uma mensagem surge sobre sensorconnector.concord.org, por favor, aceite -o",\n          "connection_failed_alert": "O Conector de Sensores do Concord Consortium não está instalado ou não está funcionando. Por favor __click_here_link__ obter instruções sobre a utilização do Conector de Sensores.",\n          "connection_failed_labquest2_alert": "Não foi possível conectar ao LabQuest2. Por favor verifique se o endereço está certo e se o LabQuest2 pode ser alcançado deste computador",\n          "tare_labquest2_alert": "O LabQuest2 precisa conectar dados ao vivo para zerar. Inicie uma nova corrida no LabQuest2 ou clique no ícone do medidor no alto à esquerda.",\n          "click_here": "clique aqui",\n          "connected": "Conectado.",\n          "connected_start_labquest2": "Conectado. Aperte iniciar no seu LabQuest2 to começar.",\n          "connected_start_sensorconnector": "Por favor pare o coletor de dados __controlling_client__ para coletar dados aqui.",\n          "connected_start_sensorconnector_noname": "Por favor pare o outro coletor de dados ativo para coletar dados aqui.",\n          "starting_data_collection": "Iniciando coleta de dados...",\n          "error_starting_data_collection": "Erro ao iniciar a coleta de dados.",\n          "error_starting_data_collection_alert": "Não foi possível iniciar a coleta de dados. Verifique se (remote starting) está habilitado",\n          "collecting_data": "Coletando dados.",\n          "collecting_data_stop_labquest2": "Coletando dados. Pressione parar no seu LabQuest2 para encerrar.",\n          "collecting_data_stop_sensorconnector": "Coletando dados.",\n          "no_data": "Não há dados disponíveis.",\n          "no_data_alert": "O Conector de Sensores parece não estar reportando dados ao dispositivo plugado",\n          "no_data_labquest2_alert": "The LabQuest parece não estar reportando dados ao dispositivo plugado",\n          "canceling_data_collection": "Cancelando coleta de dados...",\n          "error_canceling_data_collection": "Erro ao cancelar a coleta de dados.",\n          "error_canceling_data_collection_alert": "Não foi possível cancelar a coleta de dados. Verifique se (remote starting) está habilitado",\n          "stopping_data_collection": "Interrompendo a coleta de dados...",\n          "error_stopping_data_collection": "Erro ao interromper a coleta de dados.",\n          "error_stopping_data_collection_alert": "Não foi possível interromper a coleta de dados. Verifique se (remote starting) está habilitado",\n          "data_collection_stopped": "Coleta de dados interrompida.",\n          "data_collection_complete": "Coleta de dados completa.",\n          "disconnected": "Desconectado.",\n          "java_applet_error": "Parece que applets Java não podem rodar no seu navegador. Se você puder consertar isso, recarregue a página para usar o sensor.",\n          "java_applet_not_loading": "O applet do sensor parece não estar carregando. Se você puder consertar isso, recarregue a página para usar o sensor.",\n          "unexpected_error": "Houve um erro inesperado ao conectar com o sensor.",\n          "sensor_not_attached": "O __sensor_name__ parece não estar conectado. Tente reconectá-lo, e então clique \\"$t(sensor.messages.try_again)\\".",\n          "sensor_or_device_unplugged": "O __sensor_or_device_name__ estava deplugado. Tente reconectá-lo, e então clique \\"$t(sensor.messages.try_again)\\".",\n          "try_again": "Tentar de novo",\n          "cancel": "Cancelar"\n        },\n        "measurements": {\n          "sensor_reading": "Leitura do sensor",\n          "time": "Tempo",\n          "distance": "Distância",\n          "acceleration": "Aceleração",\n          "altitude": "Altitude",\n          "angle": "Ângulo",\n          "CO2": "CO₂",\n          "CO2_concentration": "Concentração de CO₂",\n          "charge": "Carga",\n          "conductivity": "Condutividade",\n          "current": "Corrente",\n          "dissolved_oxygen": "OD",\n          "flow_rate": "Taxa de fluxo",\n          "fluorescence_405_nm": "Fluorescência a 405 nm",\n          "fluorescence_500_nm": "Fluorescência a 500 nm",\n          "force": "Força",\n          "intensity": "Intensidade",\n          "light_level": "Nível de luz",\n          "light_intensity": "Intensidade de luz",\n          "magnetic_field": "Campo magnético",\n          "position": "Posição",\n          "potential": "Potencial",\n          "pressure": "Pressão",\n          "signal": "Sinal",\n          "sound_level": "Nível de som",\n          "speed": "Velocidade",\n          "temperature": "Temperatura",\n          "transmittance": "Transmitância",\n          "turbidity": "Turbidez",\n          "UV_intensity": "Intensidade UV",\n          "velocity": "Velocidade",\n          "volume": "Volume",\n          "pH": "pH",\n          "acidity": "Acidez",\n          "O2_concentration": "Concentração de O₂"\n        },\n        "names": {\n          "sensor": "sensor",\n          "no_sensor": "(sem sensor)",\n          "light": "Luz",\n          "motion": "Movimento",\n          "accelerometer": "Acelerômetro",\n          "dissolved_oxygen": "Oxigênio Dissolvido",\n          "pressure": "Pressão",\n          "charge_sensor": "Sensor de Carga",\n          "voltage": "Voltagem",\n          "pH": "pH",\n          "CO2_gas": "Gas CO₂",\n          "colorimeter": "Colorímetro",\n          "conductivity": "Condutividade",\n          "current": "Corrente",\n          "temperature": "Temperatura",\n          "force": "Força",\n          "anemometer": "Anemômetro",\n          "hand_dynamometer": "Dinamômetro de Mão",\n          "heart_rate": "Frequência Cardíaca",\n          "magnetic_field": "Campo Magnético",\n          "rotary_motion": "Movimento de Rotação",\n          "linear_position_sensor": "Sensor de Posição Linear",\n          "sound_level": "Nível de Som",\n          "spectrophotometer": "Espectrofotômetro",\n          "spirometer": "Espirômetro",\n          "turbidity": "Turbidez",\n          "UV_sensor": "Sensor UV",\n          "drop_counter": "Contador de Gotas",\n          "altitude": "Altitude",\n          "goMotion": "GoMotion",\n          "goTemp": "Sensor de Temperatura GoIO",\n          "goLinkTemperature": "Sensor de Temperatura GoIO",\n          "goLinkLight": "Sensor de Luz GoIO",\n          "goLinkForce": "Sensor de Força GoIO",\n          "goLinkPH": "Sensor de pH GoIO",\n          "goLinkCO2": "Sensor de  CO₂ GoIO",\n          "goLinkO2": "Sensor de  O₂ GoIO",\n          "labQuestMotion": "Sensor de Movimento LabQuest",\n          "labQuestTemperature": "Sensor de Temperatura LabQuest",\n          "labQuestLight": "Sensor de Luz LabQuest",\n          "labQuestForce": "Sensor de Força LabQuest",\n          "labQuestPH": "Sensor de pH LabQuest",\n          "labQuestCO2": "Sensor de CO₂ LabQuest",\n          "labQuestO2": "Sensor de O₂ LabQuest"\n        }\n      }\n    }\n  },\n  \n  "cs-CZ": {\n    "translation": {\n      "banner": {\n        "about": "O simulaci",\n        "about_tooltip": "Pokyny",\n        "share": "Sdílet",\n        "share_tooltip": "Sdílet pomocí e-mailu, IM nebo vložení do webové stránky",\n        "lang_tooltip": "Vybrat jazyk",\n        "reload_tooltip": "Opakovat simulaci",\n        "help_tooltip": "Zobrazit nápovědu",\n        "credits_tooltip": "Dozvědět se více o The Concord Consortium",\n        "fullscreen_tooltip": "Režim celé obrazovky",\n        "video_play_pause_tooltip": "Start / pauza simulace",\n        "video_reset_tooltip": "Obnova simulace",\n        "video_step_back_tooltip": "Krok zpět",\n        "video_step_forward_tooltip": "Krok vpřed",\n        "text_start": "Start",\n        "text_start_tooltip": "Start simulace nebo sběru dat",\n        "text_stop": "Stop",\n        "text_stop_tooltip": "Zastavit simulaci nebo sběr dat",\n        "text_reset": "Obnovit",\n        "text_reset_tooltip": "Obnovit simulaci nebo sběr dat",\n        "text_new_run": "Nový pokus",\n        "text_new_run_tooltip": "Nastavení nového pokusu",\n        "text_analyze_data": "Analyzovat data",\n        "text_analyze_data_tooltip": "Poslat data z experimentu do CODAP"\n      },\n      "dialog": {\n        "close_tooltip": "Zavřít"\n      },\n      "about_dialog": {\n        "title": "O simulaci: __interactive_title__"\n      },\n      "share_dialog": {\n        "title": "Sdílet: __interactive_title__",\n        "link": "odkaz",\n        "paste_email_im": "Vložit __link__ do e-mailu nebo IM.",\n        "paste_html": "HTML kód pro vložení do webové stránky nebo blogu",\n        "select_size": "Vybrat velikost:",\n        "size_larger": "__val__% vetší",\n        "size_actual": "současná",\n        "size_smaller": "__val__% menší"\n      },\n      "credits_dialog": {\n        "title": "Credits: __interactive_title__",\n        "credits_text": "Tato simulace byla vytvořena pomocí __CC_link__ využívající našeho __Next_Gen_MW_link__ softwaru. Práce byla financována z grantu __Google_link__.",\n        "shareable_ver": "Verze pro sdílení",\n        "find_shareable": "__shareable_ver_link__ s dalšími simulacemi z přírodních věd, matematiky a strojírenství je možné najít na __concord_org_link__."\n      },\n      "copyright": {\n        "copyright": "Copyright",\n        "all_rights_reserved": "Všechna práva vyhrazena.",\n        "license": "Software je licencován pod __MIT_link__.",\n        "attribution": "Prosím, zajistěte práva Concord Consortium a URL __concord_org_link__."\n      },\n      "md2d": {\n        "heatbath_icon_tooltip": "Vodní lázeň",\n        "ke_icon_tooltip": "Gradient kinetické energie",\n        "invalid_object_position_alert": "You can\'t drop the object there.",\n        "aminoacid_menu": {\n          "hydrophobic": "Hydrofobní",\n          "hydrophilic": "Hydrofilní",\n          "glycine": "Glycin",\n          "alanine": "Alanin",\n          "valine": "Valin",\n          "leucine": "Leucin",\n          "isoleucine": "Isoleucin",\n          "phenylalanine": "Fenylalanin",\n          "proline": "Prolin",\n          "tryptophan": "Tryptofan",\n          "methionine": "Methionin",\n          "cysteine": "Cystein",\n          "tyrosine": "Tyrosin",\n          "asparagine": "Asparagin",\n          "glutamine": "Glutamin",\n          "serine": "Serin",\n          "threonine": "Threonin",\n          "asparticacid": "Kyselina asparagová",\n          "glutamicacid": "Kyselina glutamová",\n          "lysine": "Lysin",\n          "arginine": "Arginin",\n          "histidine": "Histidin"\n        },\n        "mutations_menu": {\n          "substitution_mutation": "Substituční mutace",\n          "insertion_mutation": "Inzerce",\n          "deletion_mutation": "Delece",\n          "insert": "Vložení"\n        }\n      },\n      "sensor": {\n        "select_sensor": "Vybrat čidlo",\n        "select_sensor_type": "Vybrat druh čidla...",\n        "reading": "Hodnota:",\n        "zero": "Vynulovat",\n        "zeroing": "Nulování...",\n        "loading_sensor": "Nahrávání čidla...",\n        "choose_sensor_title": "Vybrat čidlo:",\n        "connect": "Připojeno",\n        "address_labquest2": "adresa LabQuest2",\n        "messages": {\n          "ready": "Připraven ke sběr dat.",\n          "ready_nocontrol": "Prosím, zastavte __controlling_client__ sběr dat, aby bylo možné sbírat data zde.",\n          "ready_nocontrol_noname": "Prosím, zastavte ostatní sběry dat, aby bylo možné sbírat data zde.",\n          "no_sensors": "Čidlo nenalezeno.",\n          "no_devices": "Není připojeno žádné zařízení.",\n          "not_connected": "Nepřipojeno.",\n          "connecting": "Připojování...",\n          "connection_in_progress": "Připojování čidel. Pokud se objeví zpráva o sensorconnector.concord.org, potvrďte ji, prosím.",\n          "connection_failed": "Připojení selhalo. __retry_link__",\n          "connection_failed_retry_link_text": "Zkusit znovu",\n          "connection_failed_alert": "Concord Consortium Sensor Connector není naistalován nebo spuštěn. Prosím, pro další instrukce k používání Sensor Connector __click_here_link__ .",\n          "connection_failed_labquest2_alert": "Nepodařilo se spojit s LabQuest2. Prosím, ověřte zda je adresa správná a jestli je možné se s LabQuest2 spojit z toho počítače.",\n          "tare_labquest2_alert": "Pro vynulování potřebuje LabQuest2 sbírat aktuální data. Buď nastavte nový pokus v LabQuest2, nebo klepněte na ikonu měření v levém horním rohu.",\n          "click_here": "Klepněte zde",\n          "connected": "Připojeno.",\n          "connected_start_labquest2": "Připojeno. Pro zahájení pokusu klepněte na start v LabQuest2.",\n          "connected_start_sensorconnector": "Prosím, zastavte __controlling_client__ sběr dat, aby bylo možné sbírat data zde.",\n          "starting_data_collection": "Začíná sběr dat...",\n          "error_starting_data_collection": "Chyba při zahájení sběru dat.",\n          "error_starting_data_collection_alert": "Nebylo možné zahájit sběr dat. Ujistěte se, že (remote starting) je povolený.",\n          "collecting_data": "Sbírám data.",\n          "collecting_data_stop_labquest2": "Sbírám data. Klikněte na stop v LabQuest2, aby se sběr ukončil.",\n          "collecting_data_stop_sensorconnector": "Sběr dat.",\n          "no_data": "Data nejsou k dispozici.",\n          "no_data_alert": "Sensor Connector nezaznamenává data ze zapojeného zařízení.",\n          "no_data_labquest2_alert": "LabQuest nezaznamenává data ze zapojeného zařízení.",\n          "canceling_data_collection": "Rušení sběru dat...",\n          "error_canceling_data_collection": "Chyba při rušení sběru dat.",\n          "error_canceling_data_collection_alert": "Není možné zrušit sběr dat. Ujistěte se, že (remote starting) je povolený.",\n          "stopping_data_collection": "Zastavování sběru dat...",\n          "error_stopping_data_collection": "Chyba při zastavování sběru dat.",\n          "error_stopping_data_collection_alert": "Není možné zastavit sběr dat. Ujistěte se, že (remote starting) je povolený.",\n          "data_collection_stopped": "Sběr dat zastaven.",\n          "data_collection_complete": "Sběr dat dokončen.",\n          "disconnected": "Odpojeno.",\n          "java_applet_error": "Java aplety nemohou být spuštěny v prohlížeči. Po opravě znovu načtěte stránku, aby bylo možné použít sezor.",\n          "java_applet_not_loading": "čidlo se nenačítá. Po opravě znovu načtěte stránku, aby bylo možné použít sezor.",\n          "unexpected_error": "Nastala neočekáváná chyba při připojování čidla.",\n          "sensor_not_attached": "__sensor_name__ není připojený. Zkuste ho připojit znovu a poté klikněte na \\"$t(sensor.messages.try_again)\\".",\n          "sensor_or_device_unplugged": " __sensor_or_device_name__ byl odpojen. Zkuste ho připojit znovu a poté klepněte na \\"$t(sensor.messages.try_again)\\".",\n          "try_again": "Zkusit znovu",\n          "cancel": "Zrušit"\n        },\n        "measurements": {\n          "sensor_reading": "Hodnota čidla",\n          "time": "Čas",\n          "distance": "Vzdálenost",\n          "acceleration": "Zrychlení",\n          "altitude": "Výška",\n          "angle": "Úhel",\n          "CO2": "CO2",\n          "CO2_concentration": "Koncentrace CO2",\n          "charge": "Náboj",\n          "conductivity": "Vodivost",\n          "current": "Proud",\n          "dissolved_oxygen": "DO - rozpuštěný kyslík",\n          "flow_rate": "Objemový průtok",\n          "fluorescence_405_nm": "Fluorescence 405 nm",\n          "fluorescence_500_nm": "Fluorescence 500 nm",\n          "force": "Síla",\n          "intensity": "Intenzita",\n          "light_level": "Množství světla",\n          "light_intensity": "Intenzita osvětlení",\n          "magnetic_field": "Magnetické pole",\n          "position": "Pozice",\n          "potential": "Potenciál",\n          "pressure": "Tlak",\n          "signal": "Signál",\n          "sound_level": "Hlasitost",\n          "speed": "Rychlost",\n          "temperature": "Teplota",\n          "transmittance": "Transmitance",\n          "turbidity": "Turbidita (zákal)",\n          "UV_intensity": "Intenzita UV záření",\n          "velocity": "Rychlost",\n          "volume": "Objem",\n          "pH": "pH",\n          "acidity": "Kyselost",\n          "O2_concentration": "Koncentrace O2"\n        },\n        "names": {\n          "sensor": "čidlo",\n          "no_sensor": "(žádné čidlo)",\n          "light": "Světlo",\n          "motion": "Pohyb",\n          "accelerometer": "Akcelerometer (čidlo zrychlení)",\n          "dissolved_oxygen": "Rozpuštěný kyslík",\n          "pressure": "Tlak",\n          "charge_sensor": "Elektroskop (čidlo náboje)",\n          "voltage": "Elektrické napětí",\n          "pH": "pH",\n          "CO2_gas": "CO2",\n          "colorimeter": "Kolorimetr",\n          "conductivity": "Vodivost",\n          "current": "Elektrický proud",\n          "temperature": "Teplota",\n          "force": "Síla",\n          "anemometer": "Anemometr",\n          "hand_dynamometer": "Ruční siloměr",\n          "heart_rate": "Srdeční tep",\n          "magnetic_field": "Magnetické pole",\n          "rotary_motion": "Rotační pohyb",\n          "linear_position_sensor": "Lineární poloha",\n          "sound_level": "Hlasitost",\n          "spectrophotometer": "Spektrofotometr",\n          "spirometer": "Spirometr",\n          "turbidity": "Turbidita (zákal)",\n          "UV_sensor": "Čidlo UV záření",\n          "drop_counter": "Čítač kapek",\n          "altitude": "Výška",\n          "goMotion": "GoMotion",\n          "goTemp": "GoIO teplotní čidlo",\n          "goLinkTemperature": "GoIO teplotní čidlo",\n          "goLinkLight": "GoIO světelné čidlo",\n          "goLinkForce": "GoIO čidlo pro měření síly",\n          "goLinkPH": "GoIO čidlo pH",\n          "goLinkCO2": "GoIO čidlo pro měžení CO2",\n          "goLinkO2": "GoIO čidlo pro měření O2",\n          "labQuestMotion": "LabQuest pohybové čidlo",\n          "labQuestTemperature": "LabQuest teplotní čidlo",\n          "labQuestLight": "LabQuest světelné čidlo",\n          "labQuestForce": "LabQuest čidlo pro měření síly",\n          "labQuestPH": "LabQuest čidlo pH",\n          "labQuestCO2": "LabQuest čidlo pro měření CO2",\n          "labQuestO2": "LabQuest čidlo pro měření O2"\n        }\n      }\n    }\n  },\n  \n  "es": {\n    "translation": {\n      "banner": {\n        "about": "Acerca de",\n        "about_tooltip": "Instrucciones",\n        "share": "Compartir",\n        "share_tooltip": "Compartir a través de e-mail, MI o embeber en sitio web",\n        "lang_tooltip": "Elegir idioma",\n        "reload_tooltip": "Recargar el interactivo",\n        "help_tooltip": "Mostrar ayuda",\n        "credits_tooltip": "Saber más sobre The Concord Consortium",\n        "fullscreen_tooltip": "Cambiar a pantalla completa",\n        "video_play_pause_tooltip": "Iniciar / pausar la simulación",\n        "video_reset_tooltip": "Resetear la simulación",\n        "video_step_back_tooltip": "Un paso atrás",\n        "video_step_forward_tooltip": "Un paso adelante",\n        "text_start": "Iniciar",\n        "text_start_tooltip": "Iniciar la simulación o recolección de datos",\n        "text_stop": "Detener",\n        "text_stop_tooltip": "Detener la simulación o recolección de datos",\n        "text_reset": "Resetear",\n        "text_reset_tooltip": "Resetear la simulación o recolección de datos"\n      },\n      "dialog": {\n        "close_tooltip": "Cerrar"\n      },\n      "about_dialog": {\n        "title": "Acerca de: __interactive_title__"\n      },\n      "share_dialog": {\n        "title": "Compartir: __interactive_title__",\n        "link": "enlace",\n        "paste_email_im": "Pegar este __link__ en email o MI",\n        "paste_html": "Pegar HTML para embeber en sitio web o blog.",\n        "select_size": "Elegir tamaño:",\n        "size_larger": "__val__% más grande",\n        "size_actual": "actual",\n        "size_smaller": "__val__% más pequeño"\n      },\n      "credits_dialog": {\n        "title": "Créditos: __interactive_title__",\n        "credits_text": "Este interactivo fue creado por the __CC_link__ usando nuestro software __Next_Gen_MW_link__, con fondos provenientes de un gran de __Google_link__.",\n        "shareable_ver": "versión para compartir",\n        "find_shareable": "Buscar un __shareable_ver_link__ de este interactivo junto a docenas de otros interactivos de código abierto para ciencias, matemática e ingeniería en __concord_org_link__."\n      },\n      "copyright": {\n        "copyright": "Copyright",\n        "all_rights_reserved": "Todos los derechos reservados.",\n        "license": "Este software está licenciado bajo licencia de __MIT_link__.",\n        "attribution": "Por favor dar atribución a The Concord Consortium y la URL __concord_org_link__."\n      }\n    }\n  },\n  \n  "ru": {\n    "translation": {\n      "banner": {\n        "about": "Об интерактиве",\n        "about_tooltip": "Инструкция",\n        "share": "Опубликовать ссылку",\n        "share_tooltip": "Поделиться данными в e-mail, IM или вставить их на страницу в web-страницу",\n        "lang_tooltip": "Выбрать язык",\n        "reload_tooltip": "Перезагрузить интерактив",\n        "help_tooltip": "Показать подсказку",\n        "credits_tooltip": "Подробнее о Конкорд Консорциуме",\n        "fullscreen_tooltip": "Переключить на полноэкранную версию",\n        "video_play_pause_tooltip": "Старт/пауза симуляции",\n        "video_reset_tooltip": "Перезагрузить симуляцию",\n        "video_step_back_tooltip": "Шаг назад",\n        "video_step_forward_tooltip": "Шаг вперед",\n        "text_start": "Старт",\n        "text_start_tooltip": "Запустить симуляции или сбор данных",\n        "text_stop": "Стоп",\n        "text_stop_tooltip": "Остановить симуляцию или сбор данных ",\n        "text_reset": "Перегрузить",\n        "text_reset_tooltip": " Перегрузить симуляцию или сбор данных",\n        "text_new_run": "Повторный запуск",\n        "text_new_run_tooltip": "Повторить запуск нового эксперимента",\n        "text_analyze_data": "Анализ данных",\n        "text_analyze_data_tooltip": "Послать данные опыта на CODAP"\n      },\n      "dialog": {\n        "close_tooltip": "Закрыть"\n      },\n      "about_dialog": {\n        "title": "Об интерактиве: __interactive_title__"\n      },\n      "share_dialog": {\n        "title": "Поделиться: __interactive_title__",\n        "link": " линк ",\n        "paste_email_im": "Вставить этот __link__ в e-mail или IM.",\n        "paste_html": " Скопировать HTML для вставки в web-site или блог.",\n        "select_size": "Выбрать размер:",\n        "size_larger": "__val__% больше",\n        "size_actual": "actual",\n        "size_smaller": "__val__% меньше"\n      },\n      "credits_dialog": {\n        "title": "Авторство: __interactive_title__",\n        "credits_text": "Данные интерактивные  учебные продукты были созданы __CC_link__ с использованием нашего __Next_Gen_MW_link__ программного продукта, при финансовой поддержке  за счет гранта от __Google_link__.",\n        "shareable_ver": "версия для обмена",\n        "find_shareable": "Найти __shareable_ver_link__ коллекцию интерактивных учебных продуктов наряду с десятками  других открытых программных продуктов по естественным наукам, математике и инжинирингу в материалах __concord_org_link__."\n      },\n      "copyright": {\n        "copyright": "Авторские права",\n        "all_rights_reserved": "Все права защищены.",\n        "license": "Лицензия на данный программный продукт предоставляется в соответствии с __MIT_link__ лицензией.",\n        "attribution": "Просьба при использовании данного продукта ссылаться на Конкорд Консорциум URL __concord_org_link__."\n      },\n      "md2d": {\n        "heatbath_icon_tooltip": "Тепловая баня активна",\n        "ke_icon_tooltip": "Градиент кинетической энергии",\n        "invalid_object_position_alert": "Нельзя сбросить объект здесь.",\n        "aminoacid_menu": {\n          "hydrophobic": "Гидрофобный",\n          "hydrophilic": "Гидрофильный",\n          "glycine": "Глицин",\n          "alanine": "Аланин",\n          "valine": "Валин",\n          "leucine": "Лейцин",\n          "isoleucine": "Изолейцин",\n          "phenylalanine": "Фенилаланин",\n          "proline": "Пролин",\n          "tryptophan": "Триптофан",\n          "methionine": "Метионин",\n          "cysteine": "Цистеин",\n          "tyrosine": "Тирозин",\n          "asparagine": "Аспарагин",\n          "glutamine": "Глутамин",\n          "serine": "Серин",\n          "threonine": "Треонин",\n          "asparticacid": "Аспартат",\n          "glutamicacid": "Глутамат",\n          "lysine": "Лизин",\n          "arginine": "Аргинин",\n          "histidine": "Гистидин"\n        },\n        "mutations_menu": {\n          "substitution_mutation": "Мутация: Замена нуклеотида",\n          "insertion_mutation": "Мутация: Вставка нуклеотида",\n          "deletion_mutation": " Мутация: Удаление нуклеотида ",\n          "insert": "Вставить"\n        }\n      },\n      "sensor": {\n        "select_sensor": "Выбрать датчик",\n        "select_sensor_type": "Выбрать тип датчика…",\n        "reading": "Съем данных:",\n        "zero": "Ноль",\n        "zeroing": "Выбор ноля...",\n        "loading_sensor": "Загрузка датчика...",\n        "choose_sensor_title": "Выбор датчика:",\n        "connect": "Соединить",\n        "address_labquest2": "адрес LabQuest2",\n        "messages": {\n          "ready": "Готов к сбору данных.",\n          "ready_nocontrol": "Пожалуйста остановите __controlling_client__ сборщик данных будет собирать данные здесь.",\n          "ready_nocontrol_noname": "Пожалуйста остановите все остальные активные сборщики данных, чтобы собрать данные здесь.",\n          "no_sensors": "Ни один датчик не найден.",\n          "no_devices": "Ни одно устройство не подключено.",\n          "not_connected": "Нет соединения.",\n          "connecting": "Идет подсоединение...",\n          "connection_in_progress": " Идет подсоединение к вашему датчику. Если придет сообщение от sensorconnector.concord.org, пожалуйста примите его.",\n          "connection_failed": "Подсоединения не произошло. __retry_link__",\n          " Подсоединение_failed_retry_link_text": "Повторить попытку",\n          "подсоединения _failed_внимание": "Программа для подсоединения датчиков Concord Consortium Sensor Connector либо не инсталлирована, либо не подключена. Пожалуйста __click_here_link__ для получения инструкции по использованию программы Sensor Connector.",\n          "connection_failed_labquest2_alert": "Не произошло подсоединение к LabQuest2. Пожалуйста убедитесь, в правильности адреса и в том, что LabQuest2 доступен на данном компьютере",\n          "tare_labquest2_alert": "LabQuest2 должен начать сбор данных, чтобы выставить значение ноля. Запустите новое измерение на LabQuest2 или нажмите на иконку измерительного устройства в левом верхнем углу экрана.",\n          "click_here": "Нажать здесь",\n          "connected": "Подсоединение произошло.",\n          "connected_start_labquest2": " Подсоединение произошло. Чтобы начать работу, нажмите кнопку Старт на вашем LabQuest2.",\n          "connected_start_sensorconnector": "Пожалуйста остановите __controlling_client__ сборщик данных чтобы собрать данные здесь.",\n          "connected_start_sensorconnector_noname": "Пожалуйста остановите  другие сборщики данных чтобы собрать данные здесь.",\n          "starting_data_collection": "Начать сбор данных...",\n          "ошибка_starting_data_collection": "Ошибка при запуске сбора данных.",\n          "error_starting_data_collection_alert": " Не запускается сбор данных. Убедитесь в том, что (удаленный старт) разрешен ",\n          "collecting_data": "Идет сбор данных.",\n          "collecting_data_stop_labquest2": " Идет сбор данных. Чтобы его завершит, нажмите кнопку Стоп на LabQuest2.",\n          "collecting_data_stop_sensorconnector": " Идет сбор данных.",\n          "no_data": "Данные не доступны.",\n          "no_data_alert": "Похоже, что The Sensor Connector не передает данные для подключенных устройств",\n          "no_data_labquest2_alert": " Похоже, что LabQuest не передает данные для подключенных устройств",\n          "canceling_data_collection": "Отмена сбора данных...",\n          "error_canceling_data_collection": "Ошибка при отмене сбора данных.",\n          "error_canceling_data_collection_alert": "Не получается отменить сбор данных. Убедитесь в том, что (удаленный старт) разрешен",\n          "stopping_data_collection": "Происходит остановка сбора данных...",\n          "error_stopping_data_collection": " Ошибка при остановке сбора данных.",\n          "error_stopping_data_collection_alert": "Не удалось остановить сбор данных. Убедитесь в том, что (удаленный старт) разрешен ",\n          "data_collection_stopped": "Сбор данных остановлен.",\n          "data_collection_complete": " Сбор данных завершен.",\n          "disconnected": "Произошло отсоединение.",\n          "java_applet_error": "Похоже на то, что Java апплеты не поддерживаются вашим браузером. Попытайтесь решить эту проблему, а затем перезагрузите страницу для того, чтобы использовать датчики",\n          "java_applet_not_loading": " Похоже на то, что апплеты датчиков не загружаются. Попытайтесь решить эту проблему, а затем перезагрузите страницу для того, чтобы использовать датчики",\n          "unexpected_error": "Произошла непредвиденная ошибка при подсоединении к датчику.",\n          "sensor_not_attached": "Похоже, что __sensor_name__ не прикрепиля. Пожалуйста повторите попытку и затем кликните на \\"$t(sensor.messages.try_again)\\".",\n          "датчик_or_device_не подключен": "The __sensor_or_device_name__ был отключен. Пожалуйста подключите его и затем кликните \\"$t(sensor.messages.try_again)\\".",\n          "try_again": "Повторить попытку",\n          "cancel": "Отменить"\n        },\n        "measurements": {\n          "sensor_reading": "Идет считывание датчика",\n          "time": "Время",\n          "distance": "Расстояние",\n          "acceleration": "Ускорение",\n          "altitude": "Высота над уровнем моря",\n          "angle": "Угол",\n          "CO2": "CO₂",\n          "CO2_concentration": "CO₂ Концентрация",\n          "charge": "Заряд",\n          "conductivity": "Проводимость",\n          "current": "Ток",\n          "dissolved_oxygen": "Растворенный кислород",\n          "flow_rate": "Скорость потока",\n          "fluorescence_405_nm": "Флюоресценция 405 nm",\n          "fluorescence_500_nm": "Флюоресценция 500 nm",\n          "force": "Сила",\n          "intensity": "Интенсивность",\n          "light_level": "Уровень освещенности",\n          "light_intensity": " Интенсивность освещенности ",\n          "magnetic_field": "Магнитное поле",\n          "position": "Расположение",\n          "potential": "Потенциал",\n          "pressure": "Давление",\n          "signal": "Сигнал",\n          "sound_level": "Уровень шума",\n          "speed": "Скорость",\n          "temperature": "Температура",\n          "transmittance": "Пропускание",\n          "turbidity": "Мутность",\n          "UV_intensity": "Интенсивность УФ",\n          "velocity": "Вектор скорости",\n          "volume": "Объем",\n          "pH": "рН",\n          "acidity": "Кислотность",\n          "O2_concentration": " Концентрация O₂"\n        },\n        "names": {\n          "sensor": "датчик",\n          "no_sensor": "(нет датчика)",\n          "light": "Освещенность",\n          "motion": "Перемещение",\n          "accelerometer": "Измеритель ускорения",\n          "dissolved_oxygen": "Растворенный кислород",\n          "pressure": "Давление",\n          "charge_sensor": "Сменить датчик",\n          "voltage": "Напряжение",\n          "pH": "рН",\n          "CO2_gas": "CO₂ газ",\n          "colorimeter": "Колориметр",\n          "conductivity": "Проводимость",\n          "current": "Ток",\n          "temperature": "Температура",\n          "force": "Сила",\n          "anemometer": "Анемометр",\n          "hand_dynamometer": "Ручной динамометр",\n          "heart_rate": "Частота сердечных сокращений",\n          "magnetic_field": "Магнитное поле",\n          "rotary_motion": "Угловое перемещение",\n          "linear_position_sensor": "Датчик прямолинейного перемещения",\n          "sound_level": "Уровень шума",\n          "spectrophotometer": "Спектрофотометр",\n          "spirometer": "Спирометр ",\n          "turbidity": "Мутность",\n          "UV_sensor": "УФ датчик ",\n          "drop_counter": "Счетчик капель",\n          "altitude": "Высота над уривнем моря",\n          "goMotion": "GoMotion",\n          "goTemp": "GoIO температурный датчик",\n          "goLinkTemperature": "GoIO температурный датчик",\n          "goLinkLight": "GoIO оптический датчик ",\n          "goLinkForce": "GoIO датчик силы ",\n          "goLinkPH": "GoIO pH датчик ",\n          "goLinkCO2": "GoIO CO₂ датчик ",\n          "goLinkO2": "GoIO O₂ датчик",\n          "labQuestMotion": "LabQuest датчик перемещения",\n          "labQuestTemperature": "LabQuest температурный датчик ",\n          "labQuestLight": "LabQuest оптический датчик ",\n          "labQuestForce": "LabQuest датчик силы ",\n          "labQuestPH": "LabQuest pH датчик ",\n          "labQuestCO2": "LabQuest CO₂ датчик ",\n          "labQuestO2": "LabQuest O₂ датчик"\n        }\n      }\n    }\n  }\n\n}\n';});
 
 /*global define */
 
@@ -14745,24 +14769,23 @@ define('common/controllers/graph-controller',['require','lab-grapher','common/co
 !function(e){"object"==typeof exports?module.exports=e():"function"==typeof define&&define.amd?define('iframe-phone',e):"undefined"!=typeof window?window.iframePhone=e():"undefined"!=typeof global?global.iframePhone=e():"undefined"!=typeof self&&(self.iframePhone=e())}(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 var structuredClone = require('./structured-clone');
 var HELLO_INTERVAL_LENGTH = 200;
-var HELLO_TIMEOUT_LENGTH = 1000;
+var HELLO_TIMEOUT_LENGTH = 60000;
 
 function IFrameEndpoint() {
-  var parentOrigin;
   var listeners = {};
   var isInitialized = false;
   var connected = false;
   var postMessageQueue = [];
   var helloInterval;
 
-  function postToTarget(message, target) {
+  function postToParent(message) {
     // See http://dev.opera.com/articles/view/window-postmessage-messagechannel/#crossdoc
     //     https://github.com/Modernizr/Modernizr/issues/388
     //     http://jsfiddle.net/ryanseddon/uZTgD/2/
     if (structuredClone.supported()) {
-      window.parent.postMessage(message, target);
+      window.parent.postMessage(message, '*');
     } else {
-      window.parent.postMessage(JSON.stringify(message), target);
+      window.parent.postMessage(JSON.stringify(message), '*');
     }
   }
 
@@ -14779,20 +14802,16 @@ function IFrameEndpoint() {
       };
     }
     if (connected) {
-      postToTarget(message, parentOrigin);
+      postToParent(message);
     } else {
       postMessageQueue.push(message);
     }
   }
 
-  // Only the initial 'hello' message goes permissively to a '*' target (because due to cross origin
-  // restrictions we can't find out our parent's origin until they voluntarily send us a message
-  // with it.)
   function postHello() {
-    postToTarget({
-      type: 'hello',
-      origin: document.location.href.match(/(.*?\/\/.*?)\//)[1]
-    }, '*');
+    postToParent({
+      type: 'hello'
+    });
   }
 
   function addListener(type, fn) {
@@ -14808,35 +14827,29 @@ function IFrameEndpoint() {
   }
 
   function messageListener(message) {
-      // Anyone can send us a message. Only pay attention to messages from parent.
-      if (message.source !== window.parent) return;
+    // Anyone can send us a message. Only pay attention to messages from parent.
+    if (message.source !== window.parent) return;
+    var messageData = message.data;
+    if (typeof messageData === 'string') messageData = JSON.parse(messageData);
 
-      var messageData = message.data;
-
-      if (typeof messageData === 'string') messageData = JSON.parse(messageData);
-
-      // We don't know origin property of parent window until it tells us.
-      if (!connected && messageData.type === 'hello') {
-        // This is the return handshake from the embedding window.
-        parentOrigin = messageData.origin;
-        connected = true;
-        stopPostingHello();
-        while(postMessageQueue.length > 0) {
-          post(postMessageQueue.shift());
-        }
+    if (!connected && messageData.type === 'hello') {
+      connected = true;
+      stopPostingHello();
+      while (postMessageQueue.length > 0) {
+        post(postMessageQueue.shift());
       }
+    }
 
-      // Perhaps-redundantly insist on checking origin as well as source window of message.
-      if (message.origin === parentOrigin) {
-        if (listeners[messageData.type]) listeners[messageData.type](messageData.content);
-      }
-   }
+    if (connected && listeners[messageData.type]) {
+      listeners[messageData.type](messageData.content);
+    }
+  }
 
-   function disconnect() {
-     connected = false;
-     stopPostingHello();
-     window.removeEventListener('message', messsageListener);
-   }
+  function disconnect() {
+    connected = false;
+    stopPostingHello();
+    window.removeEventListener('message', messsageListener);
+  }
 
   /**
     Initialize communication with the parent frame. This should not be called until the app's custom
@@ -14853,7 +14866,6 @@ function IFrameEndpoint() {
 
     // We kick off communication with the parent window by sending a "hello" message. Then we wait
     // for a handshake (another "hello" message) from the parent window.
-    postHello();
     startPostingHello();
     window.addEventListener('message', messageListener, false);
   }
@@ -14864,6 +14876,8 @@ function IFrameEndpoint() {
     }
     helloInterval = window.setInterval(postHello, HELLO_INTERVAL_LENGTH);
     window.setTimeout(stopPostingHello, HELLO_TIMEOUT_LENGTH);
+    // Post the first msg immediately.
+    postHello();
   }
 
   function stopPostingHello() {
@@ -14873,12 +14887,12 @@ function IFrameEndpoint() {
 
   // Public API.
   return {
-    initialize        : initialize,
-    getListenerNames  : getListenerNames,
-    addListener       : addListener,
+    initialize: initialize,
+    getListenerNames: getListenerNames,
+    addListener: addListener,
     removeAllListeners: removeAllListeners,
-    disconnect        : disconnect,
-    post              : post
+    disconnect: disconnect,
+    post: post
   };
 }
 
@@ -14891,87 +14905,95 @@ module.exports = function getIFrameEndpoint() {
   }
   return instance;
 };
-},{"./structured-clone":4}],2:[function(require,module,exports){
-"use strict";
 
+},{"./structured-clone":4}],2:[function(require,module,exports){
 var ParentEndpoint = require('./parent-endpoint');
 var getIFrameEndpoint = require('./iframe-endpoint');
 
 // Not a real UUID as there's an RFC for that (needed for proper distributed computing).
 // But in this fairly parochial situation, we just need to be fairly sure to avoid repeats.
 function getPseudoUUID() {
-    var chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
-    var len = chars.length;
-    var ret = [];
+  var chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
+  var len = chars.length;
+  var ret = [];
 
-    for (var i = 0; i < 10; i++) {
-        ret.push(chars[Math.floor(Math.random() * len)]);
-    }
-    return ret.join('');
+  for (var i = 0; i < 10; i++) {
+    ret.push(chars[Math.floor(Math.random() * len)]);
+  }
+  return ret.join('');
 }
 
-module.exports = function IframePhoneRpcEndpoint(handler, namespace, targetWindow, targetOrigin) {
-    var phone;
-    var pendingCallbacks = Object.create({});
+module.exports = function IframePhoneRpcEndpoint(handler, namespace, targetWindow, targetOrigin, phone) {
+  var pendingCallbacks = Object.create({});
 
+  // if it's a non-null object, rather than a function, 'handler' is really an options object
+  if (handler && typeof handler === 'object') {
+    namespace = handler.namespace;
+    targetWindow = handler.targetWindow;
+    targetOrigin = handler.targetOrigin;
+    phone = handler.phone;
+    handler = handler.handler;
+  }
+
+  if (!phone) {
     if (targetWindow === window.parent) {
-        phone = getIFrameEndpoint();
-        phone.initialize();
+      phone = getIFrameEndpoint();
+      phone.initialize();
     } else {
-        phone = new ParentEndpoint(targetWindow, targetOrigin);
+      phone = new ParentEndpoint(targetWindow, targetOrigin);
     }
+  }
 
-    phone.addListener(namespace, function(message) {
-        var callbackObj;
+  phone.addListener(namespace, function (message) {
+    var callbackObj;
 
-        if (message.messageType === 'call') {
-            handler(message.value, function(returnValue) {
-                phone.post(namespace, {
-                    messageType: 'returnValue',
-                    uuid: message.uuid,
-                    value: returnValue
-                });
-            });
-        } else if (message.messageType === 'returnValue') {
-            callbackObj = pendingCallbacks[message.uuid];
-
-            if (callbackObj) {
-                window.clearTimeout(callbackObj.timeout);
-                if (callbackObj.callback) {
-                    callbackObj.callback.call(undefined, message.value);
-                }
-                pendingCallbacks[message.uuid] = null;
-            }
-        }
-    });
-
-    function call(message, callback) {
-        var uuid = getPseudoUUID();
-
-        pendingCallbacks[uuid] = {
-            callback: callback,
-            timeout: window.setTimeout(function() {
-                if (callback) {
-                    callback(undefined, new Error("IframePhone timed out waiting for reply"));
-                }
-            }, 2000)
-        };
-
+    if (message.messageType === 'call' && typeof this.handler === 'function') {
+      this.handler.call(undefined, message.value, function (returnValue) {
         phone.post(namespace, {
-            messageType: 'call',
-            uuid: uuid,
-            value: message
+          messageType: 'returnValue',
+          uuid: message.uuid,
+          value: returnValue
         });
-    }
+      });
+    } else if (message.messageType === 'returnValue') {
+      callbackObj = pendingCallbacks[message.uuid];
 
-    function disconnect() {
-        phone.disconnect();
+      if (callbackObj) {
+        window.clearTimeout(callbackObj.timeout);
+        if (callbackObj.callback) {
+          callbackObj.callback.call(undefined, message.value);
+        }
+        pendingCallbacks[message.uuid] = null;
+      }
     }
+  }.bind(this));
 
-    return {
-        call: call,
-        disconnect: disconnect
+  function call(message, callback) {
+    var uuid = getPseudoUUID();
+
+    pendingCallbacks[uuid] = {
+      callback: callback,
+      timeout: window.setTimeout(function () {
+        if (callback) {
+          callback(undefined, new Error("IframePhone timed out waiting for reply"));
+        }
+      }, 2000)
     };
+
+    phone.post(namespace, {
+      messageType: 'call',
+      uuid: uuid,
+      value: message
+    });
+  }
+
+  function disconnect() {
+    phone.disconnect();
+  }
+
+  this.handler = handler;
+  this.call = call.bind(this);
+  this.disconnect = disconnect.bind(this);
 };
 
 },{"./iframe-endpoint":1,"./parent-endpoint":3}],3:[function(require,module,exports){
@@ -15011,13 +15033,12 @@ var structuredClone = require('./structured-clone');
 */
 
 module.exports = function ParentEndpoint(targetWindowOrIframeEl, targetOrigin, afterConnectedCallback) {
-  var selfOrigin = window.location.href.match(/(.*?\/\/.*?)\//)[1];
   var postMessageQueue = [];
   var connected = false;
   var handlers = {};
   var targetWindowIsIframeElement;
 
-  function getOrigin(iframe) {
+  function getIframeOrigin(iframe) {
     return iframe.src.match(/(.*?\/\/.*?)\//)[1];
   }
 
@@ -15036,7 +15057,6 @@ module.exports = function ParentEndpoint(targetWindowOrIframeEl, targetOrigin, a
     if (connected) {
       var tWindow = getTargetWindow();
       // if we are laready connected ... send the message
-      message.origin = selfOrigin;
       // See http://dev.opera.com/articles/view/window-postmessage-messagechannel/#crossdoc
       //     https://github.com/Modernizr/Modernizr/issues/388
       //     http://jsfiddle.net/ryanseddon/uZTgD/2/
@@ -15078,7 +15098,7 @@ module.exports = function ParentEndpoint(targetWindowOrIframeEl, targetOrigin, a
 
   function receiveMessage(message) {
     var messageData;
-    if (message.source === getTargetWindow() && message.origin === targetOrigin) {
+    if (message.source === getTargetWindow() && (targetOrigin === '*' || message.origin === targetOrigin)) {
       messageData = message.data;
       if (typeof messageData === 'string') {
         messageData = JSON.parse(messageData);
@@ -15111,16 +15131,31 @@ module.exports = function ParentEndpoint(targetWindowOrIframeEl, targetOrigin, a
     // afterConnectionCallback)
     if (!targetOrigin || targetOrigin.constructor === Function) {
       afterConnectedCallback = targetOrigin;
-      targetOrigin = getOrigin(targetWindowOrIframeEl);
+      targetOrigin = getIframeOrigin(targetWindowOrIframeEl);
     }
   }
 
+  // Handle pages served through file:// protocol. Behaviour varies in different browsers. Safari sets origin
+  // to 'file://' and everything works fine, but Chrome and Safari set message.origin to null.
+  // Also, https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage says:
+  //  > Lastly, posting a message to a page at a file: URL currently requires that the targetOrigin argument be "*".
+  //  > file:// cannot be used as a security restriction; this restriction may be modified in the future.
+  // So, using '*' seems like the only possible solution.
+  if (targetOrigin === 'file://') {
+    targetOrigin = '*';
+  }
+
   // when we receive 'hello':
-  addListener('hello', function() {
+  addListener('hello', function () {
     connected = true;
 
     // send hello response
-    post('hello');
+    post({
+      type: 'hello',
+      // `origin` property isn't used by IframeEndpoint anymore (>= 1.2.0), but it's being sent to be
+      // backward compatible with old IframeEndpoint versions (< v1.2.0).
+      origin: window.location.href.match(/(.*?\/\/.*?)\//)[1]
+    });
 
     // give the user a chance to do things now that we are connected
     // note that is will happen before any queued messages
@@ -15129,7 +15164,7 @@ module.exports = function ParentEndpoint(targetWindowOrIframeEl, targetOrigin, a
     }
 
     // Now send any messages that have been queued up ...
-    while(postMessageQueue.length > 0) {
+    while (postMessageQueue.length > 0) {
       post(postMessageQueue.shift());
     }
   });
@@ -15141,7 +15176,9 @@ module.exports = function ParentEndpoint(targetWindowOrIframeEl, targetOrigin, a
     post: post,
     addListener: addListener,
     removeListener: removeListener,
-    disconnect: disconnect
+    disconnect: disconnect,
+    getTargetWindow: getTargetWindow,
+    targetOrigin: targetOrigin
   };
 };
 
@@ -15158,7 +15195,7 @@ var featureSupported = false;
       // internal [[Class]] property of the message being passed through.
       // Safari will pass through DOM nodes as Null iOS safari on the other hand
       // passes it through as DOMWindow, gotcha.
-      window.onmessage = function(e){
+      window.onmessage = function (e) {
         var type = Object.prototype.toString.call(e.data);
         result = (type.indexOf("Null") != -1 || type.indexOf("DOMWindow") != -1) ? 1 : 0;
         featureSupported = {
@@ -15167,8 +15204,8 @@ var featureSupported = false;
       };
       // Spec states you can't transmit DOM nodes and it will throw an error
       // postMessage implimentations that support cloned data will throw.
-      window.postMessage(document.createElement("a"),"*");
-    } catch(e) {
+      window.postMessage(document.createElement("a"), "*");
+    } catch (e) {
       // BBOS6 throws but doesn't pass through the correct exception
       // so check error message
       result = (e.DATA_CLONE_ERR || e.message == "Cannot post cyclic structures.") ? 1 : 0;
@@ -15208,134 +15245,149 @@ module.exports = {
 /*jshint eqnull: true */
 /*global define */
 
-define('import-export/dg-exporter',['require','lab.config','iframe-phone'],function(require) {
+define('import-export/codap-interface',['require','iframe-phone'],function(require) {
 
-  var config  = require('lab.config');
   var iframePhone = require('iframe-phone');
 
-  /*
-    Private method. Listener for messages sent from CODAP via the iframePhone RPC endpoint.
+  // Width of the interactive when embedded in CODAP.
+  var DEF_CODAP_WIDTH = 640; // px
 
-    Currently, the only message from CODAP that we listen for is the 'codap-present' message
-    indicating that we are embedded in an iframePhone-capable CODAP instance. When this message is
-    received, `this.codapDidConnect` (a method to be added by client code) is invoked, if present.
+  // Limit number of data points sent to CODAP in one request to avoid long freezes.
+  var CODAP_VALUES_LIMIT = 100;
 
-    message:   message sent by iframePhone
-    callback:  callback passed by iframePhone; must be called to acknowledge receipt of message
-  */
-  function codapCallbackHandler(message, callback) {
-    var wasConnected;
-    if (message && message.message === 'codap-present') {
-      wasConnected = this.isCodapPresent;
-
-      this.isCodapPresent = true;
-
-      // Some simple (but very limited) zero-configuration event listening:
-      if ( ! wasConnected  && typeof this.codapDidConnect === 'function' ) {
-        this.codapDidConnect();
-      }
+  function throwIfError(resp) {
+    if (resp.success === false) {
+      throw new Error('CODAP error: ' + resp.values.error);
     }
-    callback();
   }
 
-  var dgExporter = {
+  // Divides array into chunks.
+  function chunks(arr, chunkSize) {
+    var result = [];
+    for (var i = 0, len = arr.length; i < len; i += chunkSize) {
+      result.push(arr.slice(i, i + chunkSize));
+    }
+    return result;
+  }
 
-    gameName: 'Next Gen MW',
+  function getLabels(i18n) {
+    return {
+      dataContextName: i18n.t('codap.dataContextName'),
+      parentTable: {
+        singleCase: i18n.t('codap.parentTable.singleCase'),
+        pluralCase: i18n.t('codap.parentTable.pluralCase'),
+        singleCaseWithArticle: i18n.t('codap.parentTable.singleCaseWithArticle'),
+        setOfCases: i18n.t('codap.parentTable.setOfCases'),
+        setOfCasesWithArticle: i18n.t('codap.parentTable.setOfCasesWithArticle')
+      },
+      childTable: {
+        singleCase: i18n.t('codap.childTable.singleCase'),
+        pluralCase: i18n.t('codap.childTable.pluralCase'),
+        singleCaseWithArticle: i18n.t('codap.childTable.singleCaseWithArticle'),
+        setOfCases: i18n.t('codap.childTable.setOfCases'),
+        setOfCasesWithArticle: i18n.t('codap.childTable.setOfCasesWithArticle')
+      },
+      singleTable: {
+        singleCase: i18n.t('codap.singleTable.singleCase'),
+        pluralCase: i18n.t('codap.singleTable.pluralCase'),
+        singleCaseWithArticle: i18n.t('codap.singleTable.singleCaseWithArticle'),
+        setOfCases: i18n.t('codap.singleTable.setOfCases'),
+        setOfCasesWithArticle: i18n.t('codap.singleTable.setOfCasesWithArticle')
+      }
+    };
+  }
 
-    parentTableLabels: {
-      singleCase: "run",
-      pluralCase: "runs",
-      singleCaseWithArticle: "a run",
-      setOfCases: "set",
-      setOfCasesWithArticle: "a set"
-    },
-
-    childTableLabels: {
-      singleCase: "measurement",
-      pluralCase: "measurements",
-      singleCaseWithArticle: "a measurement",
-      setOfCases: "time series",
-      setOfCasesWithArticle: "a time series"
-    },
-
-    singleTableLabels: {
-      singleCase: "measurement",
-      pluralCase: "measurements",
-      singleCaseWithArticle: "a measurement",
-      setOfCases: "set",
-      setOfCasesWithArticle: "a set"
-    },
-
-    perRunColumnLabelCount: 0,
-    perRunColumnLabelPositions: {},
-
+  return {
     isCodapPresent: false,
 
-    init: function() {
+    init: function(frameConfig) {
       if (this.codapPhone) return; // nothing to initialize
+      this.frameConfig = frameConfig;
       this.codapPhone = new iframePhone.IframePhoneRpcEndpoint(
-        codapCallbackHandler.bind(this),
-        "codap-game",
+        this.notificationHandler.bind(this),
+        "data-interactive",
         window.parent
       );
     },
 
-    canCallDGDirect: function() {
-      if (config.codap || config.dataGamesProxyPrefix) {
-        try {
-          if (window.parent.DG.doCommand) {
-            return true;
-          }
-        } catch (e) {
-          // could be a security exception if window.parent is not same-origin, or a ReferenceError
-          // if the game controller isn't defined; in either case, fall through.
-        }
-      }
-      return false;
-    },
-
     isEmbeddedInCODAP: function() {
-      return this.isCodapPresent || this.canCallDGDirect();
+      return this.isCodapPresent;
     },
 
     canExportData: function() {
-      return this.isEmbeddedInCODAP();
+      return this.isCodapPresent;
     },
 
-    doCommand: function(name, args, callback) {
-      var cmd = {
-        action: name,
-        args: args
-      };
+    /**
+      Listener for messages sent from CODAP via the iframePhone RPC endpoint.
 
-      // Ensure the "direct" path follows an async execution pattern, because the iframePhone path
-      // is unavoidably async. APIs that call back synchronously sometimes, async other times
-      // release Zalgo: http://blog.izs.me/post/59142742143/designing-apis-for-asynchrony
+      Currently, the only message from CODAP that we listen for is the 'codap-present' message
+      indicating that we are embedded in an iframePhone-capable CODAP instance. When this message is
+      received, `this.codapDidConnect` (a method to be added by client code) is invoked, if present.
 
-      if (this.canCallDGDirect()) {
-        setTimeout(function() {
-          var result = window.parent.DG.doCommand(cmd);
-          if (callback) {
-            setTimeout(function() {
-                callback(result);
-            }, 1);
-          }
-        }, 1);
-      } else if (this.isCodapPresent) {
-        this.codapPhone.call(cmd, callback);
+      request:   request sent by iframePhone
+      callback:  callback passed by iframePhone; must be called to acknowledge receipt of message
+    */
+    notificationHandler: function(request, callback) {
+      var action = request.action;
+      var resource = request.resource;
+      var response = { success: true };
+      // Handler of CODAP-initiated actions.
+      if (request && request.message === 'codap-present') {
+        // codap-present message has a bit different format.
+        this.isCodapPresent = true;
+        this.initInteractiveFrame();
+        this.codapDidConnect();
+      } else if (action === 'get' && resource === 'interactiveState') {
+        // Return empty state. In fact the only reason we save any state is to know whether interactive is added
+        // to CODAP document for the first time or an existing CODAP document is being opened. At this moment,
+        // it is useful to set dimensions correctly, but there might be more use cases.
+        response.values = { version: 1 };
       }
+      callback(response);
+    },
+
+    initInteractiveFrame: function () {
+      // First, get interactive frame info.
+      this.doCommand({action: 'get', resource: 'interactiveFrame'}, function (resp) {
+        throwIfError(resp);
+        var existingConfig = resp.values;
+        var newIframeConfig = {
+          name: this.frameConfig.title,
+          title: this.frameConfig.title,
+          preventDataContextReorg: false
+        };
+        // Update dimensions only if the interactive is added to CODAP for the first time.
+        // Then, authors can adjust size of the interactive and it should not be overwritten.
+        // Existing `savedState` means that we load an existing CODAP document.
+        if (!existingConfig.savedState) {
+          newIframeConfig.dimensions = {
+            width: DEF_CODAP_WIDTH,
+            height: DEF_CODAP_WIDTH / this.frameConfig.aspectRatio
+          };
+        }
+        this.doCommand({
+          action: 'update',
+          resource: 'interactiveFrame',
+          values: newIframeConfig
+        }, throwIfError);
+      }.bind(this));
+    },
+
+    doCommand: function(cmd, callback) {
+      this.codapPhone.call(cmd, callback);
     },
 
     /**
       Exports the summary data about a run as 1 CODAP table and exports timeseries data, if any, as
       a second, linked table.
 
-      perRunLabels: list of column labels for the "left" table which contains a summary of the run
+      perRunAttr: list of attributes for the "left" table which contains a summary of the run
         (this can contain parameters that define the run, as well as )
 
       perRunData: list containing 1 row of data to be added to the left table
 
-      timeSeriesLabels (optional): List of column labels for the "right" table which contains a
+      timeSeriesAttrs (optional): List of attributes for the "right" table which contains a
         set of time points that will be linked to the single row which is added to the "left", run-
         summary table
 
@@ -15354,130 +15406,145 @@ define('import-export/dg-exporter',['require','lab.config','iframe-phone'],funct
       of time series labels (except from the end of the list) and it does not handle reordering of
       time series labels.
     */
-    exportData: function(perRunLabels, perRunData, timeSeriesLabels, timeSeriesData) {
-      timeSeriesLabels = timeSeriesLabels || [];
+    exportData: function(perRunAttrs, perRunData, timeSeriesAttrs, timeSeriesData, i18n) {
+      timeSeriesAttrs = timeSeriesAttrs || [];
 
-      var label,
-          value,
-          position,
-          perRunColumnLabels = [],
-          perRunColumnValues = [],
-          timeSeriesColumnLabels = [],
-          shouldExportTimeSeries,
-          parentTableName,
-          childTableName,
-          i;
+      perRunAttrs = perRunAttrs.slice();
+      // Insert "Run" automatically attribute.
+      perRunAttrs.unshift({ name: "Run", type: "nominal" });
 
-      // Extract metadata in the forms needed for export, ie values need to be an array of values,
-      // labels need to be an array of {name: label} objects.
-      // Furthermore note that during a DG session, the value for a given label needs to be in the
-      // same position in the array every time the DG collection is 'created' (or reopened as the
-      // case may be.)
+      var labels = getLabels(i18n);
 
-      for (i = 0; i < perRunData.length; i++) {
-        label = perRunLabels[i];
-        value = perRunData[i];
-
-        if ( this.perRunColumnLabelPositions[label] == null ) {
-          this.perRunColumnLabelPositions[label] = this.perRunColumnLabelCount++;
-        }
-        position = this.perRunColumnLabelPositions[label];
-
-        if (i === 0) {
-          perRunColumnLabels[position] = { name: label, formula: "caseIndex" , type:"nominal"};
-          perRunColumnValues[position] = null;
-        } else {
-          perRunColumnLabels[position] = { name: label };
-          perRunColumnValues[position] = value;
-        }
-      }
-
-      // Extract list of data column labels into form needed for export (needs to be an array of
-      // name: label objects)
-      for (i = 0; i < timeSeriesLabels.length; i++) {
-        timeSeriesColumnLabels.push({ name: timeSeriesLabels[i] });
-      }
-
-      shouldExportTimeSeries = timeSeriesLabels.length > 0;
-
-      // Export.
-
+      var shouldExportTimeSeries = timeSeriesAttrs.length > 0;
+      var parentTableName;
+      var childTableName;
       if (shouldExportTimeSeries) {
-        parentTableName = this.parentTableLabels.pluralCase;
-        childTableName = this.childTableLabels.pluralCase;
+        parentTableName = labels.parentTable.pluralCase;
+        childTableName = labels.childTable.pluralCase;
       } else {
-        parentTableName = this.singleTableLabels.pluralCase;
+        parentTableName = labels.singleTable.pluralCase;
       }
 
-      var collections = [{
-        name: parentTableName,
-        attrs: perRunColumnLabels,
-        childAttrName: 'runs',
-        labels: shouldExportTimeSeries ? this.parentTableLabels : this.singleTableLabels,
-        collapseChildren: true
-      }];
+      var exportData = function (runNumber) {
+        perRunData = perRunData.slice();
+        perRunData.unshift(runNumber);
 
-      if (shouldExportTimeSeries) {
-        collections.push({
-          name: childTableName,
-          attrs: timeSeriesColumnLabels,
-          labels: this.childTableLabels
+        // If time series attributes are not defined, we will insert just a single item with per-run attributes only.
+        // An array with single item (any value) ensures that it will happen. One element is necessary to make sure that
+        // per-run attributes are send to CODAP. But it will be never dereferenced as timeSeriesAttrs is an empty array.
+        var values = (shouldExportTimeSeries ? timeSeriesData : [ 'this_value_is_ignored' ]).map(function (data) {
+          var item = {};
+          perRunAttrs.forEach(function (attr, idx) {
+            item[attr.name] = perRunData[idx];
+          });
+          timeSeriesAttrs.forEach(function (attr, idx) {
+            item[attr.name] = data[idx];
+          });
+          return item;
         });
-      }
 
-      // Step 1. Tell DG we're a "game".
-      this.doCommand('initGame', {
-        name: this.gameName,
-        collections: collections
-      });
+        // Send values in smaller chunks to avoid performance problems.
+        var valuesChunks = chunks(values, CODAP_VALUES_LIMIT);
+        valuesChunks.forEach(function(values, idx) {
+          // Data export using "item" approach. A single item consists of both per-run and time series attributes.
+          this.doCommand({
+            action: 'create',
+            resource: 'dataContext.item',
+            values: values
+          }, function (resp) {
+            throwIfError(resp);
+            if (idx === 0) {
+              // Wait for the first call to be completed and open the table (since it already exists).
+              this.openTable();
+            }
+          }.bind(this));
+        }.bind(this));
+      }.bind(this);
 
-      // Step 4. Open a row in the parent table. This will contain the individual time series
-      // readings as children.
-      this.doCommand('openCase', {
-        collection: parentTableName,
-        values: perRunColumnValues
-      }, function(parentCase) {
+      var createDataContext = function () {
+        var collections = [{
+          name: parentTableName,
+          attrs: perRunAttrs,
+          labels: shouldExportTimeSeries ? labels.parentTable : labels.singleTable,
+          collapseChildren: true
+        }];
 
-        // Step 5. Create rows in the child table for each data point. Using 'createCases' we can
-        // do this inline, so we don't need to call openCase, closeCase for each row.
         if (shouldExportTimeSeries) {
-          this.doCommand('createCases', {
-            collection: childTableName,
-            values: timeSeriesData,
-            parent: parentCase.caseID
+          collections.push({
+            name: childTableName,
+            attrs: timeSeriesAttrs,
+            parent: parentTableName,
+            labels: labels.childTable
           });
         }
 
-        // Step 6. Close the case.
-        this.doCommand('closeCase', {
-          collection: parentTableName,
-          caseID: parentCase.caseID
+        this.doCommand({
+          action: 'create',
+          resource: 'dataContext',
+          values: {
+            title: labels.dataContextName,
+            collections: collections
+          }
+        }, function (resp) {
+          throwIfError(resp);
+          // Data context has just been created, so the run number is equal to 1.
+          exportData(1);
         });
-      }.bind(this));
+      }.bind(this);
+
+      var getDataContext = function () {
+        this.doCommand({
+          action: 'get',
+          resource: 'dataContext'
+        }, function (resp) {
+          if (resp.success) {
+            // If data context already exists, it's necessary to get the last run number first.
+            this.doCommand({
+              action: 'get',
+              resource: 'collection[' + parentTableName + '].allCases'
+            }, function (resp) {
+              throwIfError(resp);
+              var casesCount = resp.values.cases.length;
+              var prevRunNumber = casesCount > 0 ? resp.values.cases[casesCount - 1].case.values["Run"] : 0;
+              exportData(prevRunNumber + 1);
+            }.bind(this));
+          } else {
+            createDataContext();
+          }
+        }.bind(this));
+      }.bind(this);
+
+      // Start export by obtaining (or creating) data context. Other callbacks will be called later.
+      getDataContext();
     },
 
     /**
-      Call this to cause DataGames to open the 'case table" containing the all the data exported by
+      Call this to cause DataGames to open the "case table" containing the all the data exported by
       exportData() so far.
     */
     openTable: function() {
-      this.doCommand('createComponent', {
-        type: 'DG.TableView',
-        log: false
-      });
+      this.doCommand({
+        action: 'create',
+        resource: 'component',
+        values: {
+          'type': 'caseTable'
+        }
+      }, throwIfError);
     },
 
     /**
       Call any time to log an event to DataGames
     */
     logAction: function(logString) {
-      this.doCommand('logAction', {
-        formatStr: logString
+      this.doCommand({
+        action: 'notify',
+        resource: 'logMessage',
+        values: {
+          formatStr: logString
+        }
       });
     }
   };
-
-  return dgExporter;
 });
 
 /*global define, $ */
@@ -15583,9 +15650,9 @@ define('common/controllers/basic-dialog',[],function () {
 /*global define*/
 /*jslint boss: true*/
 
-define('common/controllers/export-controller',['require','import-export/dg-exporter','common/controllers/basic-dialog','common/dispatch-support','underscore'],function (require) {
+define('common/controllers/export-controller',['require','import-export/codap-interface','common/controllers/basic-dialog','common/dispatch-support','underscore'],function (require) {
 
-  var dgExporter = require('import-export/dg-exporter');
+  var codapInterface = require('import-export/codap-interface');
   var BasicDialog = require('common/controllers/basic-dialog');
   var DispatchSupport = require('common/dispatch-support');
   var _ = require('underscore');
@@ -15757,6 +15824,9 @@ define('common/controllers/export-controller',['require','import-export/dg-expor
         if (!initialPerRunData) {
           initialPerRunData = getCurrentPerRunData();
         }
+        // Make sure that the first point of the run shows the correct values.
+        // User might tweak the model between load / reset and starting the run.
+        perTickValues[model.stepCounter()] = getDataPoint();
       });
       model.on('invalidation.exportController', removeDataAfterStepPointer);
     }
@@ -15873,6 +15943,16 @@ define('common/controllers/export-controller',['require','import-export/dg-expor
       return ret;
     }
 
+    function getCodapAttrForProperty(property) {
+      var desc  = model.getPropertyDescription(property),
+          label = desc && desc.getLabel(),
+          unit = desc && desc.getUnitAbbreviation();
+      return {
+        name: label && label.length > 0 ? label : property,
+        unit: unit && unit.length > 0 ? unit : undefined
+      };
+    }
+
     controller = {
 
       // This just indicates the presence or absence of a technical means to export data (i.e.,
@@ -15959,20 +16039,16 @@ define('common/controllers/export-controller',['require','import-export/dg-expor
           logAction("ParameterChangeBetweenStartAndExport", changedParameters);
         }
 
-        perRunPropertyLabels[0] = "Row";
-        perRunPropertyValues[0] = null;
-
         for (i = 0; i < perRun.length; i++) {
-          perRunPropertyLabels[i+1] = getLabelForProperty(perRun[i]);
-          perRunPropertyValues[i+1] = model.get(perRun[i]);
+          perRunPropertyLabels[i] = getCodapAttrForProperty(perRun[i]);
+          perRunPropertyValues[i] = model.get(perRun[i]);
         }
 
         for (i = 0; i < perTick.length; i++) {
-          perTickLabels[i] = getLabelForProperty(perTick[i]);
+          perTickLabels[i] = getCodapAttrForProperty(perTick[i]);
         }
 
-        dgExporter.exportData(perRunPropertyLabels, perRunPropertyValues, perTickLabels, this.selectedData());
-        dgExporter.openTable();
+        codapInterface.exportData(perRunPropertyLabels, perRunPropertyValues, perTickLabels, this.selectedData(), interactivesController.i18n);
 
         // all data was just exported
         isUnexportedDataPresent = false;
@@ -15981,7 +16057,10 @@ define('common/controllers/export-controller',['require','import-export/dg-expor
 
     // Setup
 
-    dgExporter.init();
+    codapInterface.init({
+      title: interactivesController.get('title'),
+      aspectRatio: interactivesController.get('aspectRatio')
+    });
 
     // Issue an 'canExportData' event when canExportData() flips from false to true.
     // Issue 'modelCanExportData' when modelCanExportData() flips
@@ -15989,7 +16068,7 @@ define('common/controllers/export-controller',['require','import-export/dg-expor
     dispatch.addEventTypes('canExportData', 'modelCanExportData');
 
     // Make sure we emit event if canExportData becomes true. Assume codap connects only once.
-    dgExporter.codapDidConnect = function() {
+    codapInterface.codapDidConnect = function() {
       if ( ExportController.canExportData() ) {
         dispatch.canExportData();
       }
@@ -16002,7 +16081,7 @@ define('common/controllers/export-controller',['require','import-export/dg-expor
 
   // "Class method" (want to be able to call this before instantiating)
   ExportController.canExportData = function() {
-    return dgExporter.canExportData();
+    return codapInterface.canExportData();
   };
 
   return ExportController;
@@ -16010,9 +16089,9 @@ define('common/controllers/export-controller',['require','import-export/dg-expor
 /*global define*/
 /*jslint boss: true*/
 
-define('common/controllers/log-controller',['require','iframe-phone','import-export/dg-exporter'],function (require) {
+define('common/controllers/log-controller',['require','iframe-phone','import-export/codap-interface'],function (require) {
   var iframePhone = require('iframe-phone');
-  var dgExporter = require('import-export/dg-exporter');
+  var codapInterface = require('import-export/codap-interface');
 
   // Handles logging of events to LARA or CODAP.
   function LogController(args) {
@@ -16028,7 +16107,7 @@ define('common/controllers/log-controller',['require','iframe-phone','import-exp
     // IFrameEndpoint is a singleton and probably has been already initialized by ParentMessageAPI,
     // but do it again just in case (so we don't depend on ParentMessageAPI).
     this._phone.initialize();
-    dgExporter.init();
+    codapInterface.init();
     
     this._interactivesController.on('modelLoaded.logController', this._modelLoadedHandler.bind(this));
     this._interactivesController.on('interactiveWillReload.logController', this._interactiveWillReloadHandler.bind(this));
@@ -16040,7 +16119,7 @@ define('common/controllers/log-controller',['require','iframe-phone','import-exp
   LogController.prototype.logAction = function (action, data) {
     if (!this.enabled) return;
 
-    if (dgExporter.isEmbeddedInCODAP()) {
+    if (codapInterface.isEmbeddedInCODAP()) {
       this._logToCODAP(action, data);
     } else {
       this._genericLog(action, data);
@@ -16056,7 +16135,7 @@ define('common/controllers/log-controller',['require','iframe-phone','import-exp
     if (data) {
       logString += ': ' + JSON.stringify(data);
     }
-    dgExporter.logAction(logString);
+    codapInterface.logAction(logString);
   };
 
   LogController.prototype._setupComponents = function (componentByID, enabledComponents) {
@@ -21076,6 +21155,11 @@ define('models/md2d/models/metadata',[],function() {
         defaultValue: "",
         immutable: true
       },
+      dnaEngineImagesPath: {
+        // this path is relative to labConfig.modelsRootUrl
+        defaultValue: "",
+        immutable: true
+      },
       minX: {
         serialize: false
       },
@@ -21269,6 +21353,11 @@ define('models/md2d/models/metadata',[],function() {
       },
       chargeShading: {
         defaultValue: false,
+        storeInTickHistory: true
+      },
+      chargeShadingStyle: {
+        // "biology" (+ blue, - red) or "chemistry" (+ red, - blue).
+        defaultValue: "biology",
         storeInTickHistory: true
       },
       aminoAcidColorScheme: {
@@ -25689,7 +25778,7 @@ define('common/controllers/playback-controller',['require','common/inherit','com
     this._scriptingAPI = null;
     this._interactivesController = interactivesController;
     // Font used by time display
-    this._fontSpec = "bold 2em " + interactivesController.fontFamily;
+    this._fontSpec = "2em " + interactivesController.fontFamily;
 
     detectFontChange({
       font: interactivesController.fontFamily,
@@ -26775,12 +26864,13 @@ define('common/cookies',[],function () {
 
 /*!
 * screenfull
-* v3.0.2 - 2017-03-13
+* v4.0.0 - 2018-12-15
 * (c) Sindre Sorhus; MIT License
 */
 (function () {
 	'use strict';
 
+	var document = typeof window !== 'undefined' && typeof window.document !== 'undefined' ? window.document : {};
 	var isCommonjs = typeof module !== 'undefined' && module.exports;
 	var keyboardAllowed = typeof Element !== 'undefined' && 'ALLOW_KEYBOARD_INPUT' in Element;
 
@@ -26796,7 +26886,7 @@ define('common/cookies',[],function () {
 				'fullscreenchange',
 				'fullscreenerror'
 			],
-			// new WebKit
+			// New WebKit
 			[
 				'webkitRequestFullscreen',
 				'webkitExitFullscreen',
@@ -26806,7 +26896,7 @@ define('common/cookies',[],function () {
 				'webkitfullscreenerror'
 
 			],
-			// old WebKit (Safari 5.1)
+			// Old WebKit (Safari 5.1)
 			[
 				'webkitRequestFullScreen',
 				'webkitCancelFullScreen',
@@ -26851,37 +26941,68 @@ define('common/cookies',[],function () {
 		return false;
 	})();
 
+	var eventNameMap = {
+		change: fn.fullscreenchange,
+		error: fn.fullscreenerror
+	};
+
 	var screenfull = {
 		request: function (elem) {
-			var request = fn.requestFullscreen;
+			return new Promise(function (resolve) {
+				var request = fn.requestFullscreen;
 
-			elem = elem || document.documentElement;
+				var onFullScreenEntered = function () {
+					this.off('change', onFullScreenEntered);
+					resolve();
+				}.bind(this);
 
-			// Work around Safari 5.1 bug: reports support for
-			// keyboard in fullscreen even though it doesn't.
-			// Browser sniffing, since the alternative with
-			// setTimeout is even worse.
-			if (/5\.1[.\d]* Safari/.test(navigator.userAgent)) {
-				elem[request]();
-			} else {
-				elem[request](keyboardAllowed && Element.ALLOW_KEYBOARD_INPUT);
-			}
+				elem = elem || document.documentElement;
+
+				// Work around Safari 5.1 bug: reports support for
+				// keyboard in fullscreen even though it doesn't.
+				// Browser sniffing, since the alternative with
+				// setTimeout is even worse.
+				if (/ Version\/5\.1(?:\.\d+)? Safari\//.test(navigator.userAgent)) {
+					elem[request]();
+				} else {
+					elem[request](keyboardAllowed ? Element.ALLOW_KEYBOARD_INPUT : {});
+				}
+
+				this.on('change', onFullScreenEntered);
+			}.bind(this));
 		},
 		exit: function () {
-			document[fn.exitFullscreen]();
+			return new Promise(function (resolve) {
+				var onFullScreenExit = function () {
+					this.off('change', onFullScreenExit);
+					resolve();
+				}.bind(this);
+
+				document[fn.exitFullscreen]();
+
+				this.on('change', onFullScreenExit);
+			}.bind(this));
 		},
 		toggle: function (elem) {
-			if (this.isFullscreen) {
-				this.exit();
-			} else {
-				this.request(elem);
-			}
+			return this.isFullscreen ? this.exit() : this.request(elem);
 		},
 		onchange: function (callback) {
-			document.addEventListener(fn.fullscreenchange, callback, false);
+			this.on('change', callback);
 		},
 		onerror: function (callback) {
-			document.addEventListener(fn.fullscreenerror, callback, false);
+			this.on('error', callback);
+		},
+		on: function (event, callback) {
+			var eventName = eventNameMap[event];
+			if (eventName) {
+				document.addEventListener(eventName, callback, false);
+			}
+		},
+		off: function (event, callback) {
+			var eventName = eventNameMap[event];
+			if (eventName) {
+				document.removeEventListener(eventName, callback, false);
+			}
 		},
 		raw: fn
 	};
@@ -27279,14 +27400,16 @@ define('common/controllers/about-dialog',['require','common/markdown-to-html','c
 /*global define */
 define('common/controllers/copyright',[],function () {
   return function getCopyright(i18n) {
-    var CC_link = '<a class="opens-in-new-window" href="http://concord.org" target="_blank">The Concord Consortium</a>';
+    var CC_link = '<a class="opens-in-new-window" href="https://concord.org" target="_blank">The Concord Consortium</a>';
     var MIT_link = '<a class="opens-in-new-window" href="http://opensource.org/licenses/MIT" target="_blank">MIT</a>';
-    var concord_org_link = '<a class="opens-in-new-window" href="http://concord.org/" target="_blank">http://concord.org</a>';
+    var license_link = '<a class="opens-in-new-window" href="https://github.com/concord-consortium/lab/blob/master/license.md" target="_blank">license.md</a>';
+    var concord_org_link = '<a class="opens-in-new-window" href="https://concord.org/" target="_blank">https://concord.org</a>';
     return '<div class="copyright-section">' +
            '<strong>' + i18n.t('copyright.copyright') + ' © ' + new Date().getFullYear() + '</strong> ' + CC_link + '. ' +
            i18n.t('copyright.all_rights_reserved') + ' ' +
            i18n.t('copyright.license', {
-             MIT_link: MIT_link
+             MIT_link: MIT_link,
+             license_link: license_link
            }) + ' ' +
            i18n.t('copyright.attribution', {
             concord_org_link: concord_org_link
@@ -27417,7 +27540,7 @@ define('common/controllers/credits-dialog',['require','lab.config','mustache','c
       BasicDialog      = require('common/controllers/basic-dialog'),
       getCopyright     = require('common/controllers/copyright'),
       creditsDialogTpl = require('text!common/controllers/credits-dialog.tpl'),
-      CONCORD_URL = 'http://concord.org',
+      CONCORD_URL = 'https://concord.org',
       NEXT_GEN_URL = 'http://mw.concord.org/nextgen/';
 
   /**
@@ -30636,7 +30759,9 @@ define('common/lab-modeler-mixin',['require','common/property-support','common/p
             return Infinity;
           }
 
-          if (requestedDuration != null) {
+          // Only numeric values can be handled by rest of the code. Strings, {}, or nulls won't work, so in that
+          // case calculate a default / fallback value will be calculated below.
+          if (typeof requestedDuration === 'number') {
             return requestedDuration;
           }
 
@@ -41106,6 +41231,14 @@ define('models/md2d/models/modeler',['require','common/performance','common/seri
       return translateFromMD2DUnits(props, elementMetaData);
     };
 
+    model.getAminoAcidByElement = function (i) {
+      if (aminoacidsHelper.isAminoAcid(i)) {
+        return aminoacidsHelper.getAminoAcidByElement(i);
+      } else {
+        return undefined;
+       }
+    }
+
     model.setObstacleProperties = function(i, props) {
       // Validate properties.
       props = validator.validate(metadata.obstacle, props);
@@ -41320,6 +41453,22 @@ define('models/md2d/models/modeler',['require','common/performance','common/seri
         dispatch.textBoxesChanged();
       } else {
         throw new Error("Text box \"" + i + "\" does not exist, so it cannot have properties set.");
+      }
+    };
+
+    model.addImage = function (props) {
+      props = validator.validateCompleteness(metadata.image, props);
+      model.get('images').push(props);
+      dispatch.imagesChanged();
+    };
+
+    model.removeImage = function (i) {
+      var images = model.get('images');
+      if (i >=0 && i < images.length) {
+        model.set('images', images.slice(0,i).concat(images.slice(i+1)));
+        dispatch.imagesChanged();
+      } else {
+        throw new Error("Image \"" + i + "\" does not exist, so it cannot be removed.");
       }
     };
 
@@ -58022,32 +58171,32 @@ define('models/md2d/views/atoms-renderer',['require','pixi','canvg','mustache','
       // Scales used for Charge Shading gradients.
       CHARGE_SHADING_STEPS = 25,
       NEUTRAL_COLORS = ["#FFFFFF", "#f2f2f2", "#A4A4A4"],
-      posLightColor = d3.scale.linear()
+      chargeBlueLightColor = d3.scale.linear()
         .interpolate(d3.interpolateRgb)
         .range(["#FFFFFF", "#ffefff"]),
-      posMedColor = d3.scale.linear()
+      chargeBlueMedColor = d3.scale.linear()
         .interpolate(d3.interpolateRgb)
         .range(["#f2f2f2", "#9090FF"]),
-      posDarkColor = d3.scale.linear()
+      chargeBlueDarkColor = d3.scale.linear()
         .interpolate(d3.interpolateRgb)
         .range(["#A4A4A4", "#3030FF"]),
-      negLightColor = d3.scale.linear()
+      chargeRedLightColor = d3.scale.linear()
         .interpolate(d3.interpolateRgb)
         .range(["#FFFFFF", "#dfffff"]),
-      negMedColor = d3.scale.linear()
+      chargeRedMedColor = d3.scale.linear()
         .interpolate(d3.interpolateRgb)
         .range(["#f2f2f2", "#FF8080"]),
-      negDarkColor = d3.scale.linear()
+      chargeRedDarkColor = d3.scale.linear()
         .interpolate(d3.interpolateRgb)
         .range(["#A4A4A4", "#FF2020"]),
 
-      getChargeShadingColors = function (charge) {
+      getChargeShadingColors = function (charge, style) {
         var chargeIndex = Math.round(Math.min(Math.abs(charge) / 3, 1) * CHARGE_SHADING_STEPS);
         chargeIndex /= CHARGE_SHADING_STEPS;
-        if (charge > 0) {
-          return [posLightColor(chargeIndex), posMedColor(chargeIndex), posDarkColor(chargeIndex)];
-        } else if (charge < 0) {
-          return [negLightColor(chargeIndex), negMedColor(chargeIndex), negDarkColor(chargeIndex)];
+        if (style === 'biology' && charge > 0 || style === 'chemistry' && charge < 0) {
+          return [chargeBlueLightColor(chargeIndex), chargeBlueMedColor(chargeIndex), chargeBlueDarkColor(chargeIndex)];
+        } else if (style === 'biology' && charge < 0 || style === 'chemistry' && charge > 0) {
+          return [chargeRedLightColor(chargeIndex), chargeRedMedColor(chargeIndex), chargeRedDarkColor(chargeIndex)];
         }
         return NEUTRAL_COLORS;
       },
@@ -58056,8 +58205,8 @@ define('models/md2d/views/atoms-renderer',['require','pixi','canvg','mustache','
         return h > 0 ?  ["#F0E6D1", "#E0A21B", "#AD7F1C"] : ["#dfffef", "#75a643", "#2a7216"];
       },
 
-      RENDERING_OPTIONS = ["keShading", "chargeShading", "atomNumbers", "showChargeSymbols", "atomRadiusScale",
-                           "aminoAcidColorScheme", "aminoAcidLabels", "useThreeLetterCode", "viewPortZoom"];
+      RENDERING_OPTIONS = ["keShading", "chargeShading", "chargeShadingStyle", "atomNumbers", "showChargeSymbols",
+                           "atomRadiusScale", "aminoAcidColorScheme", "aminoAcidLabels", "useThreeLetterCode", "viewPortZoom"];
 
   return function AtomsRenderer(modelView, model, pixiContainer, canvas) {
     // Public API object to be returned.
@@ -58116,12 +58265,12 @@ define('models/md2d/views/atoms-renderer',['require','pixi','canvg','mustache','
       if (atom.aminoAcid) {
         switch(renderMode.aminoAcidColorScheme) {
           case "charge":
-            return getChargeShadingColors(atom.charge);
+            return getChargeShadingColors(atom.charge, renderMode.chargeShadingStyle);
           case "hydrophobicity":
             return getHydrophobicityColors(atom.hydrophobicity);
           case "chargeAndHydro":
             if (atom.charge !== 0) {
-              return getChargeShadingColors(atom.charge);
+              return getChargeShadingColors(atom.charge, renderMode.chargeShadingStyle);
             }
             return getHydrophobicityColors(atom.hydrophobicity);
           // case "none":
@@ -58132,7 +58281,7 @@ define('models/md2d/views/atoms-renderer',['require','pixi','canvg','mustache','
       if (renderMode.keShading) {
         return KE_SHADING_MIN_COLORS;
       } else if (renderMode.chargeShading) {
-        return getChargeShadingColors(atom.charge);
+        return getChargeShadingColors(atom.charge, renderMode.chargeShadingStyle);
       } else {
         if (typeof props.color === "number") {
           // Weird conversion, as we use color values literally imported from Classic MW. Perhaps we
@@ -58361,7 +58510,7 @@ define('models/md2d/views/bonds-renderer',['require','pixi'],function(require) {
         DISULPHIDE_BOND: 109
       },
 
-      RENDERING_OPTIONS = ["keShading", "chargeShading", "aminoAcidColorScheme"];
+      RENDERING_OPTIONS = ["keShading", "chargeShading", "chargeShadingStyle", "aminoAcidColorScheme"];
 
   return function BondsRenderer(modelView, model, pixiContainer, atomsRenderer) {
     // Public API object to be returned.
@@ -59056,9 +59205,10 @@ define('models/md2d/views/vdw-lines-renderer',['require','pixi'],function(requir
 
 /*global define, d3 */
 
-define('models/md2d/views/genetic-elements-renderer',['require','models/md2d/views/nucleotides','common/resources-url'],function (require) {
+define('models/md2d/views/genetic-elements-renderer',['require','models/md2d/views/nucleotides','common/resources-url','lab.config'],function (require) {
   var nucleotides = require('models/md2d/views/nucleotides'),
       resourcesUrl = require('common/resources-url'),
+      labConfig = require('lab.config'),
 
       SCALE = 0.007,
       W = {
@@ -59172,6 +59322,23 @@ define('models/md2d/views/genetic-elements-renderer',['require','models/md2d/vie
       return [Math.max(0, lowIdx + shift), highIdx + shift];
     }
 
+    function imagePath() {
+      var dnaEngineImagesPath = model.properties.dnaEngineImagesPath;
+      var imagePath = "";
+
+      if (dnaEngineImagesPath && dnaEngineImagesPath.length > 0) {
+        if (labConfig.modelsRootUrl && labConfig.modelsRootUrl.length > 0) {
+          imagePath = labConfig.modelsRootUrl + dnaEngineImagesPath;
+        } else {
+          imagePath = dnaEngineImagesPath;
+        }
+      } else {
+        // this should ensure all original interactives render as intended
+        imagePath = "dna";
+      }
+      return imagePath;
+    }
+
     return {
       cells: function (parent, data) {
         var cells = parent.select(".background-layer").selectAll(".cells").data(data.cells);
@@ -59182,7 +59349,7 @@ define('models/md2d/views/genetic-elements-renderer',['require','models/md2d/vie
           "width": model2px(W.CELLS),
           "height": model2px(H.CELLS),
           "preserveAspectRatio": "none",
-          "xlink:href": resourcesUrl("dna/Cells.svg"),
+          "xlink:href": resourcesUrl(imagePath() + "/Cells.svg"),
           "transform": translateScaleFuncInv
         }).style("opacity", opacityFunc);
         d3.transition(cells)
@@ -59200,7 +59367,7 @@ define('models/md2d/views/genetic-elements-renderer',['require','models/md2d/vie
           "width": model2px(W.DNA1),
           "height": model2px(H.DNA1),
           "preserveAspectRatio": "none",
-          "xlink:href": resourcesUrl("dna/DNA_InsideNucleus_1.svg"),
+          "xlink:href": resourcesUrl(imagePath() + "/DNA_InsideNucleus_1.svg"),
           "transform": translateScaleFuncInv
         }).style("opacity", opacityFunc);
         d3.transition(dna1)
@@ -59218,7 +59385,7 @@ define('models/md2d/views/genetic-elements-renderer',['require','models/md2d/vie
           "width": model2px(W.DNA2),
           "height": model2px(H.DNA2),
           "preserveAspectRatio": "none",
-          "xlink:href": resourcesUrl("dna/DNA_InsideNucleus_2.svg"),
+          "xlink:href": resourcesUrl(imagePath() + "/DNA_InsideNucleus_2.svg"),
           "transform": translateScaleFuncInv
         }).style("opacity", opacityFunc);
         d3.transition(dna2)
@@ -59242,7 +59409,7 @@ define('models/md2d/views/genetic-elements-renderer',['require','models/md2d/vie
           "width": model2px(W.DNA3),
           "height": model2px(H.DNA3),
           "preserveAspectRatio": "none",
-          "xlink:href": resourcesUrl("dna/DoubleHelix_Unit.svg")
+          "xlink:href": resourcesUrl(imagePath() + "/DoubleHelix_Unit.svg")
         });
         d3.transition(dna3)
           .attr("transform", translateScaleFuncInv)
@@ -59361,7 +59528,7 @@ define('models/md2d/views/genetic-elements-renderer',['require','models/md2d/vie
           "width": model2px(W.POLY_UNDER),
           "height": model2px(H.POLY_UNDER),
           "preserveAspectRatio": "none",
-          "xlink:href": resourcesUrl("dna/Polymerase_Under.svg"),
+          "xlink:href": resourcesUrl(imagePath() + "/Polymerase_Under.svg"),
           "transform": translateScaleFuncInv
         }).style("opacity", opacityFunc);
         d3.transition(polyUnder)
@@ -59379,7 +59546,7 @@ define('models/md2d/views/genetic-elements-renderer',['require','models/md2d/vie
           "width": model2px(W.POLY_OVER),
           "height": model2px(H.POLY_OVER),
           "preserveAspectRatio": "none",
-          "xlink:href": resourcesUrl("dna/Polymerase_Over.svg"),
+          "xlink:href": resourcesUrl(imagePath() + "/Polymerase_Over.svg"),
           "transform": translateScaleFuncInv
         }).style("opacity", opacityFunc);
         d3.transition(polyOver)
@@ -59397,7 +59564,7 @@ define('models/md2d/views/genetic-elements-renderer',['require','models/md2d/vie
           "width": model2px(W.NUCLEUS),
           "height": model2px(H.NUCLEUS),
           "preserveAspectRatio": "none",
-          "xlink:href": resourcesUrl("dna/BG_Nucleus.svg"),
+          "xlink:href": resourcesUrl(imagePath() + "/BG_Nucleus.svg"),
           "transform": translateFuncInv
         }).style("opacity", opacityFunc);
         d3.transition(nucleus)
@@ -59415,7 +59582,7 @@ define('models/md2d/views/genetic-elements-renderer',['require','models/md2d/vie
           "width": model2px(W.RIBO_BOTTOM),
           "height": model2px(H.RIBO_BOTTOM),
           "preserveAspectRatio": "none",
-          "xlink:href": resourcesUrl("dna/Ribosome_bottom1.svg"),
+          "xlink:href": resourcesUrl(imagePath() + "/Ribosome_bottom1.svg"),
           "transform": translateFuncInv
         }).style("opacity", 0);
         d3.transition(selection)
@@ -59435,7 +59602,7 @@ define('models/md2d/views/genetic-elements-renderer',['require','models/md2d/vie
           "width": model2px(W.RIBO_TOP),
           "height": model2px(H.RIBO_TOP),
           "preserveAspectRatio": "none",
-          "xlink:href": resourcesUrl("dna/Ribosome_top1.svg"),
+          "xlink:href": resourcesUrl(imagePath() + "/Ribosome_top1.svg"),
           "transform": translateFuncInv
         }).style("opacity", 0);
         d3.transition(selection)
@@ -59455,7 +59622,7 @@ define('models/md2d/views/genetic-elements-renderer',['require','models/md2d/vie
           "width": model2px(W.RIBO_UNDER),
           "height": model2px(H.RIBO_UNDER),
           "preserveAspectRatio": "none",
-          "xlink:href": resourcesUrl("dna/Ribosome_under.png"),
+          "xlink:href": resourcesUrl(imagePath() + "/Ribosome_under.png"),
           "transform": translateFuncInv
         }).style({
           "opacity": opacityFunc
@@ -59475,7 +59642,7 @@ define('models/md2d/views/genetic-elements-renderer',['require','models/md2d/vie
           "width": model2px(W.RIBO_OVER),
           "height": model2px(H.RIBO_OVER),
           "preserveAspectRatio": "none",
-          "xlink:href": resourcesUrl("dna/Ribosome_over.png"),
+          "xlink:href": resourcesUrl(imagePath() + "/Ribosome_over.png"),
           "transform": translateFuncInv
         }).style("opacity", opacityFunc);
         d3.transition(selection)
@@ -59521,7 +59688,7 @@ define('models/md2d/views/genetic-elements-renderer',['require','models/md2d/vie
           "width": model2px(W.TRNA_NECK),
           "height": model2px(H.TRNA_NECK),
           "preserveAspectRatio": "none",
-          "xlink:href": resourcesUrl("dna/tRNA_neck.png")
+          "xlink:href": resourcesUrl(imagePath() + "/tRNA_neck.png")
         });
         enter.append("image").attr({
           "class": "trna-base",
@@ -59530,7 +59697,7 @@ define('models/md2d/views/genetic-elements-renderer',['require','models/md2d/vie
           "width": model2px(W.TRNA),
           "height": model2px(H.TRNA),
           "preserveAspectRatio": "none",
-          "xlink:href": resourcesUrl("dna/tRNA_base.png")
+          "xlink:href": resourcesUrl(imagePath() + "/tRNA_base.png")
         });
 
         update = d3.transition(selection)
@@ -59719,7 +59886,7 @@ define('models/md2d/views/genetic-anim-states',['require','models/md2d/views/nuc
         drag: false
       }],
       background: [{
-        color: "#8492ef"
+        color: "#55b7b2"
       }]
     });
     stateMgr.extendLastState("intro-zoom1", {
@@ -59944,7 +60111,7 @@ define('models/md2d/views/genetic-anim-states',['require','models/md2d/views/nuc
       }],
       viewPort: [{}],
       background: [{
-        color: "#8492ef"
+        color: "#55b7b2"
       }]
     });
     stateMgr.extendLastState("before-translation-s1", {
@@ -61717,7 +61884,7 @@ define('models/md2d/views/images-renderer',['lab.config'],function() {
 
     function getImagePath(imageDescription) {
       var imageMapping = model.properties.imageMapping;
-      var basePath;
+      var basePath = "";
 
       if (model.properties.imagePath) {
         basePath = labConfig.modelsRootUrl + model.properties.imagePath;
@@ -63065,7 +63232,7 @@ define('models/md2d/views/renderer',['require','lab.config','common/console','co
 
       // Redraw container each time when some visual-related property is changed.
       model.addPropertiesListener([
-          "chargeShading", "showChargeSymbols", "useThreeLetterCode",
+          "chargeShading", "chargeShadingStyle", "showChargeSymbols", "useThreeLetterCode",
           "showAtomTrace", "atomTraceId", "aminoAcidColorScheme",
           "backgroundColor", "markColor", "forceVectorsDirectionOnly"
         ],
@@ -63267,14 +63434,21 @@ define('models/md2d/views/dna-edit-dialog',[],function () {
     var api,
         $dialogDiv,
         $dnaTextInput,
+        $originalDnaInput,
         $errorMsg,
         $submitButton,
+        originalDNA = model.get("DNA"),
 
         init = function() {
           // Basic dialog elements.
           $dialogDiv = $('<div></div>');
-          $dnaTextInput = $('<input type="text" id="dna-sequence-input" size="55"></input>');
-          $dnaTextInput.appendTo($dialogDiv);
+          $('<div>Enter DNA sequence below</div>').appendTo($dialogDiv);
+          $('<div>&nbsp;</div>').appendTo($dialogDiv);
+          $originalDnaInput = $('<input type="text" size="55" disabled/>');
+          $originalDnaInput.val(originalDNA);
+          $('<div>Original sequence</div>').append($originalDnaInput).appendTo($dialogDiv);
+          $dnaTextInput = $('<input type="text" id="dna-sequence-input" size="55"/>');
+          $('<div>Edited sequence</div>').prepend($dnaTextInput).appendTo($dialogDiv);
           $errorMsg = $('<p class="error"></p>');
           $errorMsg.appendTo($dialogDiv);
 
@@ -63283,7 +63457,7 @@ define('models/md2d/views/dna-edit-dialog',[],function () {
             dialogClass: "dna-edit-dialog",
             // Ensure that font is being scaled dynamically.
             appendTo: ".lab-responsive-content",
-            title: "DNA Code on Sense Strand",
+            title: "DNA Sequence",
             autoOpen: false,
             width: "35em",
             buttons: {
@@ -63318,6 +63492,14 @@ define('models/md2d/views/dna-edit-dialog',[],function () {
         // Set current value of DNA code.
         $dnaTextInput.val(model.get("DNA"));
         $dialogDiv.dialog("open");
+      },
+      bindModel: function (newModel) {
+        if (newModel !== model) {
+          model = newModel;
+          // Model has changed, so update original DNA too.
+          originalDNA = model.get("DNA");
+          $originalDnaInput.val(originalDNA);
+        }
       }
     };
 
@@ -63462,6 +63644,16 @@ define('models/md2d/controllers/scripting-api',['require','models/md2d/views/dna
       addRadialBond: function addRadialBond(props) {
         parent.model.addRadialBond(props);
 
+        parent.api.repaintIfReady();
+      },
+
+      addRestraint: function addRestraint(props) {
+        parent.model.addRestraint(props);
+        parent.api.repaintIfReady();
+      },
+
+      setRestraintProperties: function setRestraintProperties(i, props) {
+        parent.model.setRestraintProperties(i, props);
         parent.api.repaintIfReady();
       },
 
@@ -63835,6 +64027,10 @@ define('models/md2d/controllers/scripting-api',['require','models/md2d/views/dna
         return parent.model.getElementProperties(i);
       },
 
+      getAminoAcid: function getAminoAcidByElement(i) {
+        return parent.model.getAminoAcidByElement(i);
+      },
+
       /**
         Adds an obstacle/shape/line using human-readable hash of properties.
         e.g. addObstacle({x: 1, y: 0.5, width: 1, height: 1})
@@ -63965,6 +64161,7 @@ define('models/md2d/controllers/scripting-api',['require','models/md2d/views/dna
         if (dnaEditDialog == null) {
           dnaEditDialog = new DNAEditDialog(parent.model);
         }
+        dnaEditDialog.bindModel(parent.model);
         dnaEditDialog.open();
       },
 
@@ -64167,6 +64364,14 @@ define('models/md2d/controllers/scripting-api',['require','models/md2d/views/dna
 
       getNumberOfShapes: function() {
         return parent.model.getNumberOfShapes();
+      },
+
+      addImage: function (props) {
+        parent.model.addImage(props);
+      },
+
+      removeImage: function (i) {
+        parent.model.removeImage(i);
       },
 
       getImageProperties: function(i) {
@@ -64594,6 +64799,11 @@ define('models/iframe/metadata',[],function() {
       controlButtons: {
         defaultValue: "reset",
         propertyChangeInvalidates: false
+      },
+      controlButtonStyle: {
+        defaultValue: "video",
+        propertyChangeInvalidates: false,
+        serialize: false
       }
     }
   };
@@ -64642,6 +64852,7 @@ define('models/iframe/modeler',['require','common/lab-modeler-mixin','models/ifr
 
     this._phone = null;
     this._stopped = true;
+    this._hasPlayed = false;
     this._initialProperties = initialProperties;
     this._propertySupport = labModelerMixin.propertySupport;
     this._dispatch = labModelerMixin.dispatchSupport;
@@ -64659,6 +64870,12 @@ define('models/iframe/modeler',['require','common/lab-modeler-mixin','models/ifr
     // disable these buttons
     // the outer iframe in the interactives browser expects a 'reset', 'stepForward', 'stepBack' event type
     this._dispatch.addEventTypes('tick', 'tickStart', 'tickEnd', 'play', 'stop', 'reset', 'stepForward', 'stepBack', 'log');
+
+    this.defineOutput('hasPlayed', {
+      label: "has Played"
+    }, function() {
+      return this._hasPlayed;
+    }.bind(this));
   }
 
   function customSet(key, value) {
@@ -64710,6 +64927,7 @@ define('models/iframe/modeler',['require','common/lab-modeler-mixin','models/ifr
 
   IFrameModel.prototype.start = function () {
     this._phone.post({type: 'play'});
+    this._hasPlayed = true;
     return this;
   };
 
@@ -92688,6 +92906,11 @@ define('models/energy2d/metadata',['require','models/energy2d/models/constants']
         defaultValue: "play_reset",
         propertyChangeInvalidates: false
       },
+      controlButtonStyle: {
+        defaultValue: "video",
+        propertyChangeInvalidates: false,
+        serialize: false
+      },
       color_palette_type: {
         defaultValue: 0
       },
@@ -97213,6 +97436,21 @@ define('models/energy2d/modeler',['require','common/alert','common/console','com
           return days + ':' + f(hours) + ':' + f(minutes)  + ':' + f(seconds);
         };
       }()));
+
+      (function() {
+        var hasPlayed = false;
+        model.on('play.has-played-support', function () {
+          hasPlayed = true;
+        });
+        model.on('reset.has-played-support', function () {
+          hasPlayed = false;
+        });
+        model.defineOutput('hasPlayed', {
+          label: "has Played"
+        }, function() {
+          return hasPlayed;
+        });
+      }());
     }());
 
     return model;
@@ -100365,6 +100603,12 @@ define('common/controllers/interactives-controller',['require','seedrandom','lab
               if (arrays.isArray(base[p])) {
                 // Array.
                 overlay[p] = $.extend(true, [], base[p]);
+              } else if (base[p] === null) {
+                // Explicit check for null is necessary. `typeof null` returns "object", so the next `if` statement
+                // would be triggered incorrectly.
+                // `undefined` value doesn't have this problem (`typeof undefined` returns "undefined"), so it will
+                // be handled by the last `if` statement (basic type).
+                overlay[p] = null;
               } else if (typeof base[p] === "object") {
                 // Object.
                 overlay[p] = $.extend(true, {}, base[p]);
@@ -101292,7 +101536,7 @@ define('import-export/netlogo-importer',['require','underscore'],function(requir
 
 /*global define: false, window: false */
 
-define('import-export/public-api',['require','import-export/dg-exporter','import-export/netlogo-importer'],function (require) {
+define('import-export/public-api',['require','import-export/codap-interface','import-export/netlogo-importer'],function (require) {
   'use strict';
 
   window.Lab = window.Lab || {};
@@ -101302,8 +101546,7 @@ define('import-export/public-api',['require','import-export/dg-exporter','import
     // ==========================================================================
     // Functions and modules which should belong to this API:
 
-    // Data Games exporter
-    dgExporter:      require('import-export/dg-exporter'),
+    codapInterface: require('import-export/codap-interface'),
     netlogoImporter: require('import-export/netlogo-importer')
     // ==========================================================================
   };

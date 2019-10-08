@@ -1154,6 +1154,10 @@
           "defaultValue": "",
           "immutable": true
         },
+        "dnaEngineImagesPath": {
+          "defaultValue": "",
+          "immutable": true
+        },
         "minX": {
           "serialize": false
         },
@@ -1314,6 +1318,10 @@
         },
         "chargeShading": {
           "defaultValue": false,
+          "storeInTickHistory": true
+        },
+        "chargeShadingStyle": {
+          "defaultValue": "biology",
           "storeInTickHistory": true
         },
         "aminoAcidColorScheme": {
@@ -2051,6 +2059,11 @@
           "defaultValue": "play_reset",
           "propertyChangeInvalidates": false
         },
+        "controlButtonStyle": {
+          "defaultValue": "video",
+          "propertyChangeInvalidates": false,
+          "serialize": false
+        },
         "color_palette_type": {
           "defaultValue": 0
         },
@@ -2276,6 +2289,11 @@
         "controlButtons": {
           "defaultValue": "reset",
           "propertyChangeInvalidates": false
+        },
+        "controlButtonStyle": {
+          "defaultValue": "video",
+          "propertyChangeInvalidates": false,
+          "serialize": false
         }
       }
     }

@@ -423,10 +423,6 @@ define('lab.config',[],function () {
     // Models root URL, appended to all model paths. Leave it empty if model paths are relative
     // to page that contains Lab interactive.
     "modelsRootUrl": "",
-    // Set codap to true if Lab is running inside of CODAP
-    "codap": false,
-    // dataGamesProxyPrefix was the old way of configuring CODAP
-    "dataGamesProxyPrefix": "",
     "utmCampaign": null,
     // You can set versioned home to function that accepts major version of Lab and returns
     // URL of embeddable page that uses particular version of Lab, e.g.:
@@ -7048,43 +7044,71 @@ module.exports={
   "en-US": {
     "labels": {
       "autoscale": "Zoom",
-      "draw"     : "Draw",
+      "draw": "Draw",
       "selection": "Select",
-      "legend"   : "Key"
+      "legend": "Key"
     },
     "tooltips": {
       "autoscale": "Show all data (autoscale)",
-      "draw"     : "Draw new data points",
+      "draw": "Draw new data points",
       "selection": "Select data for export",
-      "legend"   : "Show/hide the legend"
+      "legend": "Show/hide the legend"
+    }
+  },
+   "it": {
+    "labels": {
+      "autoscale": "Zoom",
+      "draw": "Disegnare",
+      "selection": "Selezionare",
+      "legend": "Chiave"
+    },
+    "tooltips": {
+      "autoscale": "Mostra tutti i dati (autoscala)",
+      "draw": "Disegnare nuovi punti dati",
+      "selection": "Seleziona i dati per l'esportazione",
+      "legend": "Mostra / nascondi la leggenda"
     }
   },
   "es": {
     "labels": {
       "autoscale": "Zoom",
-      "draw"     : "Graficar",
+      "draw": "Graficar",
       "selection": "Elegir",
-      "legend"   : "Leyenda"
+      "legend": "Leyenda"
     },
     "tooltips": {
       "autoscale": "Mostrar todos los datos (autoescala)",
-      "draw"     : "Graficar nuevos puntos",
+      "draw": "Graficar nuevos puntos",
       "selection": "Seleccionar datos para exportar",
-      "legend"   : "Mostrar/Ocultar la leyenda"
+      "legend": "Mostrar/Ocultar la leyenda"
     }
   },
   "pl": {
     "labels": {
       "autoscale": "Przybliż",
-      "draw"     : "Rysuj",
+      "draw": "Rysuj",
       "selection": "Zaznacz",
-      "legend"   : "Legenda"
+      "legend": "Legenda"
     },
     "tooltips": {
-        "autoscale": "Pokaż cały wykres (autoskalowanie)",
-        "draw"     : "Rysuj nowe punkty",
-        "selection": "Zaznacz dane do wyeksportowania",
-        "legend"   : "Pokaż/ukryj legendę"
+      "autoscale": "Pokaż cały wykres (autoskalowanie)",
+      "draw": "Rysuj nowe punkty",
+      "selection": "Zaznacz dane do wyeksportowania",
+      "legend": "Pokaż/ukryj legendę"
+    }
+  },
+  "ru": {
+    "labels": {
+      "autoscale": "Масштабировать",
+      "draw": "Рисовать",
+      "selection": "Выбрать",
+      "legend": "Ключ"
+    },
+    "tooltips": {
+      "autoscale": "Показать все данные (автоматическое масштабированиe)",
+      "draw": "Показать новые данные",
+      "selection": "Выбрать данные для экспорта",
+      "legend": "Показать/скрыть описание"
     }
   }
 }

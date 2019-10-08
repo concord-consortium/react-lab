@@ -407,59 +407,26 @@ var requirejs, require, define;
 
 define("../../vendor/almond/almond", function(){});
 
-define('lab.config',[],function () {
-  return {
-    "sharing": true,
-    "logging": false,
-    "tracing": false,
-    // Set homeForSharing to the host where shared Interactives are found
-    // if you don't want to share the ones on the actual server.
-    // Example if you host the Interactives on a static S3 site and want the
-    // sharing links to point to the same Interactives at http://lab.concord.org
-    "homeForSharing": "",
-    "homeEmbeddablePath": "/embeddable.html",
-    // Root URL of Lab distribution, used to get Lab resources (e.g. DNA images).
-    "rootUrl": "lab",
-    // Models root URL, appended to all model paths. Leave it empty if model paths are relative
-    // to page that contains Lab interactive.
-    "modelsRootUrl": "",
-    // Set codap to true if Lab is running inside of CODAP
-    "codap": false,
-    // dataGamesProxyPrefix was the old way of configuring CODAP
-    "dataGamesProxyPrefix": "",
-    "utmCampaign": null,
-    // You can set versioned home to function that accepts major version of Lab and returns
-    // URL of embeddable page that uses particular version of Lab, e.g.:
-    // Lab.config.versionedHome = function (version) {
-    //    return "http://some.domain.com/lab/embeddable-" + version + ".html";
-    // }
-    // When Lab receives 'getLearnerUrl' messaga via iframe phone, it will respond providing
-    // return value of this function.
-    "versionedHome": null
-  };
-});
-
 !function(e){"object"==typeof exports?module.exports=e():"function"==typeof define&&define.amd?define('iframe-phone',e):"undefined"!=typeof window?window.iframePhone=e():"undefined"!=typeof global?global.iframePhone=e():"undefined"!=typeof self&&(self.iframePhone=e())}(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 var structuredClone = require('./structured-clone');
 var HELLO_INTERVAL_LENGTH = 200;
-var HELLO_TIMEOUT_LENGTH = 1000;
+var HELLO_TIMEOUT_LENGTH = 60000;
 
 function IFrameEndpoint() {
-  var parentOrigin;
   var listeners = {};
   var isInitialized = false;
   var connected = false;
   var postMessageQueue = [];
   var helloInterval;
 
-  function postToTarget(message, target) {
+  function postToParent(message) {
     // See http://dev.opera.com/articles/view/window-postmessage-messagechannel/#crossdoc
     //     https://github.com/Modernizr/Modernizr/issues/388
     //     http://jsfiddle.net/ryanseddon/uZTgD/2/
     if (structuredClone.supported()) {
-      window.parent.postMessage(message, target);
+      window.parent.postMessage(message, '*');
     } else {
-      window.parent.postMessage(JSON.stringify(message), target);
+      window.parent.postMessage(JSON.stringify(message), '*');
     }
   }
 
@@ -476,20 +443,16 @@ function IFrameEndpoint() {
       };
     }
     if (connected) {
-      postToTarget(message, parentOrigin);
+      postToParent(message);
     } else {
       postMessageQueue.push(message);
     }
   }
 
-  // Only the initial 'hello' message goes permissively to a '*' target (because due to cross origin
-  // restrictions we can't find out our parent's origin until they voluntarily send us a message
-  // with it.)
   function postHello() {
-    postToTarget({
-      type: 'hello',
-      origin: document.location.href.match(/(.*?\/\/.*?)\//)[1]
-    }, '*');
+    postToParent({
+      type: 'hello'
+    });
   }
 
   function addListener(type, fn) {
@@ -505,35 +468,29 @@ function IFrameEndpoint() {
   }
 
   function messageListener(message) {
-      // Anyone can send us a message. Only pay attention to messages from parent.
-      if (message.source !== window.parent) return;
+    // Anyone can send us a message. Only pay attention to messages from parent.
+    if (message.source !== window.parent) return;
+    var messageData = message.data;
+    if (typeof messageData === 'string') messageData = JSON.parse(messageData);
 
-      var messageData = message.data;
-
-      if (typeof messageData === 'string') messageData = JSON.parse(messageData);
-
-      // We don't know origin property of parent window until it tells us.
-      if (!connected && messageData.type === 'hello') {
-        // This is the return handshake from the embedding window.
-        parentOrigin = messageData.origin;
-        connected = true;
-        stopPostingHello();
-        while(postMessageQueue.length > 0) {
-          post(postMessageQueue.shift());
-        }
+    if (!connected && messageData.type === 'hello') {
+      connected = true;
+      stopPostingHello();
+      while (postMessageQueue.length > 0) {
+        post(postMessageQueue.shift());
       }
+    }
 
-      // Perhaps-redundantly insist on checking origin as well as source window of message.
-      if (message.origin === parentOrigin) {
-        if (listeners[messageData.type]) listeners[messageData.type](messageData.content);
-      }
-   }
+    if (connected && listeners[messageData.type]) {
+      listeners[messageData.type](messageData.content);
+    }
+  }
 
-   function disconnect() {
-     connected = false;
-     stopPostingHello();
-     window.removeEventListener('message', messsageListener);
-   }
+  function disconnect() {
+    connected = false;
+    stopPostingHello();
+    window.removeEventListener('message', messsageListener);
+  }
 
   /**
     Initialize communication with the parent frame. This should not be called until the app's custom
@@ -550,7 +507,6 @@ function IFrameEndpoint() {
 
     // We kick off communication with the parent window by sending a "hello" message. Then we wait
     // for a handshake (another "hello" message) from the parent window.
-    postHello();
     startPostingHello();
     window.addEventListener('message', messageListener, false);
   }
@@ -561,6 +517,8 @@ function IFrameEndpoint() {
     }
     helloInterval = window.setInterval(postHello, HELLO_INTERVAL_LENGTH);
     window.setTimeout(stopPostingHello, HELLO_TIMEOUT_LENGTH);
+    // Post the first msg immediately.
+    postHello();
   }
 
   function stopPostingHello() {
@@ -570,12 +528,12 @@ function IFrameEndpoint() {
 
   // Public API.
   return {
-    initialize        : initialize,
-    getListenerNames  : getListenerNames,
-    addListener       : addListener,
+    initialize: initialize,
+    getListenerNames: getListenerNames,
+    addListener: addListener,
     removeAllListeners: removeAllListeners,
-    disconnect        : disconnect,
-    post              : post
+    disconnect: disconnect,
+    post: post
   };
 }
 
@@ -588,87 +546,95 @@ module.exports = function getIFrameEndpoint() {
   }
   return instance;
 };
-},{"./structured-clone":4}],2:[function(require,module,exports){
-"use strict";
 
+},{"./structured-clone":4}],2:[function(require,module,exports){
 var ParentEndpoint = require('./parent-endpoint');
 var getIFrameEndpoint = require('./iframe-endpoint');
 
 // Not a real UUID as there's an RFC for that (needed for proper distributed computing).
 // But in this fairly parochial situation, we just need to be fairly sure to avoid repeats.
 function getPseudoUUID() {
-    var chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
-    var len = chars.length;
-    var ret = [];
+  var chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
+  var len = chars.length;
+  var ret = [];
 
-    for (var i = 0; i < 10; i++) {
-        ret.push(chars[Math.floor(Math.random() * len)]);
-    }
-    return ret.join('');
+  for (var i = 0; i < 10; i++) {
+    ret.push(chars[Math.floor(Math.random() * len)]);
+  }
+  return ret.join('');
 }
 
-module.exports = function IframePhoneRpcEndpoint(handler, namespace, targetWindow, targetOrigin) {
-    var phone;
-    var pendingCallbacks = Object.create({});
+module.exports = function IframePhoneRpcEndpoint(handler, namespace, targetWindow, targetOrigin, phone) {
+  var pendingCallbacks = Object.create({});
 
+  // if it's a non-null object, rather than a function, 'handler' is really an options object
+  if (handler && typeof handler === 'object') {
+    namespace = handler.namespace;
+    targetWindow = handler.targetWindow;
+    targetOrigin = handler.targetOrigin;
+    phone = handler.phone;
+    handler = handler.handler;
+  }
+
+  if (!phone) {
     if (targetWindow === window.parent) {
-        phone = getIFrameEndpoint();
-        phone.initialize();
+      phone = getIFrameEndpoint();
+      phone.initialize();
     } else {
-        phone = new ParentEndpoint(targetWindow, targetOrigin);
+      phone = new ParentEndpoint(targetWindow, targetOrigin);
     }
+  }
 
-    phone.addListener(namespace, function(message) {
-        var callbackObj;
+  phone.addListener(namespace, function (message) {
+    var callbackObj;
 
-        if (message.messageType === 'call') {
-            handler(message.value, function(returnValue) {
-                phone.post(namespace, {
-                    messageType: 'returnValue',
-                    uuid: message.uuid,
-                    value: returnValue
-                });
-            });
-        } else if (message.messageType === 'returnValue') {
-            callbackObj = pendingCallbacks[message.uuid];
-
-            if (callbackObj) {
-                window.clearTimeout(callbackObj.timeout);
-                if (callbackObj.callback) {
-                    callbackObj.callback.call(undefined, message.value);
-                }
-                pendingCallbacks[message.uuid] = null;
-            }
-        }
-    });
-
-    function call(message, callback) {
-        var uuid = getPseudoUUID();
-
-        pendingCallbacks[uuid] = {
-            callback: callback,
-            timeout: window.setTimeout(function() {
-                if (callback) {
-                    callback(undefined, new Error("IframePhone timed out waiting for reply"));
-                }
-            }, 2000)
-        };
-
+    if (message.messageType === 'call' && typeof this.handler === 'function') {
+      this.handler.call(undefined, message.value, function (returnValue) {
         phone.post(namespace, {
-            messageType: 'call',
-            uuid: uuid,
-            value: message
+          messageType: 'returnValue',
+          uuid: message.uuid,
+          value: returnValue
         });
-    }
+      });
+    } else if (message.messageType === 'returnValue') {
+      callbackObj = pendingCallbacks[message.uuid];
 
-    function disconnect() {
-        phone.disconnect();
+      if (callbackObj) {
+        window.clearTimeout(callbackObj.timeout);
+        if (callbackObj.callback) {
+          callbackObj.callback.call(undefined, message.value);
+        }
+        pendingCallbacks[message.uuid] = null;
+      }
     }
+  }.bind(this));
 
-    return {
-        call: call,
-        disconnect: disconnect
+  function call(message, callback) {
+    var uuid = getPseudoUUID();
+
+    pendingCallbacks[uuid] = {
+      callback: callback,
+      timeout: window.setTimeout(function () {
+        if (callback) {
+          callback(undefined, new Error("IframePhone timed out waiting for reply"));
+        }
+      }, 2000)
     };
+
+    phone.post(namespace, {
+      messageType: 'call',
+      uuid: uuid,
+      value: message
+    });
+  }
+
+  function disconnect() {
+    phone.disconnect();
+  }
+
+  this.handler = handler;
+  this.call = call.bind(this);
+  this.disconnect = disconnect.bind(this);
 };
 
 },{"./iframe-endpoint":1,"./parent-endpoint":3}],3:[function(require,module,exports){
@@ -708,13 +674,12 @@ var structuredClone = require('./structured-clone');
 */
 
 module.exports = function ParentEndpoint(targetWindowOrIframeEl, targetOrigin, afterConnectedCallback) {
-  var selfOrigin = window.location.href.match(/(.*?\/\/.*?)\//)[1];
   var postMessageQueue = [];
   var connected = false;
   var handlers = {};
   var targetWindowIsIframeElement;
 
-  function getOrigin(iframe) {
+  function getIframeOrigin(iframe) {
     return iframe.src.match(/(.*?\/\/.*?)\//)[1];
   }
 
@@ -733,7 +698,6 @@ module.exports = function ParentEndpoint(targetWindowOrIframeEl, targetOrigin, a
     if (connected) {
       var tWindow = getTargetWindow();
       // if we are laready connected ... send the message
-      message.origin = selfOrigin;
       // See http://dev.opera.com/articles/view/window-postmessage-messagechannel/#crossdoc
       //     https://github.com/Modernizr/Modernizr/issues/388
       //     http://jsfiddle.net/ryanseddon/uZTgD/2/
@@ -775,7 +739,7 @@ module.exports = function ParentEndpoint(targetWindowOrIframeEl, targetOrigin, a
 
   function receiveMessage(message) {
     var messageData;
-    if (message.source === getTargetWindow() && message.origin === targetOrigin) {
+    if (message.source === getTargetWindow() && (targetOrigin === '*' || message.origin === targetOrigin)) {
       messageData = message.data;
       if (typeof messageData === 'string') {
         messageData = JSON.parse(messageData);
@@ -808,16 +772,31 @@ module.exports = function ParentEndpoint(targetWindowOrIframeEl, targetOrigin, a
     // afterConnectionCallback)
     if (!targetOrigin || targetOrigin.constructor === Function) {
       afterConnectedCallback = targetOrigin;
-      targetOrigin = getOrigin(targetWindowOrIframeEl);
+      targetOrigin = getIframeOrigin(targetWindowOrIframeEl);
     }
   }
 
+  // Handle pages served through file:// protocol. Behaviour varies in different browsers. Safari sets origin
+  // to 'file://' and everything works fine, but Chrome and Safari set message.origin to null.
+  // Also, https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage says:
+  //  > Lastly, posting a message to a page at a file: URL currently requires that the targetOrigin argument be "*".
+  //  > file:// cannot be used as a security restriction; this restriction may be modified in the future.
+  // So, using '*' seems like the only possible solution.
+  if (targetOrigin === 'file://') {
+    targetOrigin = '*';
+  }
+
   // when we receive 'hello':
-  addListener('hello', function() {
+  addListener('hello', function () {
     connected = true;
 
     // send hello response
-    post('hello');
+    post({
+      type: 'hello',
+      // `origin` property isn't used by IframeEndpoint anymore (>= 1.2.0), but it's being sent to be
+      // backward compatible with old IframeEndpoint versions (< v1.2.0).
+      origin: window.location.href.match(/(.*?\/\/.*?)\//)[1]
+    });
 
     // give the user a chance to do things now that we are connected
     // note that is will happen before any queued messages
@@ -826,7 +805,7 @@ module.exports = function ParentEndpoint(targetWindowOrIframeEl, targetOrigin, a
     }
 
     // Now send any messages that have been queued up ...
-    while(postMessageQueue.length > 0) {
+    while (postMessageQueue.length > 0) {
       post(postMessageQueue.shift());
     }
   });
@@ -838,7 +817,9 @@ module.exports = function ParentEndpoint(targetWindowOrIframeEl, targetOrigin, a
     post: post,
     addListener: addListener,
     removeListener: removeListener,
-    disconnect: disconnect
+    disconnect: disconnect,
+    getTargetWindow: getTargetWindow,
+    targetOrigin: targetOrigin
   };
 };
 
@@ -855,7 +836,7 @@ var featureSupported = false;
       // internal [[Class]] property of the message being passed through.
       // Safari will pass through DOM nodes as Null iOS safari on the other hand
       // passes it through as DOMWindow, gotcha.
-      window.onmessage = function(e){
+      window.onmessage = function (e) {
         var type = Object.prototype.toString.call(e.data);
         result = (type.indexOf("Null") != -1 || type.indexOf("DOMWindow") != -1) ? 1 : 0;
         featureSupported = {
@@ -864,8 +845,8 @@ var featureSupported = false;
       };
       // Spec states you can't transmit DOM nodes and it will throw an error
       // postMessage implimentations that support cloned data will throw.
-      window.postMessage(document.createElement("a"),"*");
-    } catch(e) {
+      window.postMessage(document.createElement("a"), "*");
+    } catch (e) {
       // BBOS6 throws but doesn't pass through the correct exception
       // so check error message
       result = (e.DATA_CLONE_ERR || e.message == "Cannot post cyclic structures.") ? 1 : 0;
@@ -905,134 +886,149 @@ module.exports = {
 /*jshint eqnull: true */
 /*global define */
 
-define('import-export/dg-exporter',['require','lab.config','iframe-phone'],function(require) {
+define('import-export/codap-interface',['require','iframe-phone'],function(require) {
 
-  var config  = require('lab.config');
   var iframePhone = require('iframe-phone');
 
-  /*
-    Private method. Listener for messages sent from CODAP via the iframePhone RPC endpoint.
+  // Width of the interactive when embedded in CODAP.
+  var DEF_CODAP_WIDTH = 640; // px
 
-    Currently, the only message from CODAP that we listen for is the 'codap-present' message
-    indicating that we are embedded in an iframePhone-capable CODAP instance. When this message is
-    received, `this.codapDidConnect` (a method to be added by client code) is invoked, if present.
+  // Limit number of data points sent to CODAP in one request to avoid long freezes.
+  var CODAP_VALUES_LIMIT = 100;
 
-    message:   message sent by iframePhone
-    callback:  callback passed by iframePhone; must be called to acknowledge receipt of message
-  */
-  function codapCallbackHandler(message, callback) {
-    var wasConnected;
-    if (message && message.message === 'codap-present') {
-      wasConnected = this.isCodapPresent;
-
-      this.isCodapPresent = true;
-
-      // Some simple (but very limited) zero-configuration event listening:
-      if ( ! wasConnected  && typeof this.codapDidConnect === 'function' ) {
-        this.codapDidConnect();
-      }
+  function throwIfError(resp) {
+    if (resp.success === false) {
+      throw new Error('CODAP error: ' + resp.values.error);
     }
-    callback();
   }
 
-  var dgExporter = {
+  // Divides array into chunks.
+  function chunks(arr, chunkSize) {
+    var result = [];
+    for (var i = 0, len = arr.length; i < len; i += chunkSize) {
+      result.push(arr.slice(i, i + chunkSize));
+    }
+    return result;
+  }
 
-    gameName: 'Next Gen MW',
+  function getLabels(i18n) {
+    return {
+      dataContextName: i18n.t('codap.dataContextName'),
+      parentTable: {
+        singleCase: i18n.t('codap.parentTable.singleCase'),
+        pluralCase: i18n.t('codap.parentTable.pluralCase'),
+        singleCaseWithArticle: i18n.t('codap.parentTable.singleCaseWithArticle'),
+        setOfCases: i18n.t('codap.parentTable.setOfCases'),
+        setOfCasesWithArticle: i18n.t('codap.parentTable.setOfCasesWithArticle')
+      },
+      childTable: {
+        singleCase: i18n.t('codap.childTable.singleCase'),
+        pluralCase: i18n.t('codap.childTable.pluralCase'),
+        singleCaseWithArticle: i18n.t('codap.childTable.singleCaseWithArticle'),
+        setOfCases: i18n.t('codap.childTable.setOfCases'),
+        setOfCasesWithArticle: i18n.t('codap.childTable.setOfCasesWithArticle')
+      },
+      singleTable: {
+        singleCase: i18n.t('codap.singleTable.singleCase'),
+        pluralCase: i18n.t('codap.singleTable.pluralCase'),
+        singleCaseWithArticle: i18n.t('codap.singleTable.singleCaseWithArticle'),
+        setOfCases: i18n.t('codap.singleTable.setOfCases'),
+        setOfCasesWithArticle: i18n.t('codap.singleTable.setOfCasesWithArticle')
+      }
+    };
+  }
 
-    parentTableLabels: {
-      singleCase: "run",
-      pluralCase: "runs",
-      singleCaseWithArticle: "a run",
-      setOfCases: "set",
-      setOfCasesWithArticle: "a set"
-    },
-
-    childTableLabels: {
-      singleCase: "measurement",
-      pluralCase: "measurements",
-      singleCaseWithArticle: "a measurement",
-      setOfCases: "time series",
-      setOfCasesWithArticle: "a time series"
-    },
-
-    singleTableLabels: {
-      singleCase: "measurement",
-      pluralCase: "measurements",
-      singleCaseWithArticle: "a measurement",
-      setOfCases: "set",
-      setOfCasesWithArticle: "a set"
-    },
-
-    perRunColumnLabelCount: 0,
-    perRunColumnLabelPositions: {},
-
+  return {
     isCodapPresent: false,
 
-    init: function() {
+    init: function(frameConfig) {
       if (this.codapPhone) return; // nothing to initialize
+      this.frameConfig = frameConfig;
       this.codapPhone = new iframePhone.IframePhoneRpcEndpoint(
-        codapCallbackHandler.bind(this),
-        "codap-game",
+        this.notificationHandler.bind(this),
+        "data-interactive",
         window.parent
       );
     },
 
-    canCallDGDirect: function() {
-      if (config.codap || config.dataGamesProxyPrefix) {
-        try {
-          if (window.parent.DG.doCommand) {
-            return true;
-          }
-        } catch (e) {
-          // could be a security exception if window.parent is not same-origin, or a ReferenceError
-          // if the game controller isn't defined; in either case, fall through.
-        }
-      }
-      return false;
-    },
-
     isEmbeddedInCODAP: function() {
-      return this.isCodapPresent || this.canCallDGDirect();
+      return this.isCodapPresent;
     },
 
     canExportData: function() {
-      return this.isEmbeddedInCODAP();
+      return this.isCodapPresent;
     },
 
-    doCommand: function(name, args, callback) {
-      var cmd = {
-        action: name,
-        args: args
-      };
+    /**
+      Listener for messages sent from CODAP via the iframePhone RPC endpoint.
 
-      // Ensure the "direct" path follows an async execution pattern, because the iframePhone path
-      // is unavoidably async. APIs that call back synchronously sometimes, async other times
-      // release Zalgo: http://blog.izs.me/post/59142742143/designing-apis-for-asynchrony
+      Currently, the only message from CODAP that we listen for is the 'codap-present' message
+      indicating that we are embedded in an iframePhone-capable CODAP instance. When this message is
+      received, `this.codapDidConnect` (a method to be added by client code) is invoked, if present.
 
-      if (this.canCallDGDirect()) {
-        setTimeout(function() {
-          var result = window.parent.DG.doCommand(cmd);
-          if (callback) {
-            setTimeout(function() {
-                callback(result);
-            }, 1);
-          }
-        }, 1);
-      } else if (this.isCodapPresent) {
-        this.codapPhone.call(cmd, callback);
+      request:   request sent by iframePhone
+      callback:  callback passed by iframePhone; must be called to acknowledge receipt of message
+    */
+    notificationHandler: function(request, callback) {
+      var action = request.action;
+      var resource = request.resource;
+      var response = { success: true };
+      // Handler of CODAP-initiated actions.
+      if (request && request.message === 'codap-present') {
+        // codap-present message has a bit different format.
+        this.isCodapPresent = true;
+        this.initInteractiveFrame();
+        this.codapDidConnect();
+      } else if (action === 'get' && resource === 'interactiveState') {
+        // Return empty state. In fact the only reason we save any state is to know whether interactive is added
+        // to CODAP document for the first time or an existing CODAP document is being opened. At this moment,
+        // it is useful to set dimensions correctly, but there might be more use cases.
+        response.values = { version: 1 };
       }
+      callback(response);
+    },
+
+    initInteractiveFrame: function () {
+      // First, get interactive frame info.
+      this.doCommand({action: 'get', resource: 'interactiveFrame'}, function (resp) {
+        throwIfError(resp);
+        var existingConfig = resp.values;
+        var newIframeConfig = {
+          name: this.frameConfig.title,
+          title: this.frameConfig.title,
+          preventDataContextReorg: false
+        };
+        // Update dimensions only if the interactive is added to CODAP for the first time.
+        // Then, authors can adjust size of the interactive and it should not be overwritten.
+        // Existing `savedState` means that we load an existing CODAP document.
+        if (!existingConfig.savedState) {
+          newIframeConfig.dimensions = {
+            width: DEF_CODAP_WIDTH,
+            height: DEF_CODAP_WIDTH / this.frameConfig.aspectRatio
+          };
+        }
+        this.doCommand({
+          action: 'update',
+          resource: 'interactiveFrame',
+          values: newIframeConfig
+        }, throwIfError);
+      }.bind(this));
+    },
+
+    doCommand: function(cmd, callback) {
+      this.codapPhone.call(cmd, callback);
     },
 
     /**
       Exports the summary data about a run as 1 CODAP table and exports timeseries data, if any, as
       a second, linked table.
 
-      perRunLabels: list of column labels for the "left" table which contains a summary of the run
+      perRunAttr: list of attributes for the "left" table which contains a summary of the run
         (this can contain parameters that define the run, as well as )
 
       perRunData: list containing 1 row of data to be added to the left table
 
-      timeSeriesLabels (optional): List of column labels for the "right" table which contains a
+      timeSeriesAttrs (optional): List of attributes for the "right" table which contains a
         set of time points that will be linked to the single row which is added to the "left", run-
         summary table
 
@@ -1051,130 +1047,145 @@ define('import-export/dg-exporter',['require','lab.config','iframe-phone'],funct
       of time series labels (except from the end of the list) and it does not handle reordering of
       time series labels.
     */
-    exportData: function(perRunLabels, perRunData, timeSeriesLabels, timeSeriesData) {
-      timeSeriesLabels = timeSeriesLabels || [];
+    exportData: function(perRunAttrs, perRunData, timeSeriesAttrs, timeSeriesData, i18n) {
+      timeSeriesAttrs = timeSeriesAttrs || [];
 
-      var label,
-          value,
-          position,
-          perRunColumnLabels = [],
-          perRunColumnValues = [],
-          timeSeriesColumnLabels = [],
-          shouldExportTimeSeries,
-          parentTableName,
-          childTableName,
-          i;
+      perRunAttrs = perRunAttrs.slice();
+      // Insert "Run" automatically attribute.
+      perRunAttrs.unshift({ name: "Run", type: "nominal" });
 
-      // Extract metadata in the forms needed for export, ie values need to be an array of values,
-      // labels need to be an array of {name: label} objects.
-      // Furthermore note that during a DG session, the value for a given label needs to be in the
-      // same position in the array every time the DG collection is 'created' (or reopened as the
-      // case may be.)
+      var labels = getLabels(i18n);
 
-      for (i = 0; i < perRunData.length; i++) {
-        label = perRunLabels[i];
-        value = perRunData[i];
-
-        if ( this.perRunColumnLabelPositions[label] == null ) {
-          this.perRunColumnLabelPositions[label] = this.perRunColumnLabelCount++;
-        }
-        position = this.perRunColumnLabelPositions[label];
-
-        if (i === 0) {
-          perRunColumnLabels[position] = { name: label, formula: "caseIndex" , type:"nominal"};
-          perRunColumnValues[position] = null;
-        } else {
-          perRunColumnLabels[position] = { name: label };
-          perRunColumnValues[position] = value;
-        }
-      }
-
-      // Extract list of data column labels into form needed for export (needs to be an array of
-      // name: label objects)
-      for (i = 0; i < timeSeriesLabels.length; i++) {
-        timeSeriesColumnLabels.push({ name: timeSeriesLabels[i] });
-      }
-
-      shouldExportTimeSeries = timeSeriesLabels.length > 0;
-
-      // Export.
-
+      var shouldExportTimeSeries = timeSeriesAttrs.length > 0;
+      var parentTableName;
+      var childTableName;
       if (shouldExportTimeSeries) {
-        parentTableName = this.parentTableLabels.pluralCase;
-        childTableName = this.childTableLabels.pluralCase;
+        parentTableName = labels.parentTable.pluralCase;
+        childTableName = labels.childTable.pluralCase;
       } else {
-        parentTableName = this.singleTableLabels.pluralCase;
+        parentTableName = labels.singleTable.pluralCase;
       }
 
-      var collections = [{
-        name: parentTableName,
-        attrs: perRunColumnLabels,
-        childAttrName: 'runs',
-        labels: shouldExportTimeSeries ? this.parentTableLabels : this.singleTableLabels,
-        collapseChildren: true
-      }];
+      var exportData = function (runNumber) {
+        perRunData = perRunData.slice();
+        perRunData.unshift(runNumber);
 
-      if (shouldExportTimeSeries) {
-        collections.push({
-          name: childTableName,
-          attrs: timeSeriesColumnLabels,
-          labels: this.childTableLabels
+        // If time series attributes are not defined, we will insert just a single item with per-run attributes only.
+        // An array with single item (any value) ensures that it will happen. One element is necessary to make sure that
+        // per-run attributes are send to CODAP. But it will be never dereferenced as timeSeriesAttrs is an empty array.
+        var values = (shouldExportTimeSeries ? timeSeriesData : [ 'this_value_is_ignored' ]).map(function (data) {
+          var item = {};
+          perRunAttrs.forEach(function (attr, idx) {
+            item[attr.name] = perRunData[idx];
+          });
+          timeSeriesAttrs.forEach(function (attr, idx) {
+            item[attr.name] = data[idx];
+          });
+          return item;
         });
-      }
 
-      // Step 1. Tell DG we're a "game".
-      this.doCommand('initGame', {
-        name: this.gameName,
-        collections: collections
-      });
+        // Send values in smaller chunks to avoid performance problems.
+        var valuesChunks = chunks(values, CODAP_VALUES_LIMIT);
+        valuesChunks.forEach(function(values, idx) {
+          // Data export using "item" approach. A single item consists of both per-run and time series attributes.
+          this.doCommand({
+            action: 'create',
+            resource: 'dataContext.item',
+            values: values
+          }, function (resp) {
+            throwIfError(resp);
+            if (idx === 0) {
+              // Wait for the first call to be completed and open the table (since it already exists).
+              this.openTable();
+            }
+          }.bind(this));
+        }.bind(this));
+      }.bind(this);
 
-      // Step 4. Open a row in the parent table. This will contain the individual time series
-      // readings as children.
-      this.doCommand('openCase', {
-        collection: parentTableName,
-        values: perRunColumnValues
-      }, function(parentCase) {
+      var createDataContext = function () {
+        var collections = [{
+          name: parentTableName,
+          attrs: perRunAttrs,
+          labels: shouldExportTimeSeries ? labels.parentTable : labels.singleTable,
+          collapseChildren: true
+        }];
 
-        // Step 5. Create rows in the child table for each data point. Using 'createCases' we can
-        // do this inline, so we don't need to call openCase, closeCase for each row.
         if (shouldExportTimeSeries) {
-          this.doCommand('createCases', {
-            collection: childTableName,
-            values: timeSeriesData,
-            parent: parentCase.caseID
+          collections.push({
+            name: childTableName,
+            attrs: timeSeriesAttrs,
+            parent: parentTableName,
+            labels: labels.childTable
           });
         }
 
-        // Step 6. Close the case.
-        this.doCommand('closeCase', {
-          collection: parentTableName,
-          caseID: parentCase.caseID
+        this.doCommand({
+          action: 'create',
+          resource: 'dataContext',
+          values: {
+            title: labels.dataContextName,
+            collections: collections
+          }
+        }, function (resp) {
+          throwIfError(resp);
+          // Data context has just been created, so the run number is equal to 1.
+          exportData(1);
         });
-      }.bind(this));
+      }.bind(this);
+
+      var getDataContext = function () {
+        this.doCommand({
+          action: 'get',
+          resource: 'dataContext'
+        }, function (resp) {
+          if (resp.success) {
+            // If data context already exists, it's necessary to get the last run number first.
+            this.doCommand({
+              action: 'get',
+              resource: 'collection[' + parentTableName + '].allCases'
+            }, function (resp) {
+              throwIfError(resp);
+              var casesCount = resp.values.cases.length;
+              var prevRunNumber = casesCount > 0 ? resp.values.cases[casesCount - 1].case.values["Run"] : 0;
+              exportData(prevRunNumber + 1);
+            }.bind(this));
+          } else {
+            createDataContext();
+          }
+        }.bind(this));
+      }.bind(this);
+
+      // Start export by obtaining (or creating) data context. Other callbacks will be called later.
+      getDataContext();
     },
 
     /**
-      Call this to cause DataGames to open the 'case table" containing the all the data exported by
+      Call this to cause DataGames to open the "case table" containing the all the data exported by
       exportData() so far.
     */
     openTable: function() {
-      this.doCommand('createComponent', {
-        type: 'DG.TableView',
-        log: false
-      });
+      this.doCommand({
+        action: 'create',
+        resource: 'component',
+        values: {
+          'type': 'caseTable'
+        }
+      }, throwIfError);
     },
 
     /**
       Call any time to log an event to DataGames
     */
     logAction: function(logString) {
-      this.doCommand('logAction', {
-        formatStr: logString
+      this.doCommand({
+        action: 'notify',
+        resource: 'logMessage',
+        values: {
+          formatStr: logString
+        }
       });
     }
   };
-
-  return dgExporter;
 });
 
 //     Underscore.js 1.4.2
@@ -2452,7 +2463,7 @@ define('import-export/netlogo-importer',['require','underscore'],function(requir
 
 /*global define: false, window: false */
 
-define('import-export/public-api',['require','import-export/dg-exporter','import-export/netlogo-importer'],function (require) {
+define('import-export/public-api',['require','import-export/codap-interface','import-export/netlogo-importer'],function (require) {
   'use strict';
 
   window.Lab = window.Lab || {};
@@ -2462,8 +2473,7 @@ define('import-export/public-api',['require','import-export/dg-exporter','import
     // ==========================================================================
     // Functions and modules which should belong to this API:
 
-    // Data Games exporter
-    dgExporter:      require('import-export/dg-exporter'),
+    codapInterface: require('import-export/codap-interface'),
     netlogoImporter: require('import-export/netlogo-importer')
     // ==========================================================================
   };
