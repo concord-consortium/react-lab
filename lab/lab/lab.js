@@ -411,18 +411,18 @@ define("../../vendor/almond/almond", function(){});
 define('lab.version',['require'],function (require) {
   return {
     "repo": {
-      "branch": "1.16.4",
+      "branch": "1.16.5",
       "commit": {
-        "sha":           "0c005a14f17c87bfed645dc403af80eb4625f24b",
-        "short_sha":     "0c005a14",
-        "url":           "https://github.com/concord-consortium/lab/commit/0c005a14",
+        "sha":           "0acfeb7fd799b7e3f0bae4ff4338f6cea8630c92",
+        "short_sha":     "0acfeb7f",
+        "url":           "https://github.com/concord-consortium/lab/commit/0acfeb7f",
         "author":        "Chris Hart",
         "email":         "chart@concord.org",
-        "date":          "2019-09-30 20:04:47 +0000",
-        "short_message": "wsBcBAABCAAQBQJdkl/fCRBK7hj4Ov3rIwAAdHIIAJJQSkXwatYC8LJkKZtxP08/",
-        "message":       " wsBcBAABCAAQBQJdkl/fCRBK7hj4Ov3rIwAAdHIIAJJQSkXwatYC8LJkKZtxP08/\n RHden7S95byNjsdmqyvsmVknM4RJHRcRHjVo1FBe9J4WBnXnRYvl5qlf9gPvdjB/\n 4vQEc685mioGoSSQVOqPCuAymGGw+kUlDn61q49NRq5uvbe2oxYsaFJt6vt4oMAK\n ea2zAogaKFgQkJDr3q7y3nW/vNg6yZmH+du7mRjm+2/LdVsYz7ME49v1KtrQx8iE\n A27rtLexGw47N8CpoSyVZZvoCuarG0NMyhU2vFfx8o9aFZtFqmfo3dV9xgBw9k9U\n JxdTSm3yOKYKztSwp+Q7p0u0mHoZjU93b4ltBIYM8QIky4X8wVl5D2jKi3khsLY=\n =bqry\n -----END PGP SIGNATURE-----\n \n\nMerge pull request #142 from concord-consortium/dna-sequence-dialog\n\nAdjust wording on popup where user is prompted to enter a DNA sequence"
+        "date":          "2019-10-10 18:54:28 +0000",
+        "short_message": "wsBcBAABCAAQBQJdn35kCRBK7hj4Ov3rIwAAdHIIACj/aWXigTqSV8f29EizVPUt",
+        "message":       " wsBcBAABCAAQBQJdn35kCRBK7hj4Ov3rIwAAdHIIACj/aWXigTqSV8f29EizVPUt\n wsq+tJl5pEC0E2kGNMIGYc7gRUxDfsY+BKjkpVOhbM0RWR+kMb586zDcwUkZUR9b\n DewnU/WCPpElPPUDVOJRD9C7oNm2Z0GpWxRnoNrRRJH+mME2KIT20idiQrpb1UNd\n 8xjo8Jt1wOrv0oEcvRQEkDdCaqps7z07qVMdlmLpwEx4b3fimPgEz7Y/3w8FE7Ck\n sW4FmDkBwjxR6z5s+/jziTzOPmVyTsvGgK/bIyXMgR4I+s4xyMBSaHGA7ehxbnH/\n cjketvqZhtoO7KEcxNhDdpUCDxtMQSO78rJyjSKb6Ygd5ymmbsOOgR4xFNY25EE=\n =Jgiw\n -----END PGP SIGNATURE-----\n \n\nMerge pull request #143 from concord-consortium/simple-fix-iOS13\n\nAdjust svg rendering of atoms"
       },
-      "last_tag":        "1.16.4",
+      "last_tag":        "1.16.5",
       "dirty": false
     }
   };
@@ -58146,18 +58146,20 @@ define('models/md2d/views/atoms-renderer',['require','pixi','canvg','mustache','
         </style> \
          <defs> \
             <radialGradient id="grad" cx="50%" cy="47%" r="53%" fx="35%" fy="30%"> \
-              <stop stop-color="{{ lightCol }}" offset="0%"></stop> \
-              <stop stop-color="{{ medCol }}" offset="40%"></stop> \
-              <stop stop-color="{{ darkCol }}" offset="80%"></stop> \
-              <stop stop-color="{{ medCol }}" offset="100%"></stop> \
+              <stop style="stop-color:{{ lightCol }}" offset="0%"/> \
+              <stop style="stop-color:{{ medCol }}" offset="40%"/> \
+              <stop style="stop-color:{{ darkCol }}" offset="80%"/> \
+              <stop style="stop-color:{{ medCol }}" offset="100%"/> \
             </radialGradient> \
          </defs> \
          <g opacity="{{ opacity }}"> \
            {{#excited}} \
             <circle fill="#ffe600" cx="16" cy="16" r="12"/> \
+            <circle fill="{{ medCol }}" cx="16" cy="16" r="8"/> \
             <circle fill="url(#grad)" cx="16" cy="16" r="8"/> \
            {{/excited}} \
            {{^excited}} \
+            <circle fill="{{ medCol }}" stroke="{{ darkCol }}" cx="16" cy="16" r="14"/> \
             <circle fill="url(#grad)" cx="16" cy="16" r="16"/> \
            {{/excited}} \
            <text class="shadow" text-anchor="middle" x="16" y="16" dy="0.31em">{{ label }}</text> \
