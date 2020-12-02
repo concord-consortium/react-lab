@@ -4,6 +4,37 @@ import MODEL_ONLY_INTERACTIVE from './model-only-interactive';
 
 const DEF_UPDATE_DELAY = 75; // ms
 
+// Deprecated PropTypes could be still an useful documentation.
+// It could be converted to TypeScript interface.
+// Lab.PropTypes = {
+//   // Lab model JSON (parsed).
+//   model: React.PropTypes.object.isRequired,
+//   // Lab interactive JSON (parsed). If not provided, MODEL_ONLY_INTERACTIVE will be used.
+//   interactive: React.PropTypes.object,
+//   // Source to Lab embeddable page. Needs to be under the same domain as the application.
+//   // This package is providing lab distribution that can be used (/lab).
+//   embeddableSrc: React.PropTypes.string,
+//   // Batch Lab properties updates and send them to Lab after given time period.
+//   // You can provide value in ms or use true (the default delay value will be used).
+//   propsUpdateDelay: React.PropTypes.oneOfType([React.PropTypes.bool, React.PropTypes.number]),
+//   // Lab properties.
+//   props: React.PropTypes.object,
+//   // Lab observed properties (onPropChange will be called when any of them changes).
+//   observedProps: React.PropTypes.array,
+//   // Iframe properties.
+//   width: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number]),
+//   height: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number]),
+//   allowFullScreen: React.PropTypes.bool,
+//   frameBorder: React.PropTypes.string,
+//   // Lab lets you update interactive or model without reloading the iframe, but that might lead to memory leaks
+//   // and performance issues. Complete iframe reload is a safe option, but it increases loading time a bit.
+//   reloadIframeOnModelUpdate: React.PropTypes.bool,
+//   // Callbacks.
+//   onModelLoad: React.PropTypes.func,
+//   onPropChange: React.PropTypes.func,
+//   onLogEvent: React.PropTypes.func,
+// };
+
 export default class Lab extends React.Component {
   constructor(props) {
     super(props);
@@ -14,19 +45,21 @@ export default class Lab extends React.Component {
     this._asyncLabPropertiesUpdate = this._asyncLabPropertiesUpdate.bind(this);
     this._labUpdateTimeoutID = null;
     this._propsToSet = {};
+
+    this.iframeRef = React.createRef();
   }
 
   componentDidMount() {
-    this._phone = new iframePhone.ParentEndpoint(this.refs.iframe);
+    this._phone = new iframePhone.ParentEndpoint(this.iframeRef.current);
     this._phone.addListener('log', (content) => {
       this.props.onLogEvent(content.action, content.data);
     });
-    this.refs.iframe.addEventListener('load', this._handleIframeLoad);
+    this.iframeRef.current.addEventListener('load', this._handleIframeLoad);
   }
 
   componentWillUnmount() {
     this._phone.disconnect();
-    this.refs.iframe.removeEventListener('load', this._handleIframeLoad);
+    this.iframeRef.current.removeEventListener('load', this._handleIframeLoad);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -36,7 +69,7 @@ export default class Lab extends React.Component {
       if (nextProps.reloadIframeOnModelUpdate) {
         // Looks a bit magic, but interactive will be loaded and completely setup (including interactive and model jsons)
         // by the iframe "onload" handler. Take a look at _handleIframeLoad() method.
-        this.refs.iframe.contentWindow.location.reload();
+        this.iframeRef.current.contentWindow.location.reload();
         this.setState({loading: true});
       } else {
         this._loadInteractive(nextProps.interactive, nextProps.model);
@@ -72,7 +105,7 @@ export default class Lab extends React.Component {
     const { loading } = this.state;
     const style = loading ? {visibility: 'hidden'} : {};
     return (
-      <iframe ref='iframe' src={embeddableSrc} frameBorder={frameBorder} style={style}
+      <iframe ref={this.iframeRef} src={embeddableSrc} frameBorder={frameBorder} style={style}
         width={width} height={height} allowFullScreen={allowFullScreen}>
       </iframe>
     )
@@ -81,15 +114,15 @@ export default class Lab extends React.Component {
   // Public API.
 
   get scriptingAPI() {
-    return this.refs.iframe.contentWindow.script;
+    return this.iframeRef.current.contentWindow.script;
   }
 
   get interactiveController() {
-    return this.refs.iframe.contentWindow.Embeddable.controller;
+    return this.iframeRef.current.contentWindow.Embeddable.controller;
   }
 
   get iframe() {
-    return this.refs.iframe;
+    return this.iframeRef.current;
   }
 
   get phone() {
@@ -167,35 +200,6 @@ export default class Lab extends React.Component {
     });
   }
 }
-
-Lab.PropTypes = {
-  // Lab model JSON (parsed).
-  model: React.PropTypes.object.isRequired,
-  // Lab interactive JSON (parsed). If not provided, MODEL_ONLY_INTERACTIVE will be used.
-  interactive: React.PropTypes.object,
-  // Source to Lab embeddable page. Needs to be under the same domain as the application.
-  // This package is providing lab distribution that can be used (/lab).
-  embeddableSrc: React.PropTypes.string,
-  // Batch Lab properties updates and send them to Lab after given time period.
-  // You can provide value in ms or use true (the default delay value will be used).
-  propsUpdateDelay: React.PropTypes.oneOfType([React.PropTypes.bool, React.PropTypes.number]),
-  // Lab properties.
-  props: React.PropTypes.object,
-  // Lab observed properties (onPropChange will be called when any of them changes).
-  observedProps: React.PropTypes.array,
-  // Iframe properties.
-  width: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number]),
-  height: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number]),
-  allowFullScreen: React.PropTypes.bool,
-  frameBorder: React.PropTypes.string,
-  // Lab lets you update interactive or model without reloading the iframe, but that might lead to memory leaks
-  // and performance issues. Complete iframe reload is a safe option, but it increases loading time a bit.
-  reloadIframeOnModelUpdate: React.PropTypes.bool,
-  // Callbacks.
-  onModelLoad: React.PropTypes.func,
-  onPropChange: React.PropTypes.func,
-  onLogEvent: React.PropTypes.func,
-};
 
 Lab.defaultProps = {
   interactive: MODEL_ONLY_INTERACTIVE,
