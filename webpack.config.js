@@ -2,7 +2,7 @@ var path = require('path');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-  mode: process.env.PRODUCTION ? 'production' : 'development',
+  mode: 'development',
   entry: {
     'react-lab': './js/lab.js'
   },
@@ -45,8 +45,10 @@ module.exports = {
     }
   ],
   plugins: [
-    new CopyWebpackPlugin([
-      {from: 'lab', to: 'lab'}
-    ])
+    new CopyWebpackPlugin({
+      patterns: [
+        {from: 'lab', to: 'lab'}
+      ]
+    })
   ]
 };
