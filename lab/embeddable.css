@@ -1,7 +1,8 @@
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  box-sizing: border-box; }
+  box-sizing: border-box
+}
 
 html, body {
   width: 100%;
@@ -9,4 +10,5 @@ html, body {
   overflow: hidden;
   background: transparent;
   margin: 0;
-  padding: 0; }
+  padding: 0
+}
