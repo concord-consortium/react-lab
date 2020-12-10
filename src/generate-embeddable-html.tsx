@@ -8,7 +8,7 @@ export const generateEmbeddableHTML = (labDistPath = "lab/") => `
   <head>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
-    <link href="${labDistPath}lab/vendor/jquery-ui/jquery-ui.css" rel="stylesheet">
+    <link href="${labDistPath}lab/vendor/jquery-ui/jquery-ui.min.css" rel="stylesheet">
     <link href="${labDistPath}lab/lab-fonts.css" rel="stylesheet">
     <link href="${labDistPath}lab/lab.css" rel="stylesheet">
     <link href='${labDistPath}themes/cc-themes.css' rel='stylesheet' type='text/css'>
