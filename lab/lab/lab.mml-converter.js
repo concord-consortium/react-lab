@@ -3067,17 +3067,17 @@ module.exports = isObjectLike;
 // This file is generated during build process by: ./node-bin/gen-lab-version
 /* harmony default export */ __webpack_exports__["a"] = ({
   "repo": {
-    "branch": "1.17.3",
+    "branch": "1.17.4",
     "commit": {
-      "sha": "b6b1e629c19d2bc1c73c90b63474afe5171024ca",
-      "short_sha": "b6b1e62",
-      "url": "https://github.com/concord-consortium/lab/commit/b6b1e62",
-      "author": "Chris Hart",
-      "email": "chart@concord.org",
-      "date": "2020-10-05 11:02:18 -0400",
-      "message": "Merge pull request #157 from concord-consortium/version-update-translationsImprove visibility of new flag, bump version to 1.17.3"
+      "sha": "3d150ca6ad88a7cd785aba197722ea0a4acdbb70",
+      "short_sha": "3d150ca",
+      "url": "https://github.com/concord-consortium/lab/commit/3d150ca",
+      "author": "pjanik",
+      "email": "janikpiotrek@gmail.com",
+      "date": "2020-12-09 20:10:40 +0100",
+      "message": "Release version 1.17.4"
     },
-    "last_tag": "1.17.3",
+    "last_tag": "1.17.4",
     "dirty": false
   }
 });
