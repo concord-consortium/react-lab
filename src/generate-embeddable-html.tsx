@@ -33,7 +33,7 @@ export const generateEmbeddableHTML = (labDistPath = "lab/") => `
   </head>
   <body>
   <div id="interactive-container" tabindex="0"></div>
-  <script src="${labDistPath}lab/lab.js"></script>
+  <script src="${labDistPath}lab/lab.min.js"></script>
   <script>
     Lab.config.rootUrl = "${labDistPath}lab";
     // sharing won't work so disable it
