@@ -1,10 +1,18 @@
 import React from 'react';
 import iframePhone from 'iframe-phone';
 import MODEL_ONLY_INTERACTIVE from './model-only-interactive';
+import { generateEmbeddableHTML } from "./generate-embeddable-html";
 
 const DEF_UPDATE_DELAY = 75; // ms
 
 interface IProps {
+  // Whether to use local iframe with "srcDoc" attribute or regular "src" attr pointing to standard Lab embeddable.html
+  // page. It's recommended to keep this property equal to true unless there are some issues. When this property is
+  // equal to false, Lab distribution needs to be under the same domain.
+  useSrcDocIframe?: boolean;
+  // Source to Lab distribution. This package is providing lab distribution that can be used (/lab).
+  // It needs to end with `/`. When useSrcDocIframe = false, it needs to be hosted under the same domain.
+  labDistPath?: string;
   // Lab model JSON (parsed).
   model: object;
   // Lab interactive JSON (parsed). If not provided, MODEL_ONLY_INTERACTIVE will be used.
@@ -21,9 +29,6 @@ interface IProps {
   onModelLoad?: () => void;
   onPropChange?: (propName: string, value: any) => void;
   onLogEvent?: (action: string, data: any) => void;
-  // Source to Lab embeddable page. Needs to be under the same domain as the application.
-  // This package is providing lab distribution that can be used (/lab).
-  embeddableSrc?: string;
   // Iframe properties.
   width?: string | number;
   height?: string | number;
@@ -40,7 +45,8 @@ interface IState {
 export default class Lab extends React.Component<IProps, IState> {
   static defaultProps = {
     interactive: MODEL_ONLY_INTERACTIVE,
-    embeddableSrc: 'lab/embeddable.html',
+    useSrcDocIframe: true,
+    labDistPath: 'lab/',
     width: '565px',
     height: '435px',
     allowFullScreen: true,
@@ -113,7 +119,7 @@ export default class Lab extends React.Component<IProps, IState> {
   shouldComponentUpdate(nextProps: IProps, nextState: IState) {
     // List here everything that is used in render() method.
     // Other properties are sent directly to Lab using scriptingAPI, so we don't need to re-render component.
-    const viewProps = ['width', 'height', 'embeddableSrc', 'frameBorder', 'allowFullScreen'];
+    const viewProps = ['width', 'height', 'useSrcDocIframe', 'labDistPath', 'frameBorder', 'allowFullScreen'];
     const viewState = ['loading'];
     for (const prop of viewProps) {
       if ((nextProps as any)[prop] !== (this.props as any)[prop]) return true;
@@ -125,11 +131,13 @@ export default class Lab extends React.Component<IProps, IState> {
   }
 
   render () {
-    const { width, height, embeddableSrc, frameBorder, allowFullScreen } = this.props;
+    const { width, height, frameBorder, allowFullScreen, labDistPath, useSrcDocIframe } = this.props;
     const { loading } = this.state;
     const style = loading ? {visibility: 'hidden' as const} : {};
+    const src = useSrcDocIframe ? "" : `${labDistPath}embeddable.html`;
+    const srcDoc = useSrcDocIframe ? generateEmbeddableHTML(labDistPath) : undefined;
     return (
-      <iframe ref={this.iframeRef} src={embeddableSrc} frameBorder={frameBorder} style={style}
+      <iframe ref={this.iframeRef} src={src} srcDoc={srcDoc} frameBorder={frameBorder} style={style}
         width={width} height={height} allowFullScreen={allowFullScreen}>
       </iframe>
     )

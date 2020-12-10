@@ -5,7 +5,7 @@ React component wrapping Lab interactive.
 ## Example
 
 ```javascript
-<Lab interactive={interactive} model={model} embeddableSrc="lab/embeddable.html"
+<Lab interactive={interactive} model={model} labDistPath="lab/"
      width='450px' playing={true} props={this.state.labProps} observedProps={['targetTemperature']}
      onPropChange={this.labPropChanged}/>
 ```
@@ -14,9 +14,16 @@ See more at https://github.com/concord-consortium/react-lab-examples.
 
 ## Requirements
 
-Lab component uses `embeddableSrc` path (which defaults to `lab/embeddable.html`).
-You need to serve Lab distribution under the same domain as your application.
-Lab is included in the final package (`/lab`), so you can use it.
+Lab component uses `labDistPath` path, which defaults to `lab/`. Trailing slash is necessary!
+Lab is included in the final package (`/lab`), so you can use it. Usually it's enough to copy it directly 
+from the NPM package. Check CopyPlugin configuration here: 
+https://github.com/concord-consortium/react-lab-examples/blob/master/webpack.config.js
+
+If your project is using version 0.x, it might also use `embeddableSrc` property. It's no longer supported.
+Usually, it's enough to remove `embeddable.html` from the path and pass it as `labDistPath`. For example:
+
+`embeddableSrc="../abc/xyz/lab/embeddable.html"` -> `labDistPath="../abc/xyz/lab/"`
+(remember about trailing slash!)
 
 ## Development
 
