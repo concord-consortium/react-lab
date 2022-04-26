@@ -152,7 +152,7 @@ export default class Lab extends React.Component<IProps, IState> {
 
   get interactiveController() {
     // Embeddable.controller is exported by Lab
-    return (this.iframeRef.current?.contentWindow as any)?.Embeddable.controller;
+    return (this.iframeRef.current?.contentWindow as any)?.Embeddable?.controller;
   }
 
   get iframe() {
